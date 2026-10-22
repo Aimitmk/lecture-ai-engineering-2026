@@ -13,7 +13,7 @@
 import argparse
 
 from google import genai
-from google.genai import errors
+from google.genai import errors, types
 
 from app.config import MODEL, api_error_message, get_api_key
 
@@ -21,12 +21,28 @@ from app.config import MODEL, api_error_message, get_api_key
 DEFAULT_QUESTION = "AIE2026の講座の宿題にある「3レベル」とは何ですか？"
 
 
+def format_usage(usage: types.GenerateContentResponseUsageMetadata | None) -> str:
+    """usage_metadata のトークン数を1行にする。
+
+    思考（thoughts）は回答の本文には出ないが、出力（candidates）とは別に数えられ、合計に含まれる。
+    値がない項目（思考しないモデルの thoughts など）は 0 とする。
+    """
+    if usage is None:
+        return "[tokens] 取得できませんでした"
+    return (
+        f"[tokens] 入力 {usage.prompt_token_count or 0}"
+        f" / 出力 {usage.candidates_token_count or 0}"
+        f" / 思考 {usage.thoughts_token_count or 0}"
+        f" / 合計 {usage.total_token_count or 0}"
+    )
+
+
 def ask(question: str) -> str:
     client = genai.Client(api_key=get_api_key())
     response = client.models.generate_content(model=MODEL, contents=question)
 
-    # TODO(第1回 演習): response.usage_metadata から
-    #   入力トークン数と出力トークン数を表示してみよう（Copilotに頼んでよい）
+    # 第1回 演習: response.usage_metadata から入力トークン数と出力トークン数を表示する
+    print(format_usage(response.usage_metadata))
 
     return response.text
 
