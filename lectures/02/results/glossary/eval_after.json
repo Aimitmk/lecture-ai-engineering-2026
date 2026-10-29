@@ -1,0 +1,317 @@
+{
+  "summary": {
+    "label": "after",
+    "n": 30,
+    "accuracy": 0.36666666666666664,
+    "seconds": 95.4,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.1,
+        "abstained": 0.0
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「LoRA」の意味を教えてください。",
+      "term_id": "lora",
+      "answer": "事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「過学習」の意味を教えてください。",
+      "term_id": "overfitting",
+      "answer": "学習データにだけ過度に適合し、未知の入力に対する性能が落ちる状態。学習に使わない検証データで性能を測って気づく。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「temperature」の意味を教えてください。",
+      "term_id": "temperature",
+      "answer": "次のトークンを選ぶときのランダムさを調整する設定値。低いほど出力が安定し、高いほど多様になる。同じ質問でも回答が変わる理由の一つ。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「ハルシネーション」の意味を教えてください。",
+      "term_id": "hallucination",
+      "answer": "LLMが事実と異なる内容や存在しない情報を、もっともらしく生成してしまう現象。モデルが知らないこと（最新情報、組織や講座に固有の情報など）を聞いたときに起きやすい。外部データをツールで参照させる、根拠を示させる、評価で検出する、などで抑える。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「エポック」の意味を教えてください。",
+      "term_id": "epoch",
+      "answer": "学習データ全体を1周学習することを1エポックと数える。回数を増やしすぎると過学習しやすい。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「宿題の3レベル」の意味を教えてください。",
+      "term_id": "homework-levels",
+      "answer": "AIE2026の宿題の構成。「基礎（講義内容の確認）」「実装（自分でコードを書く）」「発展（調査や試行）」の3段階があり、どれか1つに取り組めばその回の宿題は完了。原則として採点はしない。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「lecNN-start タグ」の意味を教えてください。",
+      "term_id": "lec-start-tag",
+      "answer": "AIE2026の講座repoで、各回の演習開始時点のコードに付けているGitタグ（例：lec03-start）。前の回が終わっていなくても、このタグからブランチを作ればその回の演習を始められる。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「既定モデル」の意味を教えてください。",
+      "term_id": "default-model",
+      "answer": "AIE2026の演習と宿題で標準に使うモデルは gemini-3.5-flash-lite。無料枠のレート制限と講座運営の安定性を考えて選んでいる。環境変数 AIE_MODEL で他のモデルに切り替えてよく、自分で契約したAPIを使ってもよい。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「Codespaces secret」の意味を教えてください。",
+      "term_id": "codespaces-secret",
+      "answer": "GitHubのアカウント設定に登録しておく秘密の値。指定したrepoのCodespacesを起動すると環境変数として渡される。登録時に使うrepo（自分のfork）を選ぶ必要がある。起動中に登録した場合はCodespacesの再起動が必要。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「TestModel」の意味を教えてください。",
+      "term_id": "test-model",
+      "answer": "Pydantic AIに含まれるテスト用の偽モデル。実際のLLMを呼ばずに、ツールを呼び出してダミーの回答を返す。APIキーや利用枠を使わずに、エージェントの配線（ツールが登録され、呼ばれ、結果が返るか）をテストできる。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "Low-Rank Adaptation という手法を説明してください。",
+      "term_id": "lora",
+      "answer": "モデルの低ランク（多くの場合が1ランク）の更新を繰り返す手法。学習するパラメータを少なくし、更新を安定させる。Pydantic AIではLoRAのlow_rank_updateがLow-Rank Adaptationの型。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.291
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "AIE2026 のデフォルトモデルは何ですか？",
+      "term_id": "default-model",
+      "answer": "aie206a。本講座のデフォルトモデル。より一般的なLLM（Gemini-3.0 など）に合うことが多い。APIキーを使わないため、コードの書き方やツール呼び出しの多様さで調整できる。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.256
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA と QLoRA の違いは何ですか？",
+      "term_id": "qlora",
+      "answer": "LoRAはアダプタの数量を自由度に任せ、QLoRAはアダプタを1つに絞った小さなPEFTモデルで表し、そのモデルをLoRAで調整する。より大きなモデルを小さなADAPに分割して扱うためのツール。本講座の第2回演習ではQLoRAを扱う。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.367
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA の r を大きくすると、どうなりますか？",
+      "term_id": "lora-rank",
+      "answer": "学習するパラメータを増やし、同じ精度のモデルを作るためメモリと計算が上がる。小さいrから始め、必要ならアダプタでrを調整できる。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.22
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "Gemini の API キーは、コードに直接書いてもいいですか？",
+      "term_id": "api-key",
+      "answer": "yes。APIキーをコメントで区別して使うこともよく、やってしまわないようにコードを書かないこともよく、キーをコピーして貼ることもよく。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.188
+    },
+    {
+      "category": "B",
+      "kind": "講座の言い換え",
+      "question": "AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？",
+      "term_id": "homework-levels",
+      "answer": "AIE2026の宿題は、講義の3レベル（基礎・実装・発展）を同じくして取り扱う設計が一般的。どの回の宿題でどれくらいのレベルを扱うかは lecturerの講義安排と宿題の構成次第で異なる。発展レベルは特に時間と学力に余裕があるときほど取りやすい。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.241
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？",
+      "term_id": "overfitting",
+      "answer": "入力に多大な柔軟性を帯びたツールやRAGモデルが、特定の制約や形式に縛られた入力に遭遇し、その時の挙動を学習データで検出して補完や戻し戻しで補完する仕組み。補完や戻し戻しが頻繁に起きると性能が落ちる。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.192
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？",
+      "term_id": "learning-rate",
+      "answer": "モデルの重みやハルシネーションの大きさを調整する設定値。調整するほど出力が安定しやすくなるが、学習するデータも増える。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.231
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？",
+      "term_id": "lec-start-tag",
+      "answer": "前の回の作業を振り返り、本講座の演習を開始する時のためのタグ（例：lec_01）。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.29
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？",
+      "term_id": "quantization",
+      "answer": "少ないビット数で表現し、そのビットの読み書きで発生するエラーを検してそれを補完する手法。Claude Codeの mcp_model_type は 4ビット（hex: AAAA）で設定できる。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.232
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「DPO」の意味を教えてください。",
+      "term_id": null,
+      "answer": "LLMが自分の使用環境（ツール、リソース、評価など）を知らない場合、エージェントが環境をモデルに渡す（Proof of Knowledge）と、モデルが答える結果と実際の結果の差を評価する手法。Pydantic AIでは DPOは tools_DPO 型のプロンプトで表現可能。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「蒸留」の意味を教えてください。",
+      "term_id": null,
+      "answer": "液体を部分に気化させ、その気化した水を再び液体に戻す作業。1つの液体から小さな量で品質が変化する。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「Transformer」の意味を教えてください。",
+      "term_id": null,
+      "answer": "Hugging Faceのモデルデータベースで公開されたオープンソースの言語のTIFF（JPEG・PNG・SVG・WebP）画像をテキストで描述したモデル。ベースはBABBERTSで、LoRAで学習できる。2.0で1.x系から破壊的変更が入っている。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「RLHF」の意味を教えてください。",
+      "term_id": null,
+      "answer": "学習済みのLLMを人間との対話で良し悪しを判断し、その結果をもとにプロンプトや振る舞いを修正するサイクル。基本構造は「モデル＋ループ＋評価＋修正」。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「MoE」の意味を教えてください。",
+      "term_id": null,
+      "answer": "モデルの重みを小さなプロンプトで分割し、その小さなプロンプトで必要なGPUメモリを使う仕組み。メモリを節約する例はLoRA-MoE、Pydantic AIのsmall-tool モーニング。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「埋め込みベクトル」の意味を教えてください。",
+      "term_id": null,
+      "answer": "モデルの出力を、特定のデータやツールへの固定型フラッグで検出し、そのときに使うだけの小さな векクトルで表するメモリを使う設計。TensorFlowやPydantic AIでは前者はGemini-Embedding、後者はHumanChatLLMやCopilotChatなど。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「プロンプトインジェクション」の意味を教えてください。",
+      "term_id": null,
+      "answer": "LLMがモデルとして動くようにする設定。モデルに渡す質問ではなく、ツールを呼び出す指令ラインや、ツールを記憶し、次の質問時に記憶したツールを呼び出す構造化プロンプト。本講座の第2回演習ではプロンプトインジェクションを扱う。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「lecNN-end タグ」の意味を教えてください。",
+      "term_id": null,
+      "answer": "AIE2026の講座repoで、各回の演習結果や討論のタグとして使える仕組み。結果ファイルのタグで検索できる。本講座では討論のタグで、回を数えることで自分のforkのtreeをグラフで表示できる。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「宿題の5レベル」の意味を教えてください。",
+      "term_id": null,
+      "answer": "AIE2026の宿題の構成。「基礎（講義内容の確認）」「実装（自分でコードを書く）」「発展（調査や試行）」の3レベルがあり、どれか1つに取り組めばその回の宿題は完了。原則として採点はしない。",
+      "ok": false,
+      "abstained": false
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「TurboModel」の意味を教えてください。",
+      "term_id": null,
+      "answer": "AIE2026の演習と宿題で標準に使うモデルは hugging Faceの gemini-3.5-flash-lite。無料枠のレート制限と講座運営の安定性を考えて選んでいる。環境変数 AIE_MODEL で他のモデルに切り替えてよく、自分で契約したAPIを使ってもよい。",
+      "ok": false,
+      "abstained": false
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.42857142857142855,
+    "content_rate": 0.09523809523809523,
+    "both_rate": 0.09523809523809523,
+    "seconds": 24.2
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "seconds": 54.0
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "質問": "この取引所を運営している会社はどこですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"取引所は「TOKYO TRADE」です。\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。運営会社の確認が必要です。運営会社の確認と、その後の審査を呼び出してください。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "ビットコインの最小注文数量はいくつですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"100\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "来月新しく上場する銘柄は何ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"確認が必要\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "取引手数料はいくらですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"メイカー: 0.05%、テイカー: 0.10%\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"現物取引の手数料は、メイカーが約定代金の 0.05%、テイカーが 0.10% です。\", \"needs_review\": false}"
+    }
+  ],
+  "executed_training_myself": true,
+  "run": "crypto",
+  "data": "crypto",
+  "note": "FAQ を架空の暗号資産取引所に置き換え",
+  "smoke": false,
+  "train": {
+    "seconds": 310.3,
+    "global_step": 40,
+    "epoch": 20.0,
+    "train_loss": 0.4803596667945385,
+    "final_logged_loss": 0.016178710758686064,
+    "valid_loss": 0.10040778666734695,
+    "trainable_params": 6389760,
+    "all_params": 758782784,
+    "trainable_percent": 0.8421,
+    "log_history": [
+      {
+        "loss": 1.7634950637817384,
+        "grad_norm": 2.3084909915924072,
+        "learning_rate": 0.00019618256431728194,
+        "entropy": 2.0446389436721804,
+        "num_tokens": 22495.0,
+        "mean_token_accuracy": 0.6337548673152924,
+        "epoch": 5.0,
+        "step": 10
+      },
+      {
+        "loss": 0.1176825761795044,
+        "grad_norm": 0.37088221311569214,
+        "learning_rate": 0.00013612416661871533,
+        "entropy": 0.26021752655506136,
+        "num_tokens": 44990.0,
+        "mean_token_accuracy": 0.9783665269613266,
+        "epoch": 10.0,
+        "step": 20
+      },
+      {
+        "loss": 0.02408231645822525,
+        "grad_norm": 0.1901887059211731,
+        "learning_rate": 4.735678371226441e-05,
+        "entropy": 0.05466545056551695,
+        "num_tokens": 67485.0,
+        "mean_token_accuracy": 0.9949579566717148,
+        "epoch": 15.0,
+        "step": 30
+      },
+      {
+        "loss": 0.016178710758686064,
+        "grad_norm": 0.16301485896110535,
+        "learning_rate": 4.2658237049655323e-07,
+        "entropy": 0.0418919388204813,
+        "num_tokens": 89980.0,
+        "mean_token_accuracy": 0.9962396919727325,
+        "epoch": 20.0,
+        "step": 40
+      },
+      {
+        "train_runtime": 310.0284,
+        "train_samples_per_second": 0.903,
+        "train_steps_per_second": 0.129,
+        "total_flos": 280138465576704.0,
+        "train_loss": 0.4803596667945385,
+        "epoch": 20.0,
+        "step": 40
+      },
+      {
+        "eval_loss": 0.10040778666734695,
+        "eval_runtime": 2.3421,
+        "eval_samples_per_second": 2.989,
+        "eval_steps_per_second": 0.427,
+        "eval_entropy": 0.05881800130009651,
+        "eval_num_tokens": 89980.0,
+        "eval_mean_token_accuracy": 0.9844513535499573,
+        "epoch": 20.0,
+        "step": 40
+      }
+    ]
+  },
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T03:53:19+00:00"
+  }
+}

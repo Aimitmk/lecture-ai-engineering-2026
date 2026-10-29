@@ -1,0 +1,201 @@
+{
+  "summary": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "seconds": 54.0
+  },
+  "rows": [
+    {
+      "question": "現物の手数料は何%ですか",
+      "raw": "{\"answer\": \"現物取引の手数料は、メイカーが約定代金の 0.05%、テイカーが 0.10% です。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "現物取引の売買手数料の料率を教えてください",
+      "raw": "{\"answer\": \"現物取引の手数料は、メイカーが約定代金の 0.05%、テイカーが 0.10% です。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "メイカー手数料とテイカー手数料はそれぞれ何%ですか",
+      "raw": "{\"answer\": \"現物取引の手数料は、メイカーが約定代金の 0.05%、テイカーが 0.10% です。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "出金のルールを教えてください",
+      "raw": "{\"answer\": \"日本円の出金手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "円を引き出すときの手数料と、振り込みのタイミングを教えてください",
+      "raw": "{\"answer\": \"日本円の出金手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "出金の手数料と、当日中に振り込まれる申請の締め時刻を教えてください",
+      "raw": "{\"answer\": \"日本円の出金手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "審査が終わるまで何日かかりますか",
+      "raw": "{\"answer\": \"本人確認は、アプリで本人確認書類と顔写真を撮影して申請します。審査は通常 2 営業日以内に終わります。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "本人確認の審査は何日で終わりますか",
+      "raw": "{\"answer\": \"本人確認は、アプリで本人確認書類と顔写真を撮影して申請します。審査は通常 2 営業日以内に終わります。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "口座開設を申し込んでから審査完了までの目安は？",
+      "raw": "{\"answer\": \"本人確認は、アプリで本人確認書類と顔写真を撮影して申請します。審査は通常 2 営業日以内に終わります。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API のレート制限を教えてください",
+      "raw": "{\"answer\": \"API は 1 つの API キーにつき毎分 60 回まで呼び出せます。超えた場合は 1 分間エラーを返します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API キー1つあたりの呼び出し上限は毎分何回ですか",
+      "raw": "{\"answer\": \"API は 1 つの API キーにつき毎分 60 回まで呼び出せます。超えた場合は 1 分間エラーを返します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API を使いすぎたときの上限と、超えたときの扱いを教えてください",
+      "raw": "{\"answer\": \"API は 1 つの API キーにつき毎分 60 回まで呼び出せます。超えた場合は 1 分間エラーを返します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "毎週メンテナンスで止まるのは何曜日ですか",
+      "raw": "{\"answer\": \"定期メンテナンスは毎週水曜 2:00〜4:00 で、その間は取引と入出金を停止します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "毎週のメンテナンスは何曜日の何時からですか",
+      "raw": "{\"answer\": \"定期メンテナンスは毎週水曜 2:00〜4:00 で、その間は取引と入出金を停止します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "メンテナンスで入出金が止まるのは何曜日の何時ですか",
+      "raw": "{\"answer\": \"定期メンテナンスは毎週水曜 2:00〜4:00 で、その間は取引と入出金を停止します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API キーは何個まで発行できますか",
+      "raw": "{\"answer\": \"API は 1 つの API キーにつき毎分 60 回まで呼び出せます。超えた場合は 1 分間エラーを返します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "日本円の入金に手数料はかかりますか",
+      "raw": "{\"answer\": \"日本円の出金手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "ステーキングの年利はどれくらいですか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "取り扱っている銘柄はいくつありますか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "本人確認書類にマイナンバーカードは使えますか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "メンテナンスの前に出した注文は取り消されますか",
+      "raw": "{\"answer\": \"定期メンテナンスは毎週水曜 2:00〜4:00 で、その間は取引と入出金を停止します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    }
+  ]
+}

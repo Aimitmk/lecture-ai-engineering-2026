@@ -1,0 +1,166 @@
+=== baseline: ノートブックの CONFIG のまま | Python 3.13.16 ===
+{
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "seed": 42,
+  "num_train_epochs": 20,
+  "warmup_steps": 6,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "max_seq_len": 512,
+  "max_new_tokens": 96,
+  "gen": {
+    "do_sample": false
+  }
+}
+train=14 valid=7 test=21 gold=21
+学習例の 1 件 | 質問: 課題の提出期限はいつですか | 望ましい出力: {"answer": "課題の提出期限は 9 月 30 日 23:59（日本時間）です。", "needs_review": false}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 320/320 [00:01<00:00, 238.49it/s]
+loaded: Qwen/Qwen3.5-0.8B | device: cuda | 重みのメモリ(GB): 3.01
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"label": "before", "n": 21, "format_rate": 0.09523809523809523, "content_rate": 0.0, "both_rate": 0.0, "seconds": 20.8}
+
+Tokenizing train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Tokenizing train dataset: 100%|██████████| 14/14 [00:00<00:00, 228.08 examples/s]
+
+Building labels for train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Building labels for train dataset: 100%|██████████| 14/14 [00:00<00:00, 2397.63 examples/s]
+
+Truncating train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 14/14 [00:00<00:00, 2961.33 examples/s]
+
+Dropping fully masked examples from train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Dropping fully masked examples from train dataset: 100%|██████████| 14/14 [00:00<00:00, 5675.10 examples/s]
+
+Tokenizing eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Tokenizing eval dataset: 100%|██████████| 7/7 [00:00<00:00, 696.96 examples/s]
+
+Building labels for eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Building labels for eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1518.10 examples/s]
+
+Truncating eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Truncating eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1724.23 examples/s]
+
+Dropping fully masked examples from eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Dropping fully masked examples from eval dataset: 100%|██████████| 7/7 [00:00<00:00, 3130.75 examples/s]
+trainable params: 6,389,760 || all params: 758,782,784 || trainable%: 0.8421
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+
+  0%|          | 0/40 [00:00<?, ?it/s]
+ 10%|█         | 4/40 [00:20<03:00,  5.03s/it]
+ 15%|█▌        | 6/40 [00:32<02:50,  5.03s/it]
+ 20%|██        | 8/40 [00:40<02:41,  5.04s/it]
+                                              
+{'loss': '1.562', 'grad_norm': '2.056', 'learning_rate': '0.0001962', 'entropy': '1.835', 'num_tokens': '1.786e+04', 'mean_token_accuracy': '0.6868', 'epoch': '5'}
+
+ 25%|██▌       | 10/40 [00:50<02:31,  5.04s/it]
+ 25%|██▌       | 10/40 [00:52<02:31,  5.04s/it]
+ 30%|███       | 12/40 [01:02<02:26,  5.25s/it]
+ 32%|███▎      | 13/40 [01:12<02:21,  5.25s/it]
+ 40%|████      | 16/40 [01:24<02:08,  5.34s/it]
+ 48%|████▊     | 19/40 [01:42<01:52,  5.34s/it]
+ 50%|█████     | 20/40 [01:47<01:49,  5.48s/it]
+                                               
+{'loss': '0.08425', 'grad_norm': '0.3302', 'learning_rate': '0.0001361', 'entropy': '0.1741', 'num_tokens': '3.572e+04', 'mean_token_accuracy': '0.985', 'epoch': '10'}
+
+ 50%|█████     | 20/40 [01:47<01:49,  5.48s/it]
+ 55%|█████▌    | 22/40 [02:02<01:38,  5.48s/it]
+ 60%|██████    | 24/40 [02:11<01:31,  5.72s/it]
+ 62%|██████▎   | 25/40 [02:22<01:25,  5.72s/it]
+ 70%|███████   | 28/40 [02:36<01:10,  5.89s/it]
+                                               
+{'loss': '0.01828', 'grad_norm': '0.2697', 'learning_rate': '4.736e-05', 'entropy': '0.04348', 'num_tokens': '5.358e+04', 'mean_token_accuracy': '0.9959', 'epoch': '15'}
+
+ 75%|███████▌  | 30/40 [02:49<00:58,  5.89s/it]
+ 75%|███████▌  | 30/40 [02:52<00:58,  5.89s/it]
+ 80%|████████  | 32/40 [03:01<00:48,  6.01s/it]
+ 82%|████████▎ | 33/40 [03:12<00:42,  6.01s/it]
+ 90%|█████████ | 36/40 [03:25<00:23,  6.00s/it]
+ 95%|█████████▌| 38/40 [03:42<00:11,  6.00s/it]
+100%|██████████| 40/40 [03:50<00:00,  6.03s/it]
+                                               
+{'loss': '0.01395', 'grad_norm': '0.2045', 'learning_rate': '4.266e-07', 'entropy': '0.03004', 'num_tokens': '7.144e+04', 'mean_token_accuracy': '0.9963', 'epoch': '20'}
+
+100%|██████████| 40/40 [03:50<00:00,  6.03s/it]
+                                               
+{'train_runtime': '230.8', 'train_samples_per_second': '1.213', 'train_steps_per_second': '0.173', 'train_loss': '0.4197', 'epoch': '20'}
+
+100%|██████████| 40/40 [03:50<00:00,  6.03s/it]
+100%|██████████| 40/40 [03:50<00:00,  5.77s/it]
+学習時間: 231 秒 | ステップ数: 40 | エポック: 20.0
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 1672.37it/s]
+train: {"seconds": 231.2, "global_step": 40, "epoch": 20.0, "train_loss": 0.4197060000151396, "final_logged_loss": 0.0139507457613945, "valid_loss": 0.13591480255126953, "trainable_params": 6389760, "all_params": 758782784, "trainable_percent": 0.8421}
+{"label": "after", "n": 21, "format_rate": 1.0, "content_rate": 0.9047619047619048, "both_rate": 0.9047619047619048, "seconds": 41.4}
+退行: []
+知識質問: [{"質問": "この講座の最終課題の締切はいつですか", "学習前の分類": "format_error", "学習後の分類": "asserted"}, {"質問": "担当教員の名前は何ですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "次回の講義のテーマは何ですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "課題の提出期限はいつですか", "学習前の分類": "format_error", "学習後の分類": "asserted"}]
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.09523809523809523,
+    "content_rate": 0.0,
+    "both_rate": 0.0,
+    "seconds": 20.8
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.9047619047619048,
+    "both_rate": 0.9047619047619048,
+    "seconds": 41.4
+  },
+  "regressed": [],
+  "executed_training_myself": true,
+  "run": "baseline",
+  "data": "course",
+  "note": "ノートブックの CONFIG のまま",
+  "smoke": false,
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T03:43:31+00:00"
+  }
+}

@@ -1,0 +1,138 @@
+=== epochs5: num_train_epochs 20→5 | Python 3.13.16 ===
+{
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "seed": 42,
+  "num_train_epochs": 5,
+  "warmup_steps": 6,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "max_seq_len": 512,
+  "max_new_tokens": 96,
+  "gen": {
+    "do_sample": false
+  }
+}
+train=14 valid=7 test=21 gold=21
+学習例の 1 件 | 質問: 課題の提出期限はいつですか | 望ましい出力: {"answer": "課題の提出期限は 9 月 30 日 23:59（日本時間）です。", "needs_review": false}
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 320/320 [00:02<00:00, 157.51it/s]
+loaded: Qwen/Qwen3.5-0.8B | device: cuda | 重みのメモリ(GB): 3.01
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"label": "before", "n": 21, "format_rate": 0.09523809523809523, "content_rate": 0.0, "both_rate": 0.0, "seconds": 20.3}
+
+Tokenizing train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Tokenizing train dataset: 100%|██████████| 14/14 [00:00<00:00, 763.43 examples/s]
+
+Building labels for train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Building labels for train dataset: 100%|██████████| 14/14 [00:00<00:00, 2483.94 examples/s]
+
+Truncating train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 14/14 [00:00<00:00, 2912.13 examples/s]
+
+Dropping fully masked examples from train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Dropping fully masked examples from train dataset: 100%|██████████| 14/14 [00:00<00:00, 5997.98 examples/s]
+
+Tokenizing eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Tokenizing eval dataset: 100%|██████████| 7/7 [00:00<00:00, 570.64 examples/s]
+
+Building labels for eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Building labels for eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1407.48 examples/s]
+
+Truncating eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Truncating eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1633.57 examples/s]
+
+Dropping fully masked examples from eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Dropping fully masked examples from eval dataset: 100%|██████████| 7/7 [00:00<00:00, 3168.25 examples/s]
+trainable params: 6,389,760 || all params: 758,782,784 || trainable%: 0.8421
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 40%|████      | 4/10 [00:24<00:37,  6.20s/it]
+ 60%|██████    | 6/10 [00:37<00:24,  6.20s/it]
+ 80%|████████  | 8/10 [00:49<00:12,  6.17s/it]
+                                              
+{'loss': '1.58', 'grad_norm': '2.153', 'learning_rate': '2.929e-05', 'entropy': '1.866', 'num_tokens': '1.786e+04', 'mean_token_accuracy': '0.6843', 'epoch': '5'}
+
+100%|██████████| 10/10 [01:01<00:00,  6.17s/it]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+                                               
+{'train_runtime': '62.11', 'train_samples_per_second': '1.127', 'train_steps_per_second': '0.161', 'train_loss': '1.58', 'epoch': '5'}
+
+100%|██████████| 10/10 [01:02<00:00,  6.17s/it]
+100%|██████████| 10/10 [01:02<00:00,  6.21s/it]
+学習時間: 62 秒 | ステップ数: 10 | エポック: 5.0
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 1765.28it/s]
+train: {"seconds": 62.4, "global_step": 10, "epoch": 5.0, "train_loss": 1.5795955657958984, "final_logged_loss": 1.5795955657958984, "valid_loss": 0.4613803029060364, "trainable_params": 6389760, "all_params": 758782784, "trainable_percent": 0.8421}
+{"label": "after", "n": 21, "format_rate": 1.0, "content_rate": 0.7142857142857143, "both_rate": 0.7142857142857143, "seconds": 40.0}
+退行: []
+知識質問: [{"質問": "この講座の最終課題の締切はいつですか", "学習前の分類": "format_error", "学習後の分類": "asserted"}, {"質問": "担当教員の名前は何ですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "次回の講義のテーマは何ですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "課題の提出期限はいつですか", "学習前の分類": "format_error", "学習後の分類": "asserted"}]
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 5,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.09523809523809523,
+    "content_rate": 0.0,
+    "both_rate": 0.0,
+    "seconds": 20.3
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.7142857142857143,
+    "both_rate": 0.7142857142857143,
+    "seconds": 40.0
+  },
+  "regressed": [],
+  "executed_training_myself": true,
+  "run": "epochs5",
+  "data": "course",
+  "note": "num_train_epochs 20→5",
+  "smoke": false,
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T03:46:14+00:00"
+  }
+}

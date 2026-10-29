@@ -1,0 +1,309 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 10,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 256,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 30,
+    "accuracy": 0.06666666666666667,
+    "seconds": 324.3,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.2,
+        "abstained": 0.0
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "after": {
+    "label": "after",
+    "n": 30,
+    "accuracy": 0.36666666666666664,
+    "seconds": 95.4,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.1,
+        "abstained": 0.0
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "rag": {
+    "label": "rag",
+    "n": 30,
+    "accuracy": 0.4,
+    "seconds": 53.6,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 0.8,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4,
+        "abstained": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "search": {
+    "label": "search",
+    "n": 30,
+    "accuracy": 0.7666666666666667,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.9
+      }
+    }
+  },
+  "executed_training_myself": true,
+  "run": "glossary",
+  "data": "glossary",
+  "note": "用語集の SFT データ（116 件）で 10 エポック",
+  "smoke": false,
+  "sft_data": {
+    "path": "lectures/02/data/glossary_sft.jsonl",
+    "records": 116
+  },
+  "train": {
+    "seconds": 382.0,
+    "global_step": 150,
+    "epoch": 10.0,
+    "train_loss": 0.6673861126104991,
+    "final_logged_loss": 0.08137803673744201,
+    "valid_loss": null,
+    "trainable_params": 6389760,
+    "all_params": 758782784,
+    "trainable_percent": 0.8421,
+    "log_history": [
+      {
+        "loss": 3.2758453369140623,
+        "grad_norm": 3.877873659133911,
+        "learning_rate": 0.00019978589232386035,
+        "entropy": 2.9956903219223023,
+        "num_tokens": 6107.0,
+        "mean_token_accuracy": 0.43427357226610186,
+        "epoch": 0.6896551724137931,
+        "step": 10
+      },
+      {
+        "loss": 2.211920166015625,
+        "grad_norm": 3.048591375350952,
+        "learning_rate": 0.0001960049854385929,
+        "entropy": 2.4792723279250297,
+        "num_tokens": 11807.0,
+        "mean_token_accuracy": 0.5837469602886,
+        "epoch": 1.3448275862068966,
+        "step": 20
+      },
+      {
+        "loss": 1.6666940689086913,
+        "grad_norm": 4.487998008728027,
+        "learning_rate": 0.0001876726755707508,
+        "entropy": 2.0289214786730314,
+        "num_tokens": 17536.0,
+        "mean_token_accuracy": 0.6588287322144759,
+        "epoch": 2.0,
+        "step": 30
+      },
+      {
+        "loss": 0.9747237205505371,
+        "grad_norm": 3.862999439239502,
+        "learning_rate": 0.00017518398074789775,
+        "entropy": 1.4987958133220673,
+        "num_tokens": 23552.0,
+        "mean_token_accuracy": 0.7944968938827515,
+        "epoch": 2.689655172413793,
+        "step": 40
+      },
+      {
+        "loss": 0.5601451873779297,
+        "grad_norm": 3.7430734634399414,
+        "learning_rate": 0.00015913096483635824,
+        "entropy": 1.0156149079925136,
+        "num_tokens": 29245.0,
+        "mean_token_accuracy": 0.8927103971180163,
+        "epoch": 3.344827586206897,
+        "step": 50
+      },
+      {
+        "loss": 0.3388829708099365,
+        "grad_norm": 3.662942886352539,
+        "learning_rate": 0.00014027466898587374,
+        "entropy": 0.7397048128278632,
+        "num_tokens": 35072.0,
+        "mean_token_accuracy": 0.9427833996321026,
+        "epoch": 4.0,
+        "step": 60
+      },
+      {
+        "loss": 0.17673431634902953,
+        "grad_norm": 1.722735047340393,
+        "learning_rate": 0.00011950903220161285,
+        "entropy": 0.43192028999328613,
+        "num_tokens": 40972.0,
+        "mean_token_accuracy": 0.9753216236829758,
+        "epoch": 4.689655172413794,
+        "step": 70
+      },
+      {
+        "loss": 0.14819539785385133,
+        "grad_norm": 1.3852523565292358,
+        "learning_rate": 9.78185114965439e-05,
+        "entropy": 0.3417871625799882,
+        "num_tokens": 46931.0,
+        "mean_token_accuracy": 0.9782832108045879,
+        "epoch": 5.344827586206897,
+        "step": 80
+      },
+      {
+        "loss": 0.12413709163665772,
+        "grad_norm": 1.622148036956787,
+        "learning_rate": 7.623141076738271e-05,
+        "entropy": 0.25867929348820135,
+        "num_tokens": 52608.0,
+        "mean_token_accuracy": 0.9822859889582584,
+        "epoch": 6.0,
+        "step": 90
+      },
+      {
+        "loss": 0.10016803741455078,
+        "grad_norm": 0.9201461672782898,
+        "learning_rate": 5.577113097809989e-05,
+        "entropy": 0.19593505337834358,
+        "num_tokens": 58726.0,
+        "mean_token_accuracy": 0.9840791016817093,
+        "epoch": 6.689655172413794,
+        "step": 100
+      },
+      {
+        "loss": 0.09093512296676635,
+        "grad_norm": 0.7491536736488342,
+        "learning_rate": 3.7407652781594095e-05,
+        "entropy": 0.18570723345405177,
+        "num_tokens": 64438.0,
+        "mean_token_accuracy": 0.9849242473903456,
+        "epoch": 7.344827586206897,
+        "step": 110
+      },
+      {
+        "loss": 0.09272766709327698,
+        "grad_norm": 1.0431475639343262,
+        "learning_rate": 2.201155169071184e-05,
+        "entropy": 0.17414715729261698,
+        "num_tokens": 70144.0,
+        "mean_token_accuracy": 0.9841529476015192,
+        "epoch": 8.0,
+        "step": 120
+      },
+      {
+        "loss": 0.08373894691467285,
+        "grad_norm": 0.6942621469497681,
+        "learning_rate": 1.0312725846731175e-05,
+        "entropy": 0.15409411378204824,
+        "num_tokens": 76198.0,
+        "mean_token_accuracy": 0.9852445542812347,
+        "epoch": 8.689655172413794,
+        "step": 130
+      },
+      {
+        "loss": 0.08456562161445617,
+        "grad_norm": 0.6861039400100708,
+        "learning_rate": 2.8657930186738567e-06,
+        "entropy": 0.162841575710397,
+        "num_tokens": 81744.0,
+        "mean_token_accuracy": 0.9849465991321363,
+        "epoch": 9.344827586206897,
+        "step": 140
+      },
+      {
+        "loss": 0.08137803673744201,
+        "grad_norm": 0.840431272983551,
+        "learning_rate": 2.379729200908676e-08,
+        "entropy": 0.15854786297208384,
+        "num_tokens": 87680.0,
+        "mean_token_accuracy": 0.9860491282061526,
+        "epoch": 10.0,
+        "step": 150
+      },
+      {
+        "train_runtime": 381.7203,
+        "train_samples_per_second": 3.039,
+        "train_steps_per_second": 0.393,
+        "total_flos": 324351099598848.0,
+        "train_loss": 0.6673861126104991,
+        "epoch": 10.0,
+        "step": 150
+      }
+    ]
+  },
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T04:07:54+00:00"
+  }
+}

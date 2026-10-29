@@ -1,0 +1,172 @@
+=== crypto: FAQ を架空の暗号資産取引所に置き換え | Python 3.13.16 ===
+{
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "seed": 42,
+  "num_train_epochs": 20,
+  "warmup_steps": 6,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "max_seq_len": 512,
+  "max_new_tokens": 96,
+  "gen": {
+    "do_sample": false
+  }
+}
+train=14 valid=7 test=21 gold=21
+学習例の 1 件 | 質問: 取引手数料はいくらですか | 望ましい出力: {"answer": "現物取引の手数料は、メイカーが約定代金の 0.05%、テイカーが 0.10% です。", "needs_review": false}
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 320/320 [00:01<00:00, 272.08it/s]
+loaded: Qwen/Qwen3.5-0.8B | device: cuda | 重みのメモリ(GB): 3.01
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"label": "before", "n": 21, "format_rate": 0.42857142857142855, "content_rate": 0.09523809523809523, "both_rate": 0.09523809523809523, "seconds": 24.2}
+
+Tokenizing train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Tokenizing train dataset: 100%|██████████| 14/14 [00:00<00:00, 709.98 examples/s]
+
+Building labels for train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Building labels for train dataset: 100%|██████████| 14/14 [00:00<00:00, 2142.84 examples/s]
+
+Truncating train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 14/14 [00:00<00:00, 2949.28 examples/s]
+
+Dropping fully masked examples from train dataset:   0%|          | 0/14 [00:00<?, ? examples/s]
+Dropping fully masked examples from train dataset: 100%|██████████| 14/14 [00:00<00:00, 5156.78 examples/s]
+
+Tokenizing eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Tokenizing eval dataset: 100%|██████████| 7/7 [00:00<00:00, 632.69 examples/s]
+
+Building labels for eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Building labels for eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1452.54 examples/s]
+
+Truncating eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Truncating eval dataset: 100%|██████████| 7/7 [00:00<00:00, 1631.21 examples/s]
+
+Dropping fully masked examples from eval dataset:   0%|          | 0/7 [00:00<?, ? examples/s]
+Dropping fully masked examples from eval dataset: 100%|██████████| 7/7 [00:00<00:00, 3093.14 examples/s]
+trainable params: 6,389,760 || all params: 758,782,784 || trainable%: 0.8421
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+
+  0%|          | 0/40 [00:00<?, ?it/s]
+  8%|▊         | 3/40 [00:24<05:07,  8.31s/it]
+ 10%|█         | 4/40 [00:34<04:59,  8.31s/it]
+ 15%|█▌        | 6/40 [00:47<04:23,  7.76s/it]
+ 20%|██        | 8/40 [01:04<04:08,  7.76s/it]
+ 22%|██▎       | 9/40 [01:10<04:02,  7.81s/it]
+                                              
+{'loss': '1.763', 'grad_norm': '2.308', 'learning_rate': '0.0001962', 'entropy': '2.045', 'num_tokens': '2.25e+04', 'mean_token_accuracy': '0.6338', 'epoch': '5'}
+
+ 25%|██▌       | 10/40 [01:17<03:54,  7.81s/it]
+ 25%|██▌       | 10/40 [01:24<03:54,  7.81s/it]
+ 30%|███       | 12/40 [01:33<03:35,  7.68s/it]
+ 32%|███▎      | 13/40 [01:44<03:27,  7.68s/it]
+ 38%|███▊      | 15/40 [01:57<03:16,  7.87s/it]
+ 42%|████▎     | 17/40 [02:14<03:01,  7.87s/it]
+ 45%|████▌     | 18/40 [02:19<02:48,  7.67s/it]
+                                               
+{'loss': '0.1177', 'grad_norm': '0.3709', 'learning_rate': '0.0001361', 'entropy': '0.2602', 'num_tokens': '4.499e+04', 'mean_token_accuracy': '0.9784', 'epoch': '10'}
+
+ 50%|█████     | 20/40 [02:34<02:33,  7.67s/it]
+ 50%|█████     | 20/40 [02:34<02:33,  7.67s/it]
+ 52%|█████▎    | 21/40 [02:44<02:28,  7.83s/it]
+ 55%|█████▌    | 22/40 [02:54<02:20,  7.83s/it]
+ 60%|██████    | 24/40 [03:05<02:02,  7.66s/it]
+ 65%|██████▌   | 26/40 [03:24<01:47,  7.66s/it]
+ 68%|██████▊   | 27/40 [03:29<01:40,  7.77s/it]
+ 70%|███████   | 28/40 [03:44<01:33,  7.77s/it]
+ 75%|███████▌  | 30/40 [03:52<01:16,  7.65s/it]
+                                               
+{'loss': '0.02408', 'grad_norm': '0.1902', 'learning_rate': '4.736e-05', 'entropy': '0.05467', 'num_tokens': '6.748e+04', 'mean_token_accuracy': '0.995', 'epoch': '15'}
+
+ 75%|███████▌  | 30/40 [03:52<01:16,  7.65s/it]
+ 78%|███████▊  | 31/40 [04:04<01:08,  7.65s/it]
+ 82%|████████▎ | 33/40 [04:16<00:54,  7.84s/it]
+ 88%|████████▊ | 35/40 [04:34<00:39,  7.84s/it]
+ 90%|█████████ | 36/40 [04:38<00:30,  7.67s/it]
+ 95%|█████████▌| 38/40 [04:54<00:15,  7.67s/it]
+ 98%|█████████▊| 39/40 [05:02<00:07,  7.78s/it]
+                                               
+{'loss': '0.01618', 'grad_norm': '0.163', 'learning_rate': '4.266e-07', 'entropy': '0.04189', 'num_tokens': '8.998e+04', 'mean_token_accuracy': '0.9962', 'epoch': '20'}
+
+100%|██████████| 40/40 [05:09<00:00,  7.78s/it]
+                                               
+{'train_runtime': '310', 'train_samples_per_second': '0.903', 'train_steps_per_second': '0.129', 'train_loss': '0.4804', 'epoch': '20'}
+
+100%|██████████| 40/40 [05:10<00:00,  7.78s/it]
+100%|██████████| 40/40 [05:10<00:00,  7.75s/it]
+学習時間: 310 秒 | ステップ数: 40 | エポック: 20.0
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 1757.14it/s]
+train: {"seconds": 310.3, "global_step": 40, "epoch": 20.0, "train_loss": 0.4803596667945385, "final_logged_loss": 0.016178710758686064, "valid_loss": 0.10040778666734695, "trainable_params": 6389760, "all_params": 758782784, "trainable_percent": 0.8421}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"label": "after", "n": 21, "format_rate": 1.0, "content_rate": 0.8571428571428571, "both_rate": 0.8571428571428571, "seconds": 54.0}
+退行: []
+知識質問: [{"質問": "この取引所を運営している会社はどこですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "ビットコインの最小注文数量はいくつですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "来月新しく上場する銘柄は何ですか", "学習前の分類": "format_error", "学習後の分類": "needs_review"}, {"質問": "取引手数料はいくらですか", "学習前の分類": "format_error", "学習後の分類": "asserted"}]
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.42857142857142855,
+    "content_rate": 0.09523809523809523,
+    "both_rate": 0.09523809523809523,
+    "seconds": 24.2
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.8571428571428571,
+    "both_rate": 0.8571428571428571,
+    "seconds": 54.0
+  },
+  "regressed": [],
+  "executed_training_myself": true,
+  "run": "crypto",
+  "data": "crypto",
+  "note": "FAQ を架空の暗号資産取引所に置き換え",
+  "smoke": false,
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T03:53:19+00:00"
+  }
+}
