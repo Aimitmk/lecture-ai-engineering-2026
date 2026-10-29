@@ -1,0 +1,284 @@
+=== glossary: 用語集の SFT データ（116 件）で 10 エポック | Python 3.13.16 ===
+{
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "seed": 42,
+  "num_train_epochs": 10,
+  "warmup_steps": 6,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "max_seq_len": 512,
+  "max_new_tokens": 256,
+  "gen": {
+    "do_sample": false
+  }
+}
+SFT データ=116 件 | 評価=30 問 | 学習例の 1 件: {"messages": [{"role": "user", "content": "「AIエンジニアリング」とは何ですか？"}, {"role": "assistant", "content": "学習済みの基盤モデル（主にLLM）を部品として使い、実際に役立つアプリケーションやシステムを設計・構築・評価・運用する技術領域。モデルを一から作ることより、モデルの選択、データやツールとの接続、評価と改善のサイクルを回すことに重心がある。"}]}
+search {"label": "search", "n": 30, "accuracy": 0.7666666666666667, "by_category": {"A": {"n": 10, "accuracy": 1.0}, "B": {"n": 10, "accuracy": 0.4}, "C": {"n": 10, "accuracy": 0.9}}}
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 320/320 [00:01<00:00, 259.30it/s]
+loaded: Qwen/Qwen3.5-0.8B | device: cuda | 重みのメモリ(GB): 3.01
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+before {"label": "before", "n": 30, "accuracy": 0.06666666666666667, "seconds": 324.3, "by_category": {"A": {"n": 10, "accuracy": 0.0, "abstained": 0.0}, "B": {"n": 10, "accuracy": 0.2, "abstained": 0.0}, "C": {"n": 10, "accuracy": 0.0, "abstained": 0.0}}}
+rag {"label": "rag", "n": 30, "accuracy": 0.4, "seconds": 53.6, "by_category": {"A": {"n": 10, "accuracy": 0.8, "abstained": 0.0}, "B": {"n": 10, "accuracy": 0.4, "abstained": 0.4}, "C": {"n": 10, "accuracy": 0.0, "abstained": 0.0}}}
+
+Tokenizing train dataset:   0%|          | 0/116 [00:00<?, ? examples/s]
+Tokenizing train dataset: 100%|██████████| 116/116 [00:00<00:00, 1628.99 examples/s]
+
+Building labels for train dataset:   0%|          | 0/116 [00:00<?, ? examples/s]
+Building labels for train dataset: 100%|██████████| 116/116 [00:00<00:00, 9445.71 examples/s]
+
+Truncating train dataset:   0%|          | 0/116 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 116/116 [00:00<00:00, 11764.94 examples/s]
+
+Dropping fully masked examples from train dataset:   0%|          | 0/116 [00:00<?, ? examples/s]
+Dropping fully masked examples from train dataset: 100%|██████████| 116/116 [00:00<00:00, 35738.16 examples/s]
+trainable params: 6,389,760 || all params: 758,782,784 || trainable%: 0.8421
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+
+  0%|          | 0/150 [00:00<?, ?it/s]
+  5%|▌         | 8/150 [00:21<06:13,  2.63s/it]
+                                               
+{'loss': '3.276', 'grad_norm': '3.878', 'learning_rate': '0.0001998', 'entropy': '2.996', 'num_tokens': '6107', 'mean_token_accuracy': '0.4343', 'epoch': '0.6897'}
+
+  7%|▋         | 10/150 [00:26<06:08,  2.63s/it]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+  9%|▊         | 13/150 [00:34<06:00,  2.63s/it]
+ 11%|█▏        | 17/150 [00:43<05:37,  2.54s/it]
+                                                
+{'loss': '2.212', 'grad_norm': '3.049', 'learning_rate': '0.000196', 'entropy': '2.479', 'num_tokens': '1.181e+04', 'mean_token_accuracy': '0.5837', 'epoch': '1.345'}
+
+ 13%|█▎        | 20/150 [00:51<05:29,  2.54s/it]
+ 13%|█▎        | 20/150 [00:54<05:29,  2.54s/it]
+ 17%|█▋        | 25/150 [01:04<05:23,  2.59s/it]
+                                                
+{'loss': '1.667', 'grad_norm': '4.488', 'learning_rate': '0.0001877', 'entropy': '2.029', 'num_tokens': '1.754e+04', 'mean_token_accuracy': '0.6588', 'epoch': '2'}
+
+ 20%|██        | 30/150 [01:16<05:10,  2.59s/it]
+ 21%|██▏       | 32/150 [01:24<05:05,  2.59s/it]
+ 23%|██▎       | 34/150 [01:26<04:55,  2.55s/it]
+                                                
+{'loss': '0.9747', 'grad_norm': '3.863', 'learning_rate': '0.0001752', 'entropy': '1.499', 'num_tokens': '2.355e+04', 'mean_token_accuracy': '0.7945', 'epoch': '2.69'}
+
+ 27%|██▋       | 40/150 [01:42<04:40,  2.55s/it]
+ 27%|██▋       | 40/150 [01:44<04:40,  2.55s/it]
+ 28%|██▊       | 42/150 [01:47<04:37,  2.57s/it]
+ 32%|███▏      | 48/150 [02:04<04:22,  2.57s/it]
+                                                
+{'loss': '0.5601', 'grad_norm': '3.743', 'learning_rate': '0.0001591', 'entropy': '1.016', 'num_tokens': '2.924e+04', 'mean_token_accuracy': '0.8927', 'epoch': '3.345'}
+
+ 33%|███▎      | 50/150 [02:07<04:17,  2.57s/it]
+ 34%|███▍      | 51/150 [02:10<04:13,  2.56s/it]
+ 37%|███▋      | 56/150 [02:24<04:01,  2.56s/it]
+ 39%|███▉      | 59/150 [02:31<03:54,  2.58s/it]
+                                                
+{'loss': '0.3389', 'grad_norm': '3.663', 'learning_rate': '0.0001403', 'entropy': '0.7397', 'num_tokens': '3.507e+04', 'mean_token_accuracy': '0.9428', 'epoch': '4'}
+
+ 40%|████      | 60/150 [02:33<03:52,  2.58s/it]
+ 43%|████▎     | 64/150 [02:44<03:41,  2.58s/it]
+ 45%|████▌     | 68/150 [02:53<03:26,  2.52s/it]
+                                                
+{'loss': '0.1767', 'grad_norm': '1.723', 'learning_rate': '0.0001195', 'entropy': '0.4319', 'num_tokens': '4.097e+04', 'mean_token_accuracy': '0.9753', 'epoch': '4.69'}
+
+ 47%|████▋     | 70/150 [02:58<03:21,  2.52s/it]
+ 48%|████▊     | 72/150 [03:04<03:16,  2.52s/it]
+ 51%|█████     | 76/150 [03:13<03:06,  2.52s/it]
+                                                
+{'loss': '0.1482', 'grad_norm': '1.385', 'learning_rate': '9.782e-05', 'entropy': '0.3418', 'num_tokens': '4.693e+04', 'mean_token_accuracy': '0.9783', 'epoch': '5.345'}
+
+ 53%|█████▎    | 80/150 [03:23<02:56,  2.52s/it]
+ 53%|█████▎    | 80/150 [03:24<02:56,  2.52s/it]
+ 56%|█████▌    | 84/150 [03:34<02:48,  2.55s/it]
+                                                
+{'loss': '0.1241', 'grad_norm': '1.622', 'learning_rate': '7.623e-05', 'entropy': '0.2587', 'num_tokens': '5.261e+04', 'mean_token_accuracy': '0.9823', 'epoch': '6'}
+
+ 60%|██████    | 90/150 [03:48<02:33,  2.55s/it]
+ 61%|██████▏   | 92/150 [03:54<02:28,  2.55s/it]
+ 62%|██████▏   | 93/150 [03:56<02:23,  2.52s/it]
+ 66%|██████▌   | 99/150 [04:14<02:08,  2.52s/it]
+                                                
+{'loss': '0.1002', 'grad_norm': '0.9201', 'learning_rate': '5.577e-05', 'entropy': '0.1959', 'num_tokens': '5.873e+04', 'mean_token_accuracy': '0.9841', 'epoch': '6.69'}
+
+ 67%|██████▋   | 100/150 [04:15<02:06,  2.52s/it]
+ 67%|██████▋   | 101/150 [04:18<02:06,  2.58s/it]
+ 71%|███████▏  | 107/150 [04:34<01:50,  2.58s/it]
+ 73%|███████▎  | 110/150 [04:40<01:41,  2.55s/it]
+                                                 
+{'loss': '0.09094', 'grad_norm': '0.7492', 'learning_rate': '3.741e-05', 'entropy': '0.1857', 'num_tokens': '6.444e+04', 'mean_token_accuracy': '0.9849', 'epoch': '7.345'}
+
+ 73%|███████▎  | 110/150 [04:40<01:41,  2.55s/it]
+ 77%|███████▋  | 115/150 [04:54<01:29,  2.55s/it]
+ 79%|███████▊  | 118/150 [05:01<01:21,  2.55s/it]
+                                                 
+{'loss': '0.09273', 'grad_norm': '1.043', 'learning_rate': '2.201e-05', 'entropy': '0.1741', 'num_tokens': '7.014e+04', 'mean_token_accuracy': '0.9842', 'epoch': '8'}
+
+ 80%|████████  | 120/150 [05:05<01:16,  2.55s/it]
+ 82%|████████▏ | 123/150 [05:14<01:08,  2.55s/it]
+ 85%|████████▍ | 127/150 [05:23<00:57,  2.51s/it]
+                                                 
+{'loss': '0.08374', 'grad_norm': '0.6943', 'learning_rate': '1.031e-05', 'entropy': '0.1541', 'num_tokens': '7.62e+04', 'mean_token_accuracy': '0.9852', 'epoch': '8.69'}
+
+ 87%|████████▋ | 130/150 [05:31<00:50,  2.51s/it]
+ 87%|████████▋ | 130/150 [05:34<00:50,  2.51s/it]
+ 90%|█████████ | 135/150 [05:43<00:37,  2.53s/it]
+ 93%|█████████▎| 139/150 [05:54<00:27,  2.53s/it]
+                                                 
+{'loss': '0.08457', 'grad_norm': '0.6861', 'learning_rate': '2.866e-06', 'entropy': '0.1628', 'num_tokens': '8.174e+04', 'mean_token_accuracy': '0.9849', 'epoch': '9.345'}
+
+ 93%|█████████▎| 140/150 [05:55<00:25,  2.53s/it]
+ 95%|█████████▌| 143/150 [06:03<00:17,  2.52s/it]
+ 98%|█████████▊| 147/150 [06:14<00:07,  2.52s/it]
+                                                 
+{'loss': '0.08138', 'grad_norm': '0.8404', 'learning_rate': '2.38e-08', 'entropy': '0.1585', 'num_tokens': '8.768e+04', 'mean_token_accuracy': '0.986', 'epoch': '10'}
+
+100%|██████████| 150/150 [06:21<00:00,  2.52s/it]
+                                                 
+{'train_runtime': '381.7', 'train_samples_per_second': '3.039', 'train_steps_per_second': '0.393', 'train_loss': '0.6674', 'epoch': '10'}
+
+100%|██████████| 150/150 [06:21<00:00,  2.52s/it]
+100%|██████████| 150/150 [06:21<00:00,  2.54s/it]
+学習時間: 382 秒 | ステップ数: 150 | エポック: 10.0
+train: {"seconds": 382.0, "global_step": 150, "epoch": 10.0, "train_loss": 0.6673861126104991, "final_logged_loss": 0.08137803673744201, "valid_loss": null, "trainable_params": 6389760, "all_params": 758782784, "trainable_percent": 0.8421}
+after {"label": "after", "n": 30, "accuracy": 0.36666666666666664, "seconds": 95.4, "by_category": {"A": {"n": 10, "accuracy": 1.0, "abstained": 0.0}, "B": {"n": 10, "accuracy": 0.1, "abstained": 0.0}, "C": {"n": 10, "accuracy": 0.0, "abstained": 0.0}}}
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 10,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 256,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 30,
+    "accuracy": 0.06666666666666667,
+    "seconds": 324.3,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.2,
+        "abstained": 0.0
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "after": {
+    "label": "after",
+    "n": 30,
+    "accuracy": 0.36666666666666664,
+    "seconds": 95.4,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.1,
+        "abstained": 0.0
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "rag": {
+    "label": "rag",
+    "n": 30,
+    "accuracy": 0.4,
+    "seconds": 53.6,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 0.8,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4,
+        "abstained": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "search": {
+    "label": "search",
+    "n": 30,
+    "accuracy": 0.7666666666666667,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.9
+      }
+    }
+  },
+  "executed_training_myself": true,
+  "run": "glossary",
+  "data": "glossary",
+  "note": "用語集の SFT データ（116 件）で 10 エポック",
+  "smoke": false,
+  "sft_data": {
+    "path": "lectures/02/data/glossary_sft.jsonl",
+    "records": 116
+  },
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T04:07:54+00:00"
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "summary": {
+    "label": "rag",
+    "n": 30,
+    "accuracy": 0.4,
+    "seconds": 53.6,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 0.8,
+        "abstained": 0.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4,
+        "abstained": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.0,
+        "abstained": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「LoRA」の意味を教えてください。",
+      "term_id": "lora",
+      "answer": "事前学習済みの重みは固定し、学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる PEFT 手法です。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.581,
+      "query": "LoRA",
+      "hit_ids": [
+        "lora",
+        "lora-rank",
+        "qlora"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「過学習」の意味を教えてください。",
+      "term_id": "overfitting",
+      "answer": "過学習は、学習データに過度に適合し、未知の入力に対する性能が落ちる状態です。学習に使わない検証データで性能を測って気づく。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.923,
+      "query": "過学習",
+      "hit_ids": [
+        "overfitting",
+        "epoch"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「temperature」の意味を教えてください。",
+      "term_id": "temperature",
+      "answer": "temperature は、次のトークンを選ぶときのランダムさを調整する設定値です。低いほど出力が安定し、高いほど多様になる。同じ質問でも回答が変わる理由の一つ。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.897,
+      "query": "temperature",
+      "hit_ids": [
+        "temperature"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「ハルシネーション」の意味を教えてください。",
+      "term_id": "hallucination",
+      "answer": "LLMが事実と異なる内容や存在しない情報を、もっともらしく生成してしまう現象。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.487,
+      "query": "ハルシネーション",
+      "hit_ids": [
+        "hallucination"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「エポック」の意味を教えてください。",
+      "term_id": "epoch",
+      "answer": "学習データ全体を1周学習することを1エポックと数える。回数を増やしすぎると過学習しやすい。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 1.0,
+      "query": "エポック",
+      "hit_ids": [
+        "epoch"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「宿題の3レベル」の意味を教えてください。",
+      "term_id": "homework-levels",
+      "answer": "「宿題の3レベル」は、AIE2026の宿題構成において、**「基礎（講義内容の確認）」」「実装（自分でコードを書く）」」「発展（調査や試行）」**の3段階があり、どれか1つに取り組めばその回の宿題は完了。原則として採点はしない。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.885,
+      "query": "宿題の3レベル",
+      "hit_ids": [
+        "homework-levels"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「lecNN-start タグ」の意味を教えてください。",
+      "term_id": "lec-start-tag",
+      "answer": "「lecNN-start タグ」は、AIE2026 の講座 repo で、各回の演習開始時点の Git タグです。前の回が終わっていなくても、このタグからブランチを作ればその回の演習を始められます。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.758,
+      "query": "lecNN-start タグ",
+      "hit_ids": [
+        "lec-start-tag"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「既定モデル」の意味を教えてください。",
+      "term_id": "default-model",
+      "answer": "既定モデルは、AIE2026 の演習と宿題で標準に使うモデルを指します。無料枠のレート制限と講座運営の安定性を考慮して選定されており、環境変数 AIE_MODEL で他のモデルに切り替えることができます。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.651,
+      "query": "既定モデル",
+      "hit_ids": [
+        "default-model"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「Codespaces secret」の意味を教えてください。",
+      "term_id": "codespaces-secret",
+      "answer": "Codespaces secret は、GitHub のアカウント設定に登録しておく秘密の値です。指定した repo の Codespaces を起動すると、環境変数として渡されます。登録時に自分の fork を選ぶ必要があります。起動中に Codespaces の再起動が必要になります。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.811,
+      "query": "Codespaces secret",
+      "hit_ids": [
+        "codespaces-secret",
+        "codespaces",
+        "api-key"
+      ]
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「TestModel」の意味を教えてください。",
+      "term_id": "test-model",
+      "answer": "Pydantic AI に含まれるテスト用の偽モデルです。実際の LLM を呼ばずに、ツールを呼び出してダミーの回答を返すもので、API キーや利用枠を使わずに、エージェントの配線（ツールが登録され、呼ばれ、結果が返るか）をテストできます。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.955,
+      "query": "TestModel",
+      "hit_ids": [
+        "test-model"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "Low-Rank Adaptation という手法を説明してください。",
+      "term_id": "lora",
+      "answer": "LoRA は事前学習済みの重み（パラメータ）を固定し、学習するパラメータのみを低ランク行列（2 つの小さな行列の積）で更新する PEFT 手法です。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.379,
+      "query": "Low-Rank Adaptation という手法を説明してください。",
+      "hit_ids": [
+        "lora",
+        "lora-rank"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "AIE2026 のデフォルトモデルは何ですか？",
+      "term_id": "default-model",
+      "answer": "既定モデルは AIE2026 の演習と宿題で標準に使うモデルは gemini-3.5-flash-lite です。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.535,
+      "query": "AIE2026 のデフォルトモデルは何ですか？",
+      "hit_ids": [
+        "default-model"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA と QLoRA の違いは何ですか？",
+      "term_id": "qlora",
+      "answer": "LoRA は事前学習済みの重みを固定し、学習するパラメータが少なく、学習結果も小さいファイルで保存できる手法です。\nQLoRA はベースモデルの重みを 4 ビットなどに量子化してメモリを節約し、LoRA で学習する手法です。\nより大きなモデルを小さな GPU で扱えるため、LoRA で学習し、4 ビットで読み込んだときのメモリと出力の違いを発展で比べる。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.687,
+      "query": "LoRA と QLoRA の違いは何ですか？",
+      "hit_ids": [
+        "lora",
+        "qlora"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA の r を大きくすると、どうなりますか？",
+      "term_id": "lora-rank",
+      "answer": "LoRA の r は学習するパラメータの数を表す指標で、r が大きくすると学習するパラメータが少なくなります。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.281,
+      "query": "LoRA の r を大きくすると、どうなりますか？",
+      "hit_ids": [
+        "lora"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "Gemini の API キーは、コードに直接書いてもいいですか？",
+      "term_id": "api-key",
+      "answer": "API キーは、コードに直接書かない、コミットしない、チャットに貼らない。",
+      "ok": true,
+      "abstained": false,
+      "similarity": 0.415,
+      "query": "Gemini の API キーは、コードに直接書いてもいいですか？",
+      "hit_ids": [
+        "api",
+        "api-key"
+      ]
+    },
+    {
+      "category": "B",
+      "kind": "講座の言い換え",
+      "question": "AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？",
+      "term_id": "homework-levels",
+      "answer": "用語集には「AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？」は見つかりませんでした。",
+      "ok": false,
+      "abstained": true,
+      "similarity": 0.243,
+      "query": "AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？",
+      "hit_ids": []
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？",
+      "term_id": "overfitting",
+      "answer": "用語集には載っていません。",
+      "ok": false,
+      "abstained": true,
+      "similarity": 0.116,
+      "query": "学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？",
+      "hit_ids": []
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？",
+      "term_id": "learning-rate",
+      "answer": "用語集には載っていません。",
+      "ok": false,
+      "abstained": true,
+      "similarity": 0.08,
+      "query": "1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？",
+      "hit_ids": []
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？",
+      "term_id": "lec-start-tag",
+      "answer": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグは「リポジトリの更新タグ（またはリポジトリの更新タグ）」と呼ばれます。",
+      "ok": false,
+      "abstained": false,
+      "similarity": 0.318,
+      "query": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？",
+      "hit_ids": []
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？",
+      "term_id": "quantization",
+      "answer": "用語集には載っていません。",
+      "ok": false,
+      "abstained": true,
+      "similarity": 0.078,
+      "query": "モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「DPO」の意味を教えてください。",
+      "term_id": null,
+      "answer": "DPO（Deep Packet Inspection）とは、ネットワークの通信データを「パケット」のレベルで解析し、その内容（パケットの目的や内容）を抽出して分析する技術です。",
+      "ok": false,
+      "abstained": false,
+      "query": "DPO",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「蒸留」の意味を教えてください。",
+      "term_id": null,
+      "answer": "用語集には「蒸留」の定義や意味は記載されていません。",
+      "ok": false,
+      "abstained": false,
+      "query": "蒸留",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「Transformer」の意味を教えてください。",
+      "term_id": null,
+      "answer": "Transformer は、機械学習において「自発的学習」や「自発的生成」を指す用語です。",
+      "ok": false,
+      "abstained": false,
+      "query": "Transformer",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「RLHF」の意味を教えてください。",
+      "term_id": null,
+      "answer": "RLHF（Reinforcement Learning from Human Feedback）は、人間のフィードバックに基づいて学習する reinforcement learning（報酬学習）の一種です。",
+      "ok": false,
+      "abstained": false,
+      "query": "RLHF",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「MoE」の意味を教えてください。",
+      "term_id": null,
+      "answer": "MoE は「Mixture of Experts」の略で、多層学習（ML）における「マルチエージェント」の略です。複数の専門知識を組み合わせることで、より高い精度を達成する技術です。",
+      "ok": false,
+      "abstained": false,
+      "query": "MoE",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「埋め込みベクトル」の意味を教えてください。",
+      "term_id": null,
+      "answer": "埋め込みベクトルは、データや画像などの情報を、特定の空間（例：2D 平面、3D 空間、または高次元空間）に位置づけるベクトルです。これにより、データが「埋め込まれた」状態となり、計算や表示において効率的に処理・表示できることが特徴です。",
+      "ok": false,
+      "abstained": false,
+      "query": "埋め込みベクトル",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「プロンプトインジェクション」の意味を教えてください。",
+      "term_id": null,
+      "answer": "プロンプトインジェクションとは、LLM（大規模言語モデル）に渡す入力文を、質問だけでなく、役割、制約、出力形式、例などを含めることで、出力を方向づける手法です。",
+      "ok": false,
+      "abstained": false,
+      "query": "プロンプトインジェクション",
+      "hit_ids": [
+        "prompt"
+      ]
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「lecNN-end タグ」の意味を教えてください。",
+      "term_id": null,
+      "answer": "用語集には「lecNN-end タグ」の定義や意味は記載されていません。",
+      "ok": false,
+      "abstained": false,
+      "query": "lecNN-end タグ",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「宿題の5レベル」の意味を教えてください。",
+      "term_id": null,
+      "answer": "用語集には「宿題の5レベル」の用語がありません。",
+      "ok": false,
+      "abstained": false,
+      "query": "宿題の5レベル",
+      "hit_ids": []
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「TurboModel」の意味を教えてください。",
+      "term_id": null,
+      "answer": "用語集には「TurboModel」の定義や意味が記載されていません。",
+      "ok": false,
+      "abstained": false,
+      "query": "TurboModel",
+      "hit_ids": []
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 5,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.09523809523809523,
+    "content_rate": 0.0,
+    "both_rate": 0.0,
+    "seconds": 20.3
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.7142857142857143,
+    "both_rate": 0.7142857142857143,
+    "seconds": 40.0
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "質問": "この講座の最終課題の締切はいつですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"9 月 30 日 23:59\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"課題の提出期限は 9 月 30 日 23:59（日本時間）です。\", \"needs_review\": false}"
+    },
+    {
+      "質問": "担当教員の名前は何ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"確認が必要\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"FAQ には記載がありません。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "次回の講義のテーマは何ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"次回の講義のテーマは「学習ポータル」の「課題」欄で提出する PDF 1 ファイルを提出します。\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"FAQ には記載がありません。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "課題の提出期限はいつですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"9 月 30 日 23:59\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"課題の提出期限は 9 月 30 日 23:59（日本時間）です。\", \"needs_review\": false}"
+    }
+  ],
+  "executed_training_myself": true,
+  "run": "epochs5",
+  "data": "course",
+  "note": "num_train_epochs 20→5",
+  "smoke": false,
+  "train": {
+    "seconds": 62.4,
+    "global_step": 10,
+    "epoch": 5.0,
+    "train_loss": 1.5795955657958984,
+    "final_logged_loss": 1.5795955657958984,
+    "valid_loss": 0.4613803029060364,
+    "trainable_params": 6389760,
+    "all_params": 758782784,
+    "trainable_percent": 0.8421,
+    "log_history": [
+      {
+        "loss": 1.5795955657958984,
+        "grad_norm": 2.1527256965637207,
+        "learning_rate": 2.9289321881345254e-05,
+        "entropy": 1.8655148774385453,
+        "num_tokens": 17860.0,
+        "mean_token_accuracy": 0.6843185037374496,
+        "epoch": 5.0,
+        "step": 10
+      },
+      {
+        "train_runtime": 62.1075,
+        "train_samples_per_second": 1.127,
+        "train_steps_per_second": 0.161,
+        "total_flos": 55352062558464.0,
+        "train_loss": 1.5795955657958984,
+        "epoch": 5.0,
+        "step": 10
+      },
+      {
+        "eval_loss": 0.4613803029060364,
+        "eval_runtime": 1.7654,
+        "eval_samples_per_second": 3.965,
+        "eval_steps_per_second": 0.566,
+        "eval_entropy": 0.8895416259765625,
+        "eval_num_tokens": 17860.0,
+        "eval_mean_token_accuracy": 0.9001122117042542,
+        "epoch": 5.0,
+        "step": 10
+      }
+    ]
+  },
+  "env": {
+    "device": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.16",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "versions": {
+      "transformers": "5.18.0",
+      "peft": "0.21.1",
+      "trl": "1.14.2",
+      "accelerate": "1.15.0",
+      "datasets": "5.1.0",
+      "torch": "2.11.0+cu130"
+    },
+    "commit": "d5382888b29b1ad9279cf4474e2f667fcf7068a3",
+    "finished_at": "2026-10-29T03:46:14+00:00"
+  }
+}
