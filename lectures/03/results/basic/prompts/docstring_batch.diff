@@ -1,0 +1,7 @@
+--- baseline
++++ docstring_batch
+@@ -12,3 +12,3 @@
+ AIエンジニアリングの用語や、この講座（AIE2026）に固有の言葉について
+-答える前に使うこと。query には調べたい用語を1つだけ入れる（例: "LoRA"）。
++答える前に使うこと。query には調べたい用語をまとめて入れる（例: "LoRA"）。
+ parameters: {"additionalProperties": false, "properties": {"query": {"type": "string"}}, "required": ["query"], "type": "object"}
