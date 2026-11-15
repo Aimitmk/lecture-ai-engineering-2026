@@ -12,3 +12,6 @@ learning_log/
 
 # macOS
 .DS_Store
+
+# 第3回 宿題（発展 a）: adk run が作るセッションの保存先
+.adk/
