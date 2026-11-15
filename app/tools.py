@@ -5,11 +5,15 @@
 """
 
 import json
+import random
+from datetime import datetime
 from functools import cache
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 MAX_RESULTS = 3
+# 第3回 宿題（実装）: 学習の記録の保存先（.gitignore 済み。テストでは一時フォルダに差し替える）
+LOG_DIR = Path(__file__).resolve().parent.parent / "learning_log"
 
 
 @cache
@@ -77,3 +81,44 @@ def get_lecture_summary(lecture: int) -> str:
         available = sorted(p.stem for p in (DATA_DIR / "lectures").glob("*.md"))
         return f"第{lecture}回の要点はまだありません。用意されている回: {', '.join(available)}"
     return path.read_text(encoding="utf-8")
+
+
+def make_quiz(lecture: int) -> str:
+    """指定した回（1始まりの整数）の用語から1つを選び、確認問題と答えを返す。
+
+    「第2回の確認問題を出して」のように、復習用の問題を求められたときに使う。
+    返り値は {"question": 問題, "answer": 答え} の JSON。
+    """
+    glossary = load_glossary()
+    terms = [e for e in glossary if e["lecture"] == lecture]
+    if not terms:
+        available = sorted({e["lecture"] for e in glossary})
+        return (
+            f"第{lecture}回の用語は用語集にありません。"
+            f"用語がある回: {', '.join(f'第{n}回' for n in available)}"
+        )
+    entry = random.choice(terms)
+    return json.dumps(
+        {"question": f"「{entry['term']}」の意味は？", "answer": entry["definition"]},
+        ensure_ascii=False,
+    )
+
+
+def save_learning_log(title: str, content: str) -> str:
+    """学習の記録を learning_log/ フォルダに Markdown で保存する（日付ごとのファイルに追記する）。
+
+    利用者が「記録して」「保存して」「メモして」のように、学んだことを残すよう頼んだときだけ使う。
+    title には記録の見出し（例: "LoRAとQLoRAの違い"）、content には残す内容を入れる。
+    保存は取り消しにくいので、実行の前にプログラムが利用者に確認する（呼ぶ前に聞き直さなくてよい）。
+    """
+    title = " ".join(title.split())  # 改行で見出しが崩れないよう1行にする
+    content = content.strip()
+    if not title or not content:
+        return "title と content の両方を指定してください。保存していません。"
+    # 保存先のファイル名はモデルに決めさせず、ここで作る（learning_log/ の外に書かせないため）
+    now = datetime.now()
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    path = LOG_DIR / f"{now:%Y-%m-%d}.md"
+    with path.open("a", encoding="utf-8") as f:
+        f.write(f"## {now:%H:%M} {title}\n\n{content}\n\n")
+    return f"{LOG_DIR.name}/{path.name} に保存しました（見出し: {title}）。"
