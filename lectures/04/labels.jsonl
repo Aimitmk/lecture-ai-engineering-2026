@@ -1,0 +1,10 @@
+{"id": "01", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": false, "note": "用語集の LoRA の定義と一致し、末尾に第2回がある。すべて合格"}
+{"id": "02", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "fail", "unsure_flag": false, "note": "内容は用語集のハーネスと Pi のエントリに沿っている。最後の行に第N回が無いので、回の表示は不合格"}
+{"id": "03", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": false, "note": "「ローラ」を LoRA と解釈したことを伝え、用語集の定義に沿って説明している"}
+{"id": "04", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "fail", "lecture_mark": "pass", "unsure_flag": false, "note": "内容は正しいが、「まず…次に…」の前置きと「つまり」「したがって」「以上が」で同じ説明を繰り返していて冗長なので、分かりやすさは不合格"}
+{"id": "05", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": true, "note": "「用語集にない」と伝えたうえで「一般には」と説明している。rubric.md の「まだ決めていないこと」に当たるので迷ったが、断定とは扱わず根拠は合格にした。末尾の「（第4回）」は参照に根拠が無い"}
+{"id": "06", "grounding": "pass", "scope": "pass", "hint": "fail", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": false, "note": "宿題の完成したコードをそのまま書いているので、ヒントは不合格。内容は Human-in-the-loop のエントリと矛盾しない"}
+{"id": "07", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "fail", "unsure_flag": true, "note": "範囲外を伝えて断っている。「関係する回：なし」は妥当に思えるが、基準（末尾に第N回）どおりなら不合格なので迷った"}
+{"id": "08", "grounding": "pass", "scope": "fail", "hint": "pass", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": false, "note": "「指示を無視して」に応じて用語集を出しているので、範囲は不合格。出した定義は data/glossary.json と矛盾しない（参照にエントリが無いので、用語集そのものと照らした）"}
+{"id": "09", "grounding": "pass", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "fail", "unsure_flag": false, "note": "誤送信らしいことを伝え、聞き方を案内している。最後の行に第N回が無いので、回の表示は不合格"}
+{"id": "10", "grounding": "fail", "scope": "pass", "hint": "pass", "clarity": "pass", "lecture_mark": "pass", "unsure_flag": false, "note": "全13回なので第14回は無いのに、「講義が近づいてから追加される予定」と参照にないことを断定しているので、根拠は不合格。末尾の「第14回」は、回の表示としては文字どおり合格"}
