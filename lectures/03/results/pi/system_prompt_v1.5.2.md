@@ -5,7 +5,9 @@
   - ツールの一行説明と使い方（`snippet`・`guidelines`）：[`tools/read.ts`](https://github.com/earendil-works/pi/blob/v1.5.2/packages/coding-agent/src/core/tools/read.ts)・[`bash.ts`](https://github.com/earendil-works/pi/blob/v1.5.2/packages/coding-agent/src/core/tools/bash.ts)・[`edit.ts`](https://github.com/earendil-works/pi/blob/v1.5.2/packages/coding-agent/src/core/tools/edit.ts)・[`write.ts`](https://github.com/earendil-works/pi/blob/v1.5.2/packages/coding-agent/src/core/tools/write.ts)
   - セクションは空行（`\n\n`）でつなぐ（`packages/ai/src/utils/text.ts` の `getSystemMessageText`）
 - 前提：既定のツール（read・bash・edit・write）だけを使い、AGENTS.md などの文脈ファイル・skills・追記（APPEND_SYSTEM.md）がない場合。
-- `<パッケージの場所>` と `<作業ディレクトリ>` は、実行する環境で決まる。Codespaces で実際に送られた文面は、`/export` の結果で確かめる。
+- `<パッケージの場所>` と `<作業ディレクトリ>` は、実行する環境で決まる。
+- `<rules>` は、`system-prompt.ts` の `buildRules` の順に、各ツールのファイルにある guideline を並べて組み立てたもの。実行時に guideline がどう渡るか（セッション側の処理）までは読んでいない。
+- Codespaces で実際に送られた文面は、`/export` の結果と `pi --version` で確かめる。
 - 2026-11-15 時点で、`main` の `system-prompt.ts` はこのタグと同じ内容。
 
 ```text

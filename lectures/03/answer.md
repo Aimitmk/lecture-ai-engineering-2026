@@ -47,7 +47,7 @@
 
 ## 宿題
 
-- 取り組んだレベル：**基礎・実装・発展（a・b）すべて**
+- 取り組んだレベル：**基礎・実装・発展 a**。発展 b は、システムプロンプトの比較まで（Pi を Codespaces で動かすのは、これから）
 - 使ったモデル（`AIE_MODEL`）：
   - gemini-3.5-flash-lite（既定）。
   - 応答に記録されたモデル名も、すべて gemini-3.5-flash-lite だった（`runs.jsonl` の `model_name`、ADK の `modelVersion`）。
@@ -207,7 +207,7 @@
 - model には `app.config.MODEL` を使い、Pydantic AI 版と同じモデルにそろえた（環境変数 `AIE_MODEL` で一緒に切り替わる）。
 - save_learning_log は入れなかった（上の「実装」の気づき）。
 - 実行：
-  - スライドの手順どおり `PYTHONPATH=. uv run --with google-adk adk run adk_agent/glossary_agent` で、対話モードに質問をパイプで渡して1回動かした（[ログ](results/adk/interactive.txt)）。
+  - problem.md の手順のコマンド（`PYTHONPATH=. uv run --with google-adk adk run adk_agent/glossary_agent`）に `--frozen --env-file .env` を足し、対話モードに質問をパイプで渡して1回動かした（[ログ](results/adk/interactive.txt)）。
   - 比較のため、`scripts/lec03_adk_compare.py` から `adk run --jsonl --in_memory` で、基礎の baseline と同じ3つの質問を3回ずつ投げた（12:09〜12:11 JST）。
   - JSONL には、モデルの応答（ツール呼び出しを含む）とツールの戻り値が、イベントとして1行ずつ出る（[runs/](results/adk/runs/)、回答の全文は [answers.md](results/adk/answers.md)）。
   - 対話モードで「確認問題を出して」→「答えを教えて」の2ターンも試した（[ログ](results/adk/interactive_quiz.txt)）。
