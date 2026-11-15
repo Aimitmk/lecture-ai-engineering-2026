@@ -1,0 +1,23 @@
+$ printf '%s\n' "第2回の内容から確認問題を1問出して" "答えを教えて" exit | PYTHONPATH=. uv run --frozen --env-file .env --with google-adk adk run --in_memory adk_agent/glossary_agent
+# 2026-11-15 12:12:51 JST（対話モードで2ターン。2ターン目は、1ターン目の問題の答えを聞く）
+
+Log setup complete: <TMPDIR>/agents_log/agent.20261115_121252.log
+To access latest log: tail -F <TMPDIR>/agents_log/agent.latest.log
+Running agent glossary_agent, type exit to exit.
+[user]: [glossary_agent]: 第2回の内容から確認問題を1問出します。
+
+**【確認問題】**
+「ファインチューニング」の意味は？
+
+---
+関係する回：第2回
+[user]: [glossary_agent]: 第2回の確認問題の答えは以下の通りです。
+
+**【答え】**
+事前学習済みモデルを、特定のタスクや形式に合ったデータで追加学習させること。
+出力の形式や口調、特定ドメインの振る舞いを身につけさせるのに向きます。なお、最新の事実を覚えさせる用途には、ツールやRAGで外部データを参照させるほうが向くことが多いのが特徴です。
+
+---
+関係する回：第2回
+[user]: 
+# exit=0
