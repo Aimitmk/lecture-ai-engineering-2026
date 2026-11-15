@@ -3,6 +3,7 @@
 使い方:
     uv run python -m app.agent "AIE2026の講座で使う「lecNN-start タグ」とは何ですか？"
     uv run python -m app.agent --trace "LoRAとQLoRAの違いは？"   # ツール呼び出しを表示
+    uv run python -m app.agent "LoRAとQLoRAの違いを調べて、要点を学習の記録に保存して"  # 第3回 宿題: 保存の前に確認する
     uv run python -m app.agent --mcp --trace "LoRAとは？"        # 第5回: ツールを MCP サーバーから受け取る
     uv run python -m app.agent --mcp --list-tools               # 第5回: モデルに見えるツール一覧（APIキー不要）
 
@@ -14,9 +15,10 @@
 import argparse
 import inspect
 import json
+import sys
 from pathlib import Path
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, DeferredToolRequests, DeferredToolResults, ToolDenied
 from pydantic_ai.exceptions import ModelHTTPError
 from fastmcp import Client
 from pydantic_ai.mcp import MCPToolset, StdioTransport
@@ -38,12 +40,42 @@ INSTRUCTIONS = """\
 """
 
 # モデルは実行時に渡す（テストではAPIを呼ばない TestModel に差し替えるため）
-agent = Agent(instructions=INSTRUCTIONS)
+# 第3回 宿題（実装）: 承認待ちで止まったときは、結果が DeferredToolRequests になるので output_type に加える
+agent = Agent(instructions=INSTRUCTIONS, output_type=[str, DeferredToolRequests])
 agent.tool_plain(tools.search_glossary)
 agent.tool_plain(tools.get_lecture_summary)
 
 # 第3回 演習: 確認問題を出すツール
 agent.tool_plain(tools.make_quiz)
+
+# 第3回 宿題（実装）: 学習の記録を保存するツール。保存は取り消しにくいので、実行の前に利用者の承認を挟む。
+# 承認の要否は関数ではなく、この登録のしかたで決まる（関数をそのまま別の場所に渡すと、確認なしで動く）
+agent.tool_plain(tools.save_learning_log, requires_approval=True)
+
+DENIED_MESSAGE = "利用者が保存を断ったので、保存していません。"
+
+
+def ask_approvals(requests: DeferredToolRequests) -> DeferredToolResults:
+    """承認待ちのツール呼び出しを1つずつ見せて、実行してよいかを利用者に聞く。
+
+    y（yes）なら実行する。それ以外の答えや、入力が無いとき（パイプの終わりなど）は実行しない。
+    断った理由はツールの戻り値の代わりにモデルへ返るので、モデルは保存されていないことを知って続きを答える。
+    """
+    approvals = {}
+    for call in requests.approvals:
+        print(f"\n[承認待ち] {call.tool_name}")
+        for key, value in call.args_as_dict().items():
+            print(f"  {key}: " + str(value).replace("\n", "\n    "))
+        try:
+            answer = input("このツールを実行してよいですか？ [y/N]: ")
+        except EOFError:
+            answer = ""
+        if not sys.stdin.isatty():
+            print()  # パイプで答えを渡したときは入力が表示されないので、改行だけ入れる
+        approved = answer.strip().lower() in ("y", "yes")
+        approvals[call.tool_call_id] = True if approved else ToolDenied(DENIED_MESSAGE)
+        print(f"[{'承認' if approved else '拒否'}] {call.tool_name}")
+    return DeferredToolResults(approvals=approvals)
 
 # 第5回: 使う MCP サーバーの設定ファイル。Claude Desktop や Cursor と同じ "mcpServers" 形式
 MCP_CONFIG = Path(__file__).resolve().parent / "mcp_servers.json"
@@ -92,7 +124,9 @@ def print_tools(target: Agent) -> None:
     tools_seen = model.last_model_request_parameters.function_tools
     print(f"モデルに見えているツール: {len(tools_seen)} 個")
     for tool in tools_seen:
-        print(f"\n[{tool.name}]")
+        # kind が "unapproved" のツールは、実行の前に利用者の承認が要る（requires_approval=True）
+        note = "（実行の前に利用者の承認が必要）" if tool.kind == "unapproved" else ""
+        print(f"\n[{tool.name}]{note}")
         print("  " + inspect.cleandoc(tool.description or "").replace("\n", "\n  "))
         params = tool.parameters_json_schema.get("properties", {})
         print(f"  引数: {json.dumps(params, ensure_ascii=False)}")
@@ -128,8 +162,18 @@ def main() -> None:
     print(f"[model] {MODEL}")
     if args.mcp:
         print("[tools] MCP サーバー（app/mcp_servers.json）")
+    model = build_model()
     try:
-        result = target.run_sync(args.question, model=build_model())
+        result = target.run_sync(args.question, model=model)
+        # 承認が必要なツールが呼ばれると、実行はそこで止まり、結果が DeferredToolRequests になる。
+        # 利用者の答えと、それまでの会話を渡して続きを実行する（続きでまた呼ばれることもあるので繰り返す）
+        while isinstance(result.output, DeferredToolRequests):
+            result = target.run_sync(
+                model=model,
+                message_history=result.all_messages(),
+                deferred_tool_results=ask_approvals(result.output),
+                usage=result.usage,  # LLM の呼び出し回数などを、止まる前の分から数え続ける
+            )
     except ModelHTTPError as e:
         print(api_error_message(e.status_code, str(e.body)[:200]))
         raise SystemExit(1)

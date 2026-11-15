@@ -1,0 +1,41 @@
+$ uv run --frozen pytest -v -p no:cacheprovider
+# リポジトリの絶対パスは <repo> に置き換えた
+# 2026-11-15 12:07:35 JST
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.11, pytest-9.1.1, pluggy-1.7.0 -- <repo>/.venv/bin/python
+rootdir: <repo>
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.13.3, anyio-4.15.1
+collecting ... collected 25 items
+
+tests/test_agent.py::test_base_tools_are_registered_and_called PASSED    [  4%]
+tests/test_agent.py::test_glossary_result_reaches_the_model PASSED       [  8%]
+tests/test_learning_log.py::test_save_learning_log_appends_to_the_file_of_the_day PASSED [ 12%]
+tests/test_learning_log.py::test_save_learning_log_does_not_save_empty_text PASSED [ 16%]
+tests/test_learning_log.py::test_the_call_waits_for_approval_and_nothing_is_saved_yet PASSED [ 20%]
+tests/test_learning_log.py::test_approved_call_saves_and_the_run_finishes PASSED [ 24%]
+tests/test_learning_log.py::test_denied_call_does_not_save_and_the_model_is_told PASSED [ 28%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[y-True] PASSED [ 32%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[Y-True] PASSED [ 36%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[yes-True] PASSED [ 40%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[n-False] PASSED [ 44%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[-False] PASSED [ 48%]
+tests/test_learning_log.py::test_ask_approvals_follows_the_answer[\u306f\u3044-False] PASSED [ 52%]
+tests/test_learning_log.py::test_ask_approvals_denies_when_there_is_no_input PASSED [ 56%]
+tests/test_mcp_server.py::test_glossary_server_exposes_search_tool PASSED [ 60%]
+tests/test_mcp_server.py::test_glossary_result_comes_back_through_mcp PASSED [ 64%]
+tests/test_tools.py::test_glossary_ids_are_unique_and_related_links_exist PASSED [ 68%]
+tests/test_tools.py::test_search_finds_term_by_name_and_alias PASSED     [ 72%]
+tests/test_tools.py::test_search_finds_course_specific_term PASSED       [ 76%]
+tests/test_tools.py::test_search_limits_number_of_results PASSED         [ 80%]
+tests/test_tools.py::test_search_reports_not_found PASSED                [ 84%]
+tests/test_tools.py::test_lecture_summary PASSED                         [ 88%]
+tests/test_tools.py::test_default_question_of_lecture1_is_answerable_from_glossary PASSED [ 92%]
+tests/test_tools.py::test_make_quiz_answer_is_the_definition_of_a_term_of_that_lecture PASSED [ 96%]
+tests/test_tools.py::test_make_quiz_reports_lecture_without_terms PASSED [100%]
+
+============================== 25 passed in 1.18s ==============================
+
+# exit=0
