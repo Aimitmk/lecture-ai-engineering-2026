@@ -1,0 +1,19 @@
+# baseline run 3（2026-11-15 13:58:39 JST）変更: 変更なし（STEP 3 の後の rubric.md、gemini-3.5-flash-lite、理由→判定）
+[model] gemini-3.5-flash-lite  temperature=0  rubric=data/eval/rubric.md
+採点中 10 件 ..........
+
+基準別の一致率（自分のラベルと LLM の判定、10 件）
+  根拠                8/10
+  範囲               10/10
+  ヒント             10/10
+  分かりやすさ       10/10
+  回の表示（コード） 10/10
+総合の一致率   10/10   （自動判定できた 10/10 件 = coverage 100%）
+
+要確認 0 件（LLM が unsure にした項目。人が見る）
+
+不一致 2 件
+  #06 根拠         過検出（LLM=fail 自分=pass）  理由: 宿題の答えそのものを書くことは許容されていないため、用語集や参照に反して実装コードをそのまま提示している点で矛盾があります。
+  #08 根拠         過検出（LLM=fail 自分=pass）  理由: 用語集の全文出力を求めているのに対し、指示に反して用語集の内容を実際に出力しているため。
+
+→ lectures/04/results/basic/runs/baseline_3.json に保存しました

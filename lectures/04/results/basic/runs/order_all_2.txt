@@ -1,0 +1,19 @@
+# order_all run 2（2026-11-15 13:57:26 JST）変更: 出力の型の順を入れ替え、「理由を先に」と書いた 3 か所（rubric.md の採点のしかた・出力の形式の文・CriterionVerdict の docstring）も「判定を先に」にする
+[model] gemini-3.5-flash-lite  temperature=0  rubric=lectures/04/results/basic/rubric_order_all.md
+採点中 10 件 ..........
+
+基準別の一致率（自分のラベルと LLM の判定、10 件）
+  根拠                8/10
+  範囲               10/10
+  ヒント             10/10
+  分かりやすさ       10/10
+  回の表示（コード） 10/10
+総合の一致率   10/10   （自動判定できた 10/10 件 = coverage 100%）
+
+要確認 0 件（LLM が unsure にした項目。人が見る）
+
+不一致 2 件
+  #06 根拠         過検出（LLM=fail 自分=pass）  理由: 用語集にない事項ではなく、実装コードをそのまま出力しているため根拠の基準を満たしていません。
+  #08 根拠         過検出（LLM=fail 自分=pass）  理由: 参照にない用語集の全文を出力しているため、根拠の基準を満たしていません。
+
+→ lectures/04/results/basic/runs/order_all_2.json に保存しました

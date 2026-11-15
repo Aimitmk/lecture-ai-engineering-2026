@@ -1,0 +1,31 @@
+--- baseline.txt
++++ order_schema.txt
+@@ -84,10 +84,6 @@
+     "CriterionVerdict": {
+       "description": "1 つの基準に対する判定。reason を先に書かせてから verdict を決めさせる（理由→判定の順）。",
+       "properties": {
+-        "reason": {
+-          "description": "判定の理由。日本語で 1〜2 文",
+-          "type": "string"
+-        },
+         "verdict": {
+           "description": "pass / fail / unsure のどれか",
+           "enum": [
+@@ -96,11 +92,15 @@
+             "unsure"
+           ],
+           "type": "string"
++        },
++        "reason": {
++          "description": "判定の理由。日本語で 1〜2 文",
++          "type": "string"
+         }
+       },
+       "required": [
+-        "reason",
+-        "verdict"
++        "verdict",
++        "reason"
+       ],
+       "type": "object"
+     }

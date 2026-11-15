@@ -1,0 +1,9 @@
+--- baseline.txt
++++ model_flash.txt
+@@ -1,5 +1,5 @@
+ ## model
+-gemini-3.5-flash-lite
++gemini-3.5-flash
+ ## instructions
+ # 採点の基準（第4回）
+ 

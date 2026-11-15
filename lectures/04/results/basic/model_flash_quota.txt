@@ -1,0 +1,54 @@
+# gemini-3.5-flash（model_flash）の 2 回目・3 回目が取れなかった記録（2026-11-15 JST）
+
+## 最初の実行（13:42〜14:06。429 で止まった run は、60 秒おきに 3 回までやり直した）
+# model_flash run 1（2026-11-15 13:43:56 JST）変更: 採点のモデルを gemini-3.5-flash にする
+→ lectures/04/results/basic/runs/model_flash_1.json に保存しました
+# model_flash run 2（2026-11-15 13:51:05 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_2 が失敗（1/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 2（2026-11-15 13:53:59 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_2 が失敗（2/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 2（2026-11-15 13:55:00 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_2 が失敗（3/3 回目: SystemExit(1)）。60 秒待ってやり直します
+[give up] model_flash_2
+# model_flash run 3（2026-11-15 13:59:53 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_3 が失敗（1/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 3（2026-11-15 14:00:54 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_3 が失敗（2/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 3（2026-11-15 14:01:54 JST）変更: 採点のモデルを gemini-3.5-flash にする
+レート制限に達しました。1分ほど待ってから再実行してください。
+[retry] model_flash_3 が失敗（3/3 回目: SystemExit(1)）。60 秒待ってやり直します
+[give up] model_flash_3
+
+## 取り直し（14:11〜14:18、429 の本文の先頭つき）
+# model_flash run 2（2026-11-15 14:11:58 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_2 が失敗（1/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 2（2026-11-15 14:13:36 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_2 が失敗（2/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 2（2026-11-15 14:14:55 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_2 が失敗（3/3 回目: SystemExit(1)）。60 秒待ってやり直します
+[give up] model_flash_2
+# model_flash run 3（2026-11-15 14:15:37 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_3 が失敗（1/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 3（2026-11-15 14:16:37 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_3 が失敗（2/3 回目: SystemExit(1)）。60 秒待ってやり直します
+# model_flash run 3（2026-11-15 14:17:37 JST）変更: 採点のモデルを gemini-3.5-flash にする
+  [detail] {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, 
+[retry] model_flash_3 が失敗（3/3 回目: SystemExit(1)）。60 秒待ってやり直します
+[give up] model_flash_3
+
+## 429 の詳細（14:18 に 1 回呼んで確かめた。この呼び出しも 429）
+violation: generativelanguage.googleapis.com/generate_content_free_tier_requests | GenerateRequestsPerDayPerProjectPerModel-FreeTier | limit = 20
+retryDelay: 9726s（17:00 JST ごろに戻る）
+
+- この日に成功した gemini-3.5-flash の呼び出しは 19 回（1 回目の run 10 回、2 回目の run 8 回（9 件目で 429）、14:11 の確認 1 回）。
+  429 の本文によると、上限は 1 日 20 回（数え方の細部は確かめていない）。1 回の run で 10 回呼ぶので、1 日に取れるのは 2 回まで。

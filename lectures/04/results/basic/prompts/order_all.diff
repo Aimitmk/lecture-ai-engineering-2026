@@ -1,0 +1,52 @@
+--- baseline.txt
++++ order_all.txt
+@@ -17,7 +17,7 @@
+ - 自分の知識ではなく、参照（用語集のエントリと、期待するふるまい）と、この基準に照らして判定する
+ - 基準は 1 つずつ独立に見る。ある基準で fail にした理由を、他の基準の判定に持ち込まない
+ - 回答の末尾に「第N回」があるかどうかは、別の判定（コード）で見る。ここでは判定に含めない
+-- 理由は日本語で 1〜2 文。先に理由を書いてから判定を決める
++- 理由は日本語で 1〜2 文。先に判定を決めてから理由を書く
+ - 「まだ決めていないこと」に当てはまる回答は、pass / fail にせず unsure にする
+ 
+ ## 根拠（grounding）
+@@ -50,7 +50,7 @@
+ 
+ 
+ # 出力の形式
+-4 つの基準（grounding, scope, hint, clarity）それぞれについて、reason（理由）を先に書き、そのあとで verdict を pass / fail / unsure のどれかにしてください。
++4 つの基準（grounding, scope, hint, clarity）それぞれについて、verdict を pass / fail / unsure のどれかに先に決め、そのあとで reason（理由）を書いてください。
+ ## output tool: final_result
+ The final response which ends this conversation
+ ## parameters（Gemini に送る形。キーの順はそのまま）
+@@ -82,12 +82,8 @@
+   "type": "object",
+   "$defs": {
+     "CriterionVerdict": {
+-      "description": "1 つの基準に対する判定。reason を先に書かせてから verdict を決めさせる（理由→判定の順）。",
++      "description": "1 つの基準に対する判定。verdict を先に決めさせてから reason を書かせる（判定→理由の順）。",
+       "properties": {
+-        "reason": {
+-          "description": "判定の理由。日本語で 1〜2 文",
+-          "type": "string"
+-        },
+         "verdict": {
+           "description": "pass / fail / unsure のどれか",
+           "enum": [
+@@ -96,11 +92,15 @@
+             "unsure"
+           ],
+           "type": "string"
++        },
++        "reason": {
++          "description": "判定の理由。日本語で 1〜2 文",
++          "type": "string"
+         }
+       },
+       "required": [
+-        "reason",
+-        "verdict"
++        "verdict",
++        "reason"
+       ],
+       "type": "object"
+     }
