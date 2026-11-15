@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent
+from pydantic_ai import Agent, DeferredToolRequests, DeferredToolResults, ToolDenied
 from pydantic_ai.exceptions import ModelHTTPError, UnexpectedModelBehavior
 from pydantic_ai.messages import ModelMessage, ModelResponse, ToolCallPart, UserPromptPart
 from pydantic_ai.models.function import AgentInfo, FunctionModel
@@ -301,15 +301,47 @@ def compare_labels(a: dict[str, dict], b: dict[str, dict], name_a: str, name_b: 
 
 
 # ---------------------------------------------------------------- 回答の生成（宿題・実装）
+# 宿題（実装）: 第3回で承認が要るツール（requires_approval=True）を足したエージェントは、
+# 結果が DeferredToolRequests（承認待ち）で止まることがある。評価には承認する人がいないので、すべて断る
+EVAL_DENIED_MESSAGE = "評価の実行中で、承認する人がいないため、このツールは実行していません。"
+MAX_APPROVAL_ROUNDS = 3
+
+
+def _tool_calls(messages: list[ModelMessage]) -> list[dict]:
+    """会話の中のツール呼び出し（名前と引数）を、呼ばれた順に返す。"""
+    return [
+        {"tool": part.tool_name, "args": part.args_as_dict()}
+        for m in messages if isinstance(m, ModelResponse)
+        for part in m.parts if isinstance(part, ToolCallPart)
+    ]
+
+
 def generate_answers(cases: list[dict], wait: float = 1.0) -> list[dict]:
-    """評価セットの各質問を自分のエージェント（app.agent）に投げ、回答を埋める。"""
+    """評価セットの各質問を自分のエージェント（app.agent）に投げ、回答を埋める。
+
+    承認待ちで止まったら、承認を求めた呼び出しを approval_requests に残し、断って続きを答えさせる
+    （評価で learning_log/ などに書かないため）。ツールの呼び出しは、コードで判定する基準のために tool_calls に残す。
+    """
     from app.agent import agent, build_model
 
     model = build_model()
     print(f"回答を生成中 {len(cases)} 件 ", end="", flush=True)
     for case in cases:
         result = agent.run_sync(case["question"], model=model)
+        requested = []
+        for _ in range(MAX_APPROVAL_ROUNDS):
+            if not isinstance(result.output, DeferredToolRequests):
+                break
+            requested += [{"tool": c.tool_name, "args": c.args_as_dict()} for c in result.output.approvals]
+            denied = {c.tool_call_id: ToolDenied(EVAL_DENIED_MESSAGE) for c in result.output.approvals}
+            result = agent.run_sync(
+                model=model,
+                message_history=result.all_messages(),
+                deferred_tool_results=DeferredToolResults(approvals=denied),
+            )
         case["answer"] = str(result.output)
+        case["tool_calls"] = _tool_calls(result.all_messages())
+        case["approval_requests"] = requested
         print(".", end="", flush=True)
         time.sleep(wait)
     print()
@@ -343,7 +375,7 @@ def main(argv: list[str] | None = None) -> None:
 
     if args.generate:
         try:
-            cases = generate_answers(cases)
+            cases = generate_answers(cases, wait=args.wait or 1.0)  # 1 件で LLM を 2〜3 回呼ぶので、--wait で間を空けられる
         except ModelHTTPError as e:
             print(api_error_message(e.status_code, str(e.body)[:200]))
             raise SystemExit(1)

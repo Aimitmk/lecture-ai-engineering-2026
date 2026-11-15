@@ -68,3 +68,34 @@ def test_judge_pipeline_with_fake_model():
     assert summary["coverage"]["covered"] + len({r["id"] for r in summary["review"]}) == 10
     for m in summary["mismatches"]:
         assert m["kind"] in ("見逃し", "過検出")
+
+
+# ---------------------------------------------------------------- 宿題（実装）: 自分のエージェントで回答を生成する
+def _generate_with(monkeypatch, tmp_path, call_tools):
+    """app.agent のモデルを TestModel（API を呼ばない偽モデル）にして、1 件だけ回答を生成する。"""
+    from pydantic_ai.models.test import TestModel
+
+    from app import agent as agent_module
+    from app import tools
+
+    log_dir = tmp_path / "learning_log"
+    monkeypatch.setattr(tools, "LOG_DIR", log_dir)
+    monkeypatch.setattr(agent_module, "build_model", lambda: TestModel(call_tools=call_tools))
+    [case] = judge.generate_answers([{"id": "01", "question": "LoRAの要点を学習の記録に保存して", "answer": ""}], wait=0)
+    return case, log_dir
+
+
+def test_generate_denies_tools_that_need_approval(monkeypatch, tmp_path):
+    """承認が要る save_learning_log が呼ばれても、評価では保存せず、断ったうえでの回答を残す。"""
+    case, log_dir = _generate_with(monkeypatch, tmp_path, ["save_learning_log"])
+    assert isinstance(case["answer"], str)
+    assert not case["answer"].startswith("DeferredToolRequests")  # 直す前は承認待ちの repr が回答になっていた
+    assert [r["tool"] for r in case["approval_requests"]] == ["save_learning_log"]
+    assert "save_learning_log" in [c["tool"] for c in case["tool_calls"]]
+    assert not log_dir.exists()  # 何も保存していない
+
+
+def test_generate_records_tool_calls(monkeypatch, tmp_path):
+    case, _ = _generate_with(monkeypatch, tmp_path, ["search_glossary"])
+    assert [c["tool"] for c in case["tool_calls"]] == ["search_glossary"]
+    assert case["approval_requests"] == []
