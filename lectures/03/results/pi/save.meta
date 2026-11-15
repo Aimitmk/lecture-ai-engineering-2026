@@ -1,0 +1,7 @@
+name: save
+model: google/gemini-3.5-flash-lite
+prompt: LoRAとQLoRAの違いを調べて、要点を学習の記録に保存して
+cwd: /workspaces/lecture-ai-engineering-2026
+start: 2026-11-16 01:46:55 JST
+exit: 0
+end: 2026-11-16 01:47:34 JST

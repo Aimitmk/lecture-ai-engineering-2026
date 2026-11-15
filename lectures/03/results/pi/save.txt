@@ -1,0 +1,106 @@
+name: save
+model: google/gemini-3.5-flash-lite
+prompt: LoRAとQLoRAの違いを調べて、要点を学習の記録に保存して
+cwd: /workspaces/lecture-ai-engineering-2026
+start: 2026-11-16 01:46:55 JST
+exit: 0
+end: 2026-11-16 01:47:34 JST
+
+--- trace ---
+[LLM 1] google/gemini-3.5-flash-lite stop=toolUse input=1355 cacheRead=0 output=98 reasoning=65 toolCall=1
+[tool call]   bash({"command": "find . -maxdepth 2 -not -path '*/.*'", "timeout": 10})
+[tool return] bash -> .\n./scripts\n./scripts/make_sft_dataset.py\n./scripts/lec03_prompt_variants.py\n./scripts/lec03_adk_compare.py\n./notebooks\n./notebooks/lora_format_tuning.ipynb\n./data\n./data/glossary.json\n./data/lectures\n./README.md\n./tests\n./tests/test_mcp_server.py\n./tests/test_learning_log.py\n./tests/t…
+[LLM 2] google/gemini-3.5-flash-lite stop=toolUse input=1709 cacheRead=0 output=98 reasoning=59 toolCall=1
+[tool call]   bash({"command": "find . -name \"*learning*\" -o -name \"*log*\" -o -name \"*.md\"", "timeout": 10})
+[tool return] bash -> ./data/lectures/05.md\n./data/lectures/01.md\n./data/lectures/03.md\n./data/lectures/02.md\n./README.md\n./.git/logs\n./tests/test_learning_log.py\n./lectures/02/problem.md\n./lectures/02/answer.md\n./lectures/02/reference/README.md\n./lectures/05/problem.md\n./lectures/05/answer.md\n./lectures/01/p…
+[LLM 3] google/gemini-3.5-flash-lite stop=toolUse input=5693 cacheRead=0 output=62 reasoning=30 toolCall=1
+[tool call]   read({"offset": 1, "limit": 100, "path": "tests/test_learning_log.py"})
+[tool return] read -> """第3回 宿題（実装）: 保存の前に利用者の承認を挟む save_learning_log のテスト。\n\nTestModel（APIを呼ばない偽モデル）に save_learning_log を呼ばせ、\n「承認されるまで保存されない」「承認したら保存される」「断ったら保存されず、モデルに伝わる」を確かめる。\n保存先は一時フォルダに差し替えるので、learning_log/ には何も書かない。\n"""\n\nimport pytest\nfrom pydantic_ai import DeferredToolRequests, DeferredToolResults, ToolDe…
+[LLM 4] google/gemini-3.5-flash-lite stop=toolUse input=2867 cacheRead=4047 output=61 reasoning=33 toolCall=1
+[tool call]   read({"limit": 100, "path": "app/tools.py", "offset": 1})
+[tool return] read -> """第3回: エージェントに持たせるツール。\n\nここに書いた関数の docstring と型ヒントが、そのままモデルへの「ツールの説明文」になる。\n説明文を書き換えると、モデルがツールを使うかどうか・どんな引数で呼ぶかが変わる。\n"""\n\nimport json\nimport random\nfrom datetime import datetime\nfrom functools import cache\nfrom pathlib import Path\n\nDATA_DIR = Path(__file__).resolve().parent.parent / "data…
+[LLM 5] google/gemini-3.5-flash-lite stop=toolUse input=3982 cacheRead=4049 output=58 reasoning=29 toolCall=1
+[tool call]   read({"offset": 101, "limit": 50, "path": "app/tools.py"})
+[tool return] read ->     return json.dumps(\n        {"question": f"「{entry['term']}」の意味は？", "answer": entry["definition"]},\n        ensure_ascii=False,\n    )\n\n\ndef save_learning_log(title: str, content: str) -> str:\n    """学習の記録を learning_log/ フォルダに Markdown で保存する（日付ごとのファイルに追記する）。\n\n    利用者が「記録して」「保存して」「メモして」のよう…
+[LLM 6] google/gemini-3.5-flash-lite stop=toolUse input=2416 cacheRead=6071 output=152 reasoning=124 toolCall=1
+[tool call]   read({"limit": 100, "offset": 1, "path": "app/ask.py"})
+[tool return] read -> """第1回: 素のLLMに1回だけ質問するスクリプト。\n\n使い方:\n    uv run python -m app.ask "LoRAとは何ですか？"\n    uv run python -m app.ask            # 質問を省略すると、講座に固有の質問をする\n\nツールも会話履歴も持たない「素の」呼び出し。\n講座に固有のことを聞くと、「分からない」と答えるか、一般論でもっともらしく答える\n（講座の実際とは違う）ことを確かめよう。\n（第3回で、用語集を検索できるエージェントにして改善する）\n"""\n\nimport argparse\n\nfrom go…
+[LLM 7] google/gemini-3.5-flash-lite stop=toolUse input=3046 cacheRead=6069 output=42 reasoning=14 toolCall=1
+[tool call]   read({"limit": 100, "offset": 1, "path": "app/agent.py"})
+[tool return] read -> """第3回: Pydantic AI で作る学習支援エージェント。\n\n使い方:\n    uv run python -m app.agent "AIE2026の講座で使う「lecNN-start タグ」とは何ですか？"\n    uv run python -m app.agent --trace "LoRAとQLoRAの違いは？"   # ツール呼び出しを表示\n    uv run python -m app.agent "LoRAとQLoRAの違いを調べて、要点を学習の記録に保存して"  # 第3回 宿題: 保存の前に確認する\n    uv run python -m app.…
+[LLM 8] google/gemini-3.5-flash-lite stop=toolUse input=2531 cacheRead=8099 output=78 reasoning=43 toolCall=1
+[tool call]   bash({"timeout": 10, "command": "grep -i -C 5 \"lora\" data/glossary.json"})
+[tool return] bash ->       "term": "ファインチューニング",\n      "aliases": ["fine-tuning", "追加学習", "FT"],\n      "lecture": 2,\n      "category": "ファインチューニング",\n      "definition": "事前学習済みモデルを、特定のタスクや形式に合ったデータで追加学習させること。出力の形式や口調、特定ドメインの振る舞いを身につけさせるのに向く。最新の事実を覚えさせる用途には、ツールやRAGで外部データを参照させるほうが向くことが多い。",\n      "related": ["sft", "…
+[LLM 9] google/gemini-3.5-flash-lite stop=toolUse input=3721 cacheRead=8101 output=56 reasoning=31 toolCall=1
+[tool call]   bash({"command": "find lectures -name \"*.md\"", "timeout": 10})
+[tool return] bash -> lectures/02/problem.md\nlectures/02/answer.md\nlectures/02/reference/README.md\nlectures/05/problem.md\nlectures/05/answer.md\nlectures/01/problem.md\nlectures/01/answer.md\nlectures/03/problem.md\n
+[LLM 10] google/gemini-3.5-flash-lite stop=toolUse input=3876 cacheRead=8095 output=78 reasoning=55 toolCall=1
+[tool call]   bash({"command": "find data/lectures", "timeout": 10})
+[tool return] bash -> data/lectures\ndata/lectures/05.md\ndata/lectures/01.md\ndata/lectures/03.md\ndata/lectures/02.md\n
+[LLM 11] google/gemini-3.5-flash-lite stop=toolUse input=4015 cacheRead=8090 output=47 reasoning=15 toolCall=1
+[tool call]   read({"offset": 1, "path": "data/lectures/02.md", "limit": 100})
+[tool return] read -> # 第2回 ファインチューニングとLoRA\n\n## この回のねらい\n\n- 事前学習とファインチューニングの違い、ファインチューニングが向く場面と向かない場面を理解する\n- LoRAの考え方を理解し、Google Colab上で小さなモデルをLoRAで学習させる\n\n## 要点\n\n1. **事前学習とファインチューニング**：事前学習で汎用的な言語能力を身につけたモデルを、目的に合うデータで追加学習させるのがファインチューニング。\n2. **向く場面・向かない場面**：出力形式や口調、特定タスクの振る舞いを身につけさせるのに向く。新しい事実や頻繁に変わる情報は、ツールや外部デー…
+[LLM 12] google/gemini-3.5-flash-lite stop=toolUse input=2562 cacheRead=10110 output=163 reasoning=138 toolCall=1
+[tool call]   bash({"timeout": 10, "command": "find learning_log -type f"})
+[tool return] bash（エラー） -> find: ‘learning_log’: No such file or directory\n\n\nCommand exited with code 1
+[LLM 13] google/gemini-3.5-flash-lite stop=toolUse input=2761 cacheRead=10104 output=655 reasoning=634 toolCall=1
+[tool call]   bash({"command": "uv run pytest", "timeout": 30})
+[tool return] bash -> ============================= test session starts ==============================\nplatform linux -- Python 3.12.16, pytest-9.1.1, pluggy-1.7.0\nrootdir: /workspaces/lecture-ai-engineering-2026\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: platformdirs-4.13.3, anyio-4.15.1\ncollected 25 ite…
+[LLM 14] google/gemini-3.5-flash-lite stop=toolUse input=3642 cacheRead=10195 output=683 reasoning=376 toolCall=1
+[tool call]   bash({"timeout": 10, "command": "uv -q run python -c '\nfrom app import tools\ntitle = \"LoRAとQLoRAの違い\"\ncontent = \"\"\"- **LoRA (Low-Rank Adaptation)**:\n  - 事前学習済みの重みを固定したまま、重みの更新分を2つの小さな低ランク行列の積で近似して学習する PEFT 手法。\n  - 学習パラメータ数やアダプタの保存容量を大幅に削減できる。\n- **QLoRA (Quantized LoRA)**:\n  - ベースモデルの重みを 4bit などに量子化してメモリ使用量をさらに削減しつつ、LoRAを適用して学習する手法。\n  - より大規模なモデルを、より少ないGPUメモリ（コンシューマ向けGPUなど）で学習可能にする。\n- **主な違い**:\n  - **ベースモデルの重みの保持精度**: LoRA は通常 16bit（FP16/BF16）等、QLoRA は 4bit に量子化。\n  - **メモリ効率**: QLoRA の方がベースモデルのメモリ消費が少ない。\n  - **処理・影響**: QLoRA は量子化/逆量子化のオーバーヘッドがあり、量子化誤差による出力への影響が生じることがある。\"\"\"\nprint(tools.save_learning_log(title, content))\n'"})
+[tool return] bash -> learning_log/2026-11-15.md に保存しました（見出し: LoRAとQLoRAの違い）。\n
+[LLM 15] google/gemini-3.5-flash-lite stop=toolUse input=2364 cacheRead=12383 output=57 reasoning=32 toolCall=1
+[tool call]   bash({"timeout": 10, "command": "find learning_log -type f"})
+[tool return] bash -> learning_log/2026-11-15.md\n
+[LLM 16] google/gemini-3.5-flash-lite stop=toolUse input=2458 cacheRead=12374 output=64 reasoning=25 toolCall=1
+[tool call]   read({"limit": 100, "offset": 1, "path": "learning_log/2026-11-15.md"})
+[tool return] read -> ## 16:47 LoRAとQLoRAの違い\n\n- **LoRA (Low-Rank Adaptation)**:\n  - 事前学習済みの重みを固定したまま、重みの更新分を2つの小さな低ランク行列の積で近似して学習する PEFT 手法。\n  - 学習パラメータ数やアダプタの保存容量を大幅に削減できる。\n- **QLoRA (Quantized LoRA)**:\n  - ベースモデルの重みを 4bit などに量子化してメモリ使用量をさらに削減しつつ、LoRAを適用して学習する手法。\n  - より大規模なモデルを、より少ないGPUメモリ（コンシューマ向けGPUなど）で学習可能にする。…
+[LLM 17] google/gemini-3.5-flash-lite stop=toolUse input=2801 cacheRead=12364 output=38 reasoning=17 toolCall=1
+[tool call]   bash({"command": "uv run pytest", "timeout": 30})
+[tool return] bash -> ============================= test session starts ==============================\nplatform linux -- Python 3.12.16, pytest-9.1.1, pluggy-1.7.0\nrootdir: /workspaces/lecture-ai-engineering-2026\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: platformdirs-4.13.3, anyio-4.15.1\ncollected 25 ite…
+[LLM 18] google/gemini-3.5-flash-lite stop=stop input=3043 cacheRead=12355 output=465 reasoning=43 toolCall=0 text=LoRA と QLoRA の違いについて要点をまとめ、学習の記録（`learning_log/`）に保存しました。\n\n---\n\n### **LoRA と QLoRA の要点と違い**\n\n1. **LoRA (Low-Rank A…
+
+[usage] LLM の応答=18 turn=18 ツールの実行=17 input_tokens=54842 cacheRead=132506 output_tokens=2955（うち reasoning=1763）
+
+--- 最終回答 ---
+LoRA と QLoRA の違いについて要点をまとめ、学習の記録（`learning_log/`）に保存しました。
+
+---
+
+### **LoRA と QLoRA の要点と違い**
+
+1. **LoRA (Low-Rank Adaptation)**
+   - **概要**: 事前学習済みの重みを固定したまま、重みの更新分を2つの小さな低ランク行列の積で近似して学習する PEFT（Parameter-Efficient Fine-Tuning）手法。
+   - **特徴**: 学習するパラメータ数や保存するアダプタのファイル容量を大幅に削減できる。通常、ベースモデルの重みは 16bit（FP16/BF16）等で保持する。
+
+2. **QLoRA (Quantized LoRA)**
+   - **概要**: ベースモデルの重みを 4bit（NF4など）に量子化してメモリ使用量をさらに極限まで削減しつつ、その上で LoRA アダプタを適用して学習する手法。
+   - **特徴**: より大規模なモデル（例: 数十億〜数百億パラメータ）を、コンシューマ向けなどの限られたGPUメモリ環境でも学習可能にする。
+
+3. **主な違いとトレードオフ**
+   - **重みの保持精度**: LoRA は通常 16bit、QLoRA は 4bit 等に量子化してベースモデルを保持する。
+   - **メモリ効率**: QLoRA の方がベースモデルのメモリ消費が大幅に少ないため、大きなモデルを扱いやすい。
+   - **処理と影響**: QLoRA は量子化・逆量子化のオーバーヘッドが生じるため、純粋な LoRA に比べると学習にやや時間がかかる場合があり、量子化誤差による出力への微小な影響が生じることがある。
+
+---
+
+### **保存先**
+- 学習の記録フォルダ（`learning_log/`）内の本日の日付の Markdown ファイルに追記しました。
+
+--- 実行の後に、実行の前の marker より新しかったファイル：1575 件 ---
+（.venv・__pycache__・.pytest_cache の 1574 件は、uv run と pytest が作ったもの。下には出さない）
+/workspaces/lecture-ai-engineering-2026/learning_log/2026-11-15.md
+
+## 中身：/workspaces/lecture-ai-engineering-2026/learning_log/2026-11-15.md
+## 16:47 LoRAとQLoRAの違い
+
+- **LoRA (Low-Rank Adaptation)**:
+  - 事前学習済みの重みを固定したまま、重みの更新分を2つの小さな低ランク行列の積で近似して学習する PEFT 手法。
+  - 学習パラメータ数やアダプタの保存容量を大幅に削減できる。
+- **QLoRA (Quantized LoRA)**:
+  - ベースモデルの重みを 4bit などに量子化してメモリ使用量をさらに削減しつつ、LoRAを適用して学習する手法。
+  - より大規模なモデルを、より少ないGPUメモリ（コンシューマ向けGPUなど）で学習可能にする。
+- **主な違い**:
+  - **ベースモデルの重みの保持精度**: LoRA は通常 16bit（FP16/BF16）等、QLoRA は 4bit に量子化。
+  - **メモリ効率**: QLoRA の方がベースモデルのメモリ消費が少ない。
+  - **処理・影響**: QLoRA は量子化/逆量子化のオーバーヘッドがあり、量子化誤差による出力への影響が生じることがある。

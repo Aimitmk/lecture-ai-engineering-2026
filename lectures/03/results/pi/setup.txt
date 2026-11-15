@@ -1,0 +1,32 @@
+# setup 2026-11-16 01:45:33 JST
+node v26.13.1  npm 11.20.0
+
+$ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+added 123 packages in 11s
+
+$ pi --version
+1.5.2
+
+$ pi --list-models gemini
+provider  model                                    context  max-out  thinking  images
+google    gemini-2.5-computer-use-preview-10-2025  128K     64K      yes       yes   
+google    gemini-2.5-flash                         1.0M     65.5K    yes       yes   
+google    gemini-2.5-flash-lite                    1.0M     65.5K    yes       yes   
+google    gemini-2.5-pro                           1.0M     65.5K    yes       yes   
+google    gemini-3-flash-preview                   1.0M     65.5K    yes       yes   
+google    gemini-3.1-flash-lite                    1.0M     65.5K    yes       yes   
+google    gemini-3.1-flash-lite-preview            1.0M     65.5K    yes       yes   
+google    gemini-3.1-pro-preview                   1.0M     65.5K    yes       yes   
+google    gemini-3.1-pro-preview-customtools       1.0M     65.5K    yes       yes   
+google    gemini-3.5-flash                         1.0M     65.5K    yes       yes   
+google    gemini-3.5-flash-lite                    1.0M     65.5K    yes       yes   
+google    gemini-3.6-flash                         1.0M     65.5K    yes       yes   
+google    gemini-3.7-flash                         1.0M     65.5K    yes       yes   
+google    gemini-3.8-flash                         1.0M     65.5K    yes       yes   
+google    gemini-4-argon                           1.0M     32.8K    yes       yes   
+google    gemini-flash-latest                      1.0M     65.5K    yes       yes   
+google    gemini-flash-lite-latest                 1.0M     65.5K    yes       yes   
+google    gemini-pro-latest                        1.0M     65.5K    yes       yes   
+google    gemini-robotics-er-2-preview             131.1K   65.5K    yes       yes   

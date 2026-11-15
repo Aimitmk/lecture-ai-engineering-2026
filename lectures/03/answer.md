@@ -47,7 +47,7 @@
 
 ## 宿題
 
-- 取り組んだレベル：**基礎・実装・発展 a**。発展 b は、システムプロンプトの比較まで（Pi を Codespaces で動かすのは、これから）
+- 取り組んだレベル：**基礎・実装・発展 a・b**（発展 b の Pi は、2026-11-16 に Codespaces で動かした）
 - 使ったモデル（`AIE_MODEL`）：
   - gemini-3.5-flash-lite（既定）。
   - 応答に記録されたモデル名も、すべて gemini-3.5-flash-lite だった（`runs.jsonl` の `model_name`、ADK の `modelVersion`）。
@@ -55,8 +55,8 @@
   - 発展 b 以外は、Codespaces ではなくローカルの macOS で実行した。Python 3.12.11、`uv sync --frozen` と同じ版（pydantic-ai-slim 2.57.0、google-genai 2.31.0）。
   - 発展 a の ADK は、`uv run --with google-adk` で入った google-adk 2.14.1 を使った（`pyproject.toml` と `uv.lock` は変えていない）。
   - API キーは git の管理外の `.env` に置き、`uv run --env-file .env` で渡した。
-  - 実行日時は 2026-11-15 11:56〜12:13（JST）。
-  - 発展 b の Pi だけは Codespaces で動かす（下の「発展 b」）。
+  - 実行日時は 2026-11-15 11:56〜12:13（JST）。発展 b の Pi だけは、2026-11-16 01:46〜01:47（JST）。
+  - 発展 b の Pi だけは、Codespaces で動かした（下の「発展 b」）。
 - ブランチ：
   - fork の main が講座 repo より古く、第3回の問題文と `tests/test_agent.py` が更新されていた。
   - そのため、`lec03` は講座 repo の `lec03-start` タグから作った。
@@ -65,6 +65,7 @@
     - コードの実装
     - 比較用スクリプトの作成
     - 実験の実行
+    - 発展 b の Pi の実行（2026-11-16。ユーザーの依頼で、Codespaces に `gh codespace ssh` で入って動かした）
     - 回答の読み取りと判定
     - この answer.md の下書き
   - 数値と回答の引用は、すべて `results/` のログの実測。
@@ -265,7 +266,7 @@
   - `packages/coding-agent/src/core/system-prompt.ts`
   - 組み込みツール（read・bash・edit・write）の定義
 - 既定の設定で組み立てられるシステムプロンプトを書き出した（[system_prompt_v1.5.2.md](results/pi/system_prompt_v1.5.2.md)）。
-- Codespaces で Pi を動かした結果：（実行待ち）
+- Pi を Codespaces で動かし、2 つの依頼を 1 回ずつ流した。演習・基礎と同じ「3レベル」の質問と、実装と同じ「要点を学習の記録に保存して」（下の「Codespaces で動かした結果」）。
 
 **比較**
 
@@ -278,8 +279,54 @@
 | 分からないとき | 書いていない | 「用語集にないことは、推測で断定せず『用語集にはない』と伝える」 |
 | プロジェクト固有の知識 | プロンプト本体には持たない。作業ディレクトリから上へたどって見つけた AGENTS.md・CLAUDE.md などを `<project_context>` として足す | 講座固有のルールを INSTRUCTIONS に直接書いている |
 | 環境の情報 | `<cwd>` に作業ディレクトリ。`<docs>` に Pi 自身のドキュメントの場所（ハーネスについて聞かれたときだけ読む） | 書いていない |
-| 安全・確認 | 書いていない。Pi は確認を求めずに実行する。公式ドキュメント（docs/security.md）は、コンテナやサンドボックスの中で動かすことを勧めている | 書いていない。確認はプロンプトではなく、プログラム側（実装の `requires_approval`）で挟んだ |
+| 安全・確認 | 書いていない。Pi は確認を求めずに実行する。公式ドキュメント（docs/security.md）は、コンテナやサンドボックスの中で動かすことを勧めている。動かした 2 回でも、問いは出ずにファイルを書き、pytest を流した（下） | 書いていない。確認はプロンプトではなく、プログラム側（実装の `requires_approval`）で挟んだ |
 | 組み立て方 | 選んだツールや見つけたファイルから、セクション（preamble・tools・rules・docs・project_context・skills・cwd）を組み立てる。会話の途中で変わったセクションだけを送り直す仕組みもある | 固定の文字列 |
+
+**Codespaces で動かした結果**（2026-11-16、2 つの依頼を各 1 回）
+
+- 環境と動かし方：
+  - Codespace（2 コア・8 GB）に、宿題資料のコマンド（`npm install -g --ignore-scripts @earendil-works/pi-coding-agent`）で Pi を入れた。版は 1.5.2 で、上で読んだソースと同じ（[setup.txt](results/pi/setup.txt)）。
+  - モデルは、`pi --list-models gemini` の一覧にあった google の `gemini-3.5-flash-lite`。自分のエージェントと同じにした。
+  - 動かしたのは Claude。手元から `gh codespace ssh` で入り、`pi --provider google --model gemini-3.5-flash-lite --mode json --no-session "<依頼>"` で流した。宿題資料の TUI（`pi` を起動して `/model` で選ぶ）は使っていない。
+  - Codespaces secret の `GEMINI_API_KEY` は登録していなかった。そのため、手元の `.env` からその 1 行だけを、Codespace のホームのファイル（権限 600）に送った。
+  - Codespace は、一時ブランチ `lec03-pi` から作った。lec03 から変えたのは次の 2 点だけで、終わったあと Codespace と一緒に消した。
+    - `gh codespace ssh` で入るため、devcontainer に sshd の feature を足した（元の devcontainer には SSH サーバーが無い）。
+    - Pi が前の答えを読まないように、`lectures/03/answer.md` と `lectures/03/results/` を外した。ほかの回の answer.md・README.md・data は、講座の repo（`lec03-start`）のまま。
+  - Pi の環境からは `GITHUB_TOKEN` を外した。終わったあと、fork のブランチやタグが増えていないことを確かめた。
+  - repo には AGENTS.md・CLAUDE.md が無い。
+- 記録：[3levels.txt](results/pi/3levels.txt)・[save.txt](results/pi/save.txt)。Pi が出した JSONL（[3levels.jsonl](results/pi/3levels.jsonl)・[save.jsonl](results/pi/save.jsonl)）から、`scripts/lec03_pi_trace.py` で作った。
+- Pi の入力 tokens は、ログの `input` と `cacheRead`（キャッシュから読んだ分）の和にした。Pi のログでは、`totalTokens` が `input`＋`cacheRead`＋`output` になっている。
+
+「AIE2026の講座の宿題にある「3レベル」とは何ですか？」
+
+| | 自分のエージェント（演習、2026-11-15） | Pi（2026-11-16 01:46、9 秒） |
+|---|---|---|
+| ツール | `search_glossary('3レベル')` の 1 回 | bash（`find` 1 回・`git grep` 3 回）と read（README.md）の計 5 回 |
+| LLM の呼び出し | 2 | 6 |
+| 入力 tokens | 985 | 21,983（うちキャッシュから 6,105） |
+| 出力 tokens | 141 | 813（うち reasoning 480） |
+| 回答 | 正しい。最後に「第1回」 | 用語集の 3 点（3 つの名前・どれか1つで完了・原則として採点しない）は合っていた。各レベルの説明には、用語集に無い言葉を足した（「基本操作・座学的な理解」「別のフレームワークやツールの検証」など）。第N回は無い |
+
+「LoRAとQLoRAの違いを調べて、要点を学習の記録に保存して」
+
+| | 自分のエージェント（実装の、承認した回、2026-11-15） | Pi（2026-11-16 01:47、39 秒） |
+|---|---|---|
+| 道筋 | `search_glossary` 2 回 → `save_learning_log` を依頼して止まる → y/N を聞く | find と read で repo を調べ、`tests/test_learning_log.py`・`app/tools.py`・`app/agent.py` などを読んだ。`uv run pytest` を 2 回流し、`uv -q run python -c` で `tools.save_learning_log()` を直接呼んだ |
+| 確認 | 引数を見せて y/N を聞いた | 問いは出なかった |
+| LLM の呼び出し / ツールの実行 | 3 / 3 | 18 / 17 |
+| 入力 tokens | 3,054 | 187,348（うちキャッシュから 132,506） |
+| 保存されたもの | `learning_log/2026-11-15.md`（480 バイト）。用語集と食い違いなし | `learning_log/2026-11-15.md`（1,030 バイト）。用語集に無い説明（LoRA は通常 16bit で持つ、量子化のオーバーヘッドなど）も入った |
+
+- 「3レベル」：専用のツールが無くても、Pi は repo を grep して README と用語集にたどり着き、要点は正しく答えた。そのぶん、LLM の呼び出しは 3 倍（2 → 6）、入力 tokens は約 22 倍（985 → 21,983）になった。
+- 「保存して」：
+  - Pi は、`tests/test_learning_log.py`・`app/tools.py`・`app/agent.py` を読んだあと、`uv -q run python -c` で `print(tools.save_learning_log(title, content))` を実行した。戻り値は「learning_log/2026-11-15.md に保存しました（見出し: LoRAとQLoRAの違い）。」。
+  - 承認の要否は、関数ではなく、エージェントへの登録（`requires_approval=True`）で決まる。そのため、関数を直接呼ぶと問いは出ない。実装の気づき（同じ関数を ADK などにそのまま渡すと、確認なしで保存してしまう）が、そのまま起きた。
+  - Pi がなぜ直接呼んだのか（承認の仕組みに気づいていたか）は分からない。reasoning の中身は、ログに残らない。
+  - `--mode json` で、stdin を閉じて流した。そのため、この 1 回から「Pi が聞かないことを選んだ」とは言えない。確認を求めずに実行することは docs と宿題資料に書いてあり、今回の動きはそれと食い違わなかった、まで。
+  - ほかに、`uv run pytest` を 2 回、確認なしで流した（どちらも 25 passed）。
+  - Codespace の時計は UTC なので、ファイル名の日付は 11-15、見出しの時刻は「16:47」になった。
+- どちらも 1 回だけで、自分のエージェントとは実行した日も違う。Pi は gemini-3.5-flash-lite でも、既定で reasoning を使っていた。
+- 実際に Gemini に送られたシステムプロンプトは、確かめていない。上の比較の表は、ソースから組み立てたもののまま。
 
 **気づき・疑問**
 
@@ -287,5 +334,7 @@
   - Pi は「何をする人か」と「道具の正しい使い方」だけを書き、プロジェクトで何を守るべきかは AGENTS.md に任せている。
   - 自分の INSTRUCTIONS は、道具の説明を docstring に任せ、領域のルール（検索してから答える、推測しない、答えを書かない）を書いている。
 - どちらも、安全のための確認をプロンプトには書いていない。Pi は環境（Codespaces・コンテナ）で守り、自分のエージェントは承認の仕組み（実装）で守っている。「確認してから実行して」とプロンプトに書くより、プログラムで止めるほうが確実だと思う。基礎で見たとおり、プロンプトの1行は効いたり効かなかったりする。
+  - ただし、自分の承認の仕組みが守るのは、自分のエージェントがツールとして呼ぶ経路だけだった。シェルを持つ Pi は、同じ関数を Python から直接呼んで保存した（上の「Codespaces で動かした結果」）。本当に止めたい操作は、関数の中（書く前に確かめる）や、環境の権限（書ける場所を絞る）でも守る必要がある。
+- Pi の答えには、最後の第N回が無く、用語集に無い説明も混ざった。自分の INSTRUCTIONS で決めたルール（最後に第N回、用語集にないことは推測で断定しない）は、Pi には渡っていない。repo には AGENTS.md・CLAUDE.md が無い（保存の回では、`app/agent.py` をファイルとして読んではいる）。
 - Pi の rules は、ツールを選ぶと、そのツールの guideline が足される作り。自分のエージェントでも、ツールを足すたびに INSTRUCTIONS を書き足すのではなく、ツールの側に「使い方の1行」を持たせる形にできる。基礎で見た「docstring にも同じことが書いてある」は、その形に近い。
 - 疑問：Pi に講座固有のルールを守らせたいときは、AGENTS.md に何を書けば、自分の INSTRUCTIONS と同じふるまいになるのか。

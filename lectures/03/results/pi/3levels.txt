@@ -1,0 +1,43 @@
+name: 3levels
+model: google/gemini-3.5-flash-lite
+prompt: AIE2026の講座の宿題にある「3レベル」とは何ですか？
+cwd: /workspaces/lecture-ai-engineering-2026
+start: 2026-11-16 01:46:04 JST
+exit: 0
+end: 2026-11-16 01:46:13 JST
+
+--- trace ---
+[LLM 1] google/gemini-3.5-flash-lite stop=toolUse input=1357 cacheRead=0 output=57 reasoning=24 toolCall=1
+[tool call]   bash({"timeout": 30, "command": "find . -maxdepth 3 -not -path '*/.*'"})
+[tool return] bash -> .\n./scripts\n./scripts/make_sft_dataset.py\n./scripts/lec03_prompt_variants.py\n./scripts/lec03_adk_compare.py\n./notebooks\n./notebooks/lora_format_tuning.ipynb\n./data\n./data/glossary.json\n./data/lectures\n./data/lectures/05.md\n./data/lectures/01.md\n./data/lectures/03.md\n./data/lectures/02.m…
+[LLM 2] google/gemini-3.5-flash-lite stop=toolUse input=1830 cacheRead=0 output=44 reasoning=19 toolCall=1
+[tool call]   bash({"timeout": 30, "command": "git grep -i \"レベル\""})
+[tool return] bash -> README.md:宿題は「基礎・実装・発展」の3レベルがあり、どれか1つに取り組めば完了です。\napp/ask.py:DEFAULT_QUESTION = "AIE2026の講座の宿題にある「3レベル」とは何ですか？"\ndata/glossary.json:      "definition": "Googleが公開しているオープンソースのエージェント開発フレームワーク。Geminiとの統合が深い。2.0で1.x系から大きな変更が入っている。本講座では第3回の宿題の発展レベルで扱う。",\ndata/glossary.json:      "term": "宿題の3レベル",\ndata…
+[LLM 3] google/gemini-3.5-flash-lite stop=toolUse input=2846 cacheRead=0 output=110 reasoning=79 toolCall=1
+[tool call]   bash({"timeout": 30, "command": "git grep -C 5 \"宿題の3レベル\""})
+[tool return] bash -> data/glossary.json-      "definition": "Pydantic AIに含まれるテスト用の偽モデル。実際のLLMを呼ばずに、ツールを呼び出してダミーの回答を返す。APIキーや利用枠を使わずに、エージェントの配線（ツールが登録され、呼ばれ、結果が返るか）をテストできる。",\ndata/glossary.json-      "related": ["pydantic-ai", "rate-limit"]\ndata/glossary.json-    },\ndata/glossary.json-    {\ndata/glossary.json-      "…
+[LLM 4] google/gemini-3.5-flash-lite stop=toolUse input=4036 cacheRead=0 output=47 reasoning=21 toolCall=1
+[tool call]   read({"offset": 1, "path": "README.md", "limit": 100})
+[tool return] read -> # AIE2026 演習・宿題リポジトリ\n\nAIエンジニアリング実践講座（AIE2026）の演習と宿題で使うリポジトリです。\n講座を通して、**AIエンジニアリングの学習を支援するエージェント**を少しずつ育てていきます。\n\n## 想定する環境\n\n演習は **ブラウザだけで** 進められるように作っています。自分の PC への導入は不要です。\n\n| 使うもの | 用途 | 注意 |\n|---|---|---|\n| GitHub の **個人** アカウント | このリポジトリを fork し、作業ブランチと PR で提出する | 会社や学校が管理するアカウントでは Cod…
+[LLM 5] google/gemini-3.5-flash-lite stop=toolUse input=3692 cacheRead=2015 output=328 reasoning=301 toolCall=1
+[tool call]   bash({"timeout": 30, "command": "git grep -i \"基礎・実装\""})
+[tool return] bash -> README.md:宿題は「基礎・実装・発展」の3レベルがあり、どれか1つに取り組めば完了です。\nlectures/03/problem.md:基礎・実装・発展の3つのレベルから1つを選んで取り組みます。どれか1つに取り組めば完了です。\n
+[LLM 6] google/gemini-3.5-flash-lite stop=stop input=2117 cacheRead=4090 output=227 reasoning=36 toolCall=0 text=AIE2026（AIエンジニアリング実践講座）の宿題における「**3レベル**」とは、各回の宿題の構成および難易度・アプローチの3段階を指します。\n\n具体的には以下の3つのレベルで構成されています：\n\n1. **基礎**：講義内容の…
+
+[usage] LLM の応答=6 turn=6 ツールの実行=5 input_tokens=15878 cacheRead=6105 output_tokens=813（うち reasoning=480）
+
+--- 最終回答 ---
+AIE2026（AIエンジニアリング実践講座）の宿題における「**3レベル**」とは、各回の宿題の構成および難易度・アプローチの3段階を指します。
+
+具体的には以下の3つのレベルで構成されています：
+
+1. **基礎**：講義内容の確認や基本操作・座学的な理解を深める課題
+2. **実装**：実際に手を動かしてコードを書く、プログラムを修正・拡張する課題
+3. **発展**：より高度な調査、応用的な試行、別のフレームワークやツールの検証などを行う課題
+
+### 取り組み方のポイント
+* 各回、これら3つのレベルから**どれか1つ**を選んで取り組めば、その回の宿題は完了となります。
+* 原則として採点は行われません。自身のスキルや使える時間に合わせて適切なレベルを選択できます。
+
+--- 実行の後に、実行の前の marker より新しかったファイル：0 件 ---
+（.venv・__pycache__・.pytest_cache の 0 件は、uv run と pytest が作ったもの。下には出さない）

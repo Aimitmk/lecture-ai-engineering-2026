@@ -1,0 +1,7 @@
+name: 3levels
+model: google/gemini-3.5-flash-lite
+prompt: AIE2026の講座の宿題にある「3レベル」とは何ですか？
+cwd: /workspaces/lecture-ai-engineering-2026
+start: 2026-11-16 01:46:04 JST
+exit: 0
+end: 2026-11-16 01:46:13 JST
