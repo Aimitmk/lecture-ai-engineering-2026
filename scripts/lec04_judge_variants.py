@@ -84,7 +84,8 @@ class Condition:
 CONDITIONS = [
     Condition("baseline", "変更なし（STEP 3 の後の rubric.md、gemini-3.5-flash-lite、理由→判定）"),
     # gemini-3.5-flash の無料枠は 1 日 20 回（429 の本文: GenerateRequestsPerDayPerProjectPerModel-FreeTier, limit 20）。
-    # 1 回の run で 10 回呼ぶので、1 日に取れるのは 2 回まで（2026-11-15 は試しの呼び出しも含めて 1 回分しか取れなかった）
+    # 1 回の run で 10 回呼ぶので、1 日に取れるのは 2 回まで。2026-11-15 は、試しの呼び出しも含めて 1 回目しか取れず、
+    # 2・3 回目は上限が戻った 17:00 JST より後（20:30）に取った
     Condition("model_flash", "採点のモデルを gemini-3.5-flash にする", model="gemini-3.5-flash", wait=8.0),
     Condition(
         "rubric_grounding",
