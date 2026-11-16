@@ -1,0 +1,363 @@
+{
+  "summary": {
+    "label": "search",
+    "n": 30,
+    "accuracy": 0.7666666666666667,
+    "by_category": {
+      "A": {
+        "n": 10,
+        "accuracy": 1.0
+      },
+      "B": {
+        "n": 10,
+        "accuracy": 0.4
+      },
+      "C": {
+        "n": 10,
+        "accuracy": 0.9
+      }
+    }
+  },
+  "rows": [
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「LoRA」の意味を教えてください。",
+      "query": "LoRA",
+      "term_id": "lora",
+      "hit_ids": [
+        "lora",
+        "lora-rank",
+        "qlora"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"ランク（LoRAのr）\", \"lecture\": 2, \"definition\": \"LoRAで使う低ランク行列の大きさを決めるハイパーパラメータ。大きいほど表現力が上がるが、学習するパラメータとメモリも増える。\", \"related\": [\"lora\"]}, {\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学習する手法。より大きなモデルを小さなGPUで扱える。本講座の第2回演習ではモデルがGPUに載るためLoRAで学習し、4ビットで読み込んだときのメモリと出力の違いを発展で比べる。\", \"related\": [\"lora\", \"quantization\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「過学習」の意味を教えてください。",
+      "query": "過学習",
+      "term_id": "overfitting",
+      "hit_ids": [
+        "overfitting",
+        "epoch"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"過学習\", \"lecture\": 2, \"definition\": \"学習データにだけ過度に適合し、未知の入力に対する性能が落ちる状態。学習に使わない検証データで性能を測って気づく。\", \"related\": [\"epoch\", \"evaluation-loop\"]}, {\"term\": \"エポック\", \"lecture\": 2, \"definition\": \"学習データ全体を1周学習することを1エポックと数える。回数を増やしすぎると過学習しやすい。\", \"related\": [\"overfitting\", \"learning-rate\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「temperature」の意味を教えてください。",
+      "query": "temperature",
+      "term_id": "temperature",
+      "hit_ids": [
+        "temperature"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"temperature\", \"lecture\": 1, \"definition\": \"次のトークンを選ぶときのランダムさを調整する設定値。低いほど出力が安定し、高いほど多様になる。同じ質問でも回答が変わる理由の一つ。\", \"related\": [\"llm\", \"evaluation-loop\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「ハルシネーション」の意味を教えてください。",
+      "query": "ハルシネーション",
+      "term_id": "hallucination",
+      "hit_ids": [
+        "hallucination"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"ハルシネーション\", \"lecture\": 1, \"definition\": \"LLMが事実と異なる内容や存在しない情報を、もっともらしく生成してしまう現象。モデルが知らないこと（最新情報、組織や講座に固有の情報など）を聞いたときに起きやすい。外部データをツールで参照させる、根拠を示させる、評価で検出する、などで抑える。\", \"related\": [\"tool\", \"evaluation-loop\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「エポック」の意味を教えてください。",
+      "query": "エポック",
+      "term_id": "epoch",
+      "hit_ids": [
+        "epoch"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"エポック\", \"lecture\": 2, \"definition\": \"学習データ全体を1周学習することを1エポックと数える。回数を増やしすぎると過学習しやすい。\", \"related\": [\"overfitting\", \"learning-rate\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「宿題の3レベル」の意味を教えてください。",
+      "query": "宿題の3レベル",
+      "term_id": "homework-levels",
+      "hit_ids": [
+        "homework-levels"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"宿題の3レベル\", \"lecture\": 1, \"definition\": \"AIE2026の宿題の構成。「基礎（講義内容の確認）」「実装（自分でコードを書く）」「発展（調査や試行）」の3段階があり、どれか1つに取り組めばその回の宿題は完了。原則として採点はしない。\", \"related\": [\"answer-md\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「lecNN-start タグ」の意味を教えてください。",
+      "query": "lecNN-start タグ",
+      "term_id": "lec-start-tag",
+      "hit_ids": [
+        "lec-start-tag"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"lecNN-start タグ\", \"lecture\": 1, \"definition\": \"AIE2026の講座repoで、各回の演習開始時点のコードに付けているGitタグ（例：lec03-start）。前の回が終わっていなくても、このタグからブランチを作ればその回の演習を始められる。\", \"related\": [\"branch\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「既定モデル」の意味を教えてください。",
+      "query": "既定モデル",
+      "term_id": "default-model",
+      "hit_ids": [
+        "default-model"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"既定モデル\", \"lecture\": 1, \"definition\": \"AIE2026の演習と宿題で標準に使うモデルは gemini-3.5-flash-lite。無料枠のレート制限と講座運営の安定性を考えて選んでいる。環境変数 AIE_MODEL で他のモデルに切り替えてよく、自分で契約したAPIを使ってもよい。\", \"related\": [\"rate-limit\", \"api-key\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「Codespaces secret」の意味を教えてください。",
+      "query": "Codespaces secret",
+      "term_id": "codespaces-secret",
+      "hit_ids": [
+        "codespaces-secret",
+        "codespaces",
+        "api-key"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"Codespaces secret\", \"lecture\": 1, \"definition\": \"GitHubのアカウント設定に登録しておく秘密の値。指定したrepoのCodespacesを起動すると環境変数として渡される。登録時に使うrepo（自分のfork）を選ぶ必要がある。起動中に登録した場合はCodespacesの再起動が必要。\", \"related\": [\"api-key\", \"environment-variable\", \"codespaces\"]}, {\"term\": \"GitHub Codespaces\", \"lecture\": 1, \"definition\": \"GitHubが提供するクラウド上の開発環境。ブラウザからVS Codeを開き、repoに書かれた設定どおりの環境をすぐに使える。個人アカウントには毎月の無料枠があり、使わないときは停止しないと枠を消費し続ける。\", \"related\": [\"devcontainer\", \"codespaces-secret\"]}, {\"term\": \"APIキー\", \"lecture\": 1, \"definition\": \"APIを呼び出す人を識別するための秘密の文字列。漏れると他人に利用枠を使われるため、コードに直接書かない、コミットしない、チャットに貼らない。本講座ではCodespaces secretに登録し、環境変数 GEMINI_API_KEY として読み込む。\", \"related\": [\"codespaces-secret\", \"environment-variable\"]}]"
+    },
+    {
+      "category": "A",
+      "kind": null,
+      "question": "「TestModel」の意味を教えてください。",
+      "query": "TestModel",
+      "term_id": "test-model",
+      "hit_ids": [
+        "test-model"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"TestModel\", \"lecture\": 3, \"definition\": \"Pydantic AIに含まれるテスト用の偽モデル。実際のLLMを呼ばずに、ツールを呼び出してダミーの回答を返す。APIキーや利用枠を使わずに、エージェントの配線（ツールが登録され、呼ばれ、結果が返るか）をテストできる。\", \"related\": [\"pydantic-ai\", \"rate-limit\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "Low-Rank Adaptation という手法を説明してください。",
+      "query": "Low-Rank Adaptation という手法を説明してください。",
+      "term_id": "lora",
+      "hit_ids": [
+        "lora",
+        "lora-rank"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"ランク（LoRAのr）\", \"lecture\": 2, \"definition\": \"LoRAで使う低ランク行列の大きさを決めるハイパーパラメータ。大きいほど表現力が上がるが、学習するパラメータとメモリも増える。\", \"related\": [\"lora\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "別名",
+      "question": "AIE2026 のデフォルトモデルは何ですか？",
+      "query": "AIE2026 のデフォルトモデルは何ですか？",
+      "term_id": "default-model",
+      "hit_ids": [
+        "default-model"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"既定モデル\", \"lecture\": 1, \"definition\": \"AIE2026の演習と宿題で標準に使うモデルは gemini-3.5-flash-lite。無料枠のレート制限と講座運営の安定性を考えて選んでいる。環境変数 AIE_MODEL で他のモデルに切り替えてよく、自分で契約したAPIを使ってもよい。\", \"related\": [\"rate-limit\", \"api-key\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA と QLoRA の違いは何ですか？",
+      "query": "LoRA と QLoRA の違いは何ですか？",
+      "term_id": "qlora",
+      "hit_ids": [
+        "lora",
+        "qlora"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学習する手法。より大きなモデルを小さなGPUで扱える。本講座の第2回演習ではモデルがGPUに載るためLoRAで学習し、4ビットで読み込んだときのメモリと出力の違いを発展で比べる。\", \"related\": [\"lora\", \"quantization\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "LoRA の r を大きくすると、どうなりますか？",
+      "query": "LoRA の r を大きくすると、どうなりますか？",
+      "term_id": "lora-rank",
+      "hit_ids": [
+        "lora"
+      ],
+      "ok": false,
+      "result": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "応用",
+      "question": "Gemini の API キーは、コードに直接書いてもいいですか？",
+      "query": "Gemini の API キーは、コードに直接書いてもいいですか？",
+      "term_id": "api-key",
+      "hit_ids": [
+        "api",
+        "api-key"
+      ],
+      "ok": true,
+      "result": "[{\"term\": \"API\", \"lecture\": 1, \"definition\": \"プログラムから別のサービスの機能を呼び出すための窓口。本講座ではGemini APIをPythonから呼び出してLLMを使う。\", \"related\": [\"api-key\", \"rate-limit\"]}, {\"term\": \"APIキー\", \"lecture\": 1, \"definition\": \"APIを呼び出す人を識別するための秘密の文字列。漏れると他人に利用枠を使われるため、コードに直接書かない、コミットしない、チャットに貼らない。本講座ではCodespaces secretに登録し、環境変数 GEMINI_API_KEY として読み込む。\", \"related\": [\"codespaces-secret\", \"environment-variable\"]}]"
+    },
+    {
+      "category": "B",
+      "kind": "講座の言い換え",
+      "question": "AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？",
+      "query": "AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？",
+      "term_id": "homework-levels",
+      "hit_ids": [],
+      "ok": false,
+      "result": "用語集に「AIE2026 の宿題は、毎回すべてのレベルに取り組む必要がありますか？」は見つかりませんでした。"
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？",
+      "query": "学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？",
+      "term_id": "overfitting",
+      "hit_ids": [],
+      "ok": false,
+      "result": "用語集に「学習データにだけ過度に適合して、未知の入力で性能が落ちる状態を何と呼びますか？」は見つかりませんでした。"
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？",
+      "query": "1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？",
+      "term_id": "learning-rate",
+      "hit_ids": [],
+      "ok": false,
+      "result": "用語集に「1回の更新でパラメータをどれだけ動かすかを決めるハイパーパラメータは何ですか？」は見つかりませんでした。"
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？",
+      "query": "前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？",
+      "term_id": "lec-start-tag",
+      "hit_ids": [],
+      "ok": false,
+      "result": "用語集に「前の回の演習が終わっていなくても、その回の演習を始めるために使う Git のタグを何と言いますか？」は見つかりませんでした。"
+    },
+    {
+      "category": "B",
+      "kind": "逆向き",
+      "question": "モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？",
+      "query": "モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？",
+      "term_id": "quantization",
+      "hit_ids": [],
+      "ok": false,
+      "result": "用語集に「モデルの重みを4ビットなど少ないビット数で表して、メモリを減らす技術は何ですか？」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「DPO」の意味を教えてください。",
+      "query": "DPO",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「DPO」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「蒸留」の意味を教えてください。",
+      "query": "蒸留",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「蒸留」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「Transformer」の意味を教えてください。",
+      "query": "Transformer",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「Transformer」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「RLHF」の意味を教えてください。",
+      "query": "RLHF",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「RLHF」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「MoE」の意味を教えてください。",
+      "query": "MoE",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「MoE」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「埋め込みベクトル」の意味を教えてください。",
+      "query": "埋め込みベクトル",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「埋め込みベクトル」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "実在",
+      "question": "「プロンプトインジェクション」の意味を教えてください。",
+      "query": "プロンプトインジェクション",
+      "term_id": null,
+      "hit_ids": [
+        "prompt"
+      ],
+      "ok": false,
+      "result": "[{\"term\": \"プロンプト\", \"lecture\": 1, \"definition\": \"LLMに渡す入力文。質問だけでなく、役割、制約、出力形式、例などを含めることで出力を方向づけられる。\", \"related\": [\"system-prompt\", \"llm\"]}]"
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「lecNN-end タグ」の意味を教えてください。",
+      "query": "lecNN-end タグ",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「lecNN-end タグ」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「宿題の5レベル」の意味を教えてください。",
+      "query": "宿題の5レベル",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「宿題の5レベル」は見つかりませんでした。"
+    },
+    {
+      "category": "C",
+      "kind": "架空",
+      "question": "「TurboModel」の意味を教えてください。",
+      "query": "TurboModel",
+      "term_id": null,
+      "hit_ids": [],
+      "ok": true,
+      "result": "用語集に「TurboModel」は見つかりませんでした。"
+    }
+  ]
+}

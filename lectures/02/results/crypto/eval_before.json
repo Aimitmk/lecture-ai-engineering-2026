@@ -1,0 +1,201 @@
+{
+  "summary": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.42857142857142855,
+    "content_rate": 0.09523809523809523,
+    "both_rate": 0.09523809523809523,
+    "seconds": 24.2
+  },
+  "rows": [
+    {
+      "question": "現物の手数料は何%ですか",
+      "raw": "{\"answer\": \"0.05%\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "現物取引の売買手数料の料率を教えてください",
+      "raw": "{\"answer\": \"メイカー: 0.05%、テイカー: 0.10%\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "メイカー手数料とテイカー手数料はそれぞれ何%ですか",
+      "raw": "{\"answer\": \"メイカー: 0.05%、テイカー: 0.10%\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "出金のルールを教えてください",
+      "raw": "{\"answer\": \"日本円の出金手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "円を引き出すときの手数料と、振り込みのタイミングを教えてください",
+      "raw": "{\"answer\": \"円引き出しの手数料は 1 回 330 円です。平日 15:00 までの出金申請は、その日のうちに振り込みます。\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "出金の手数料と、当日中に振り込まれる申請の締め時刻を教えてください",
+      "raw": "{\"answer\": \"出金の手数料は 1 回 330 円です。当日中に振り込まれる申請の締め時刻は平日 15:00 です。\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "審査が終わるまで何日かかりますか",
+      "raw": "{\"answer\": \"2 営業日\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "本人確認の審査は何日で終わりますか",
+      "raw": "{\"answer\": \"2 営業日\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "口座開設を申し込んでから審査完了までの目安は？",
+      "raw": "{\"answer\": \"2 営業日\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API のレート制限を教えてください",
+      "raw": "{\"answer\": \"1 つの API キーにつき毎分 60 回まで呼び出せます。超えた場合は 1 分間エラーを返します。\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API キー1つあたりの呼び出し上限は毎分何回ですか",
+      "raw": "{\"answer\": \"60\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API を使いすぎたときの上限と、超えたときの扱いを教えてください",
+      "raw": "{\"answer\": \"1 分間エラーを返します\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "毎週メンテナンスで止まるのは何曜日ですか",
+      "raw": "{\"answer\": \"水曜日\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "毎週のメンテナンスは何曜日の何時からですか",
+      "raw": "{\"answer\": \"水曜\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "メンテナンスで入出金が止まるのは何曜日の何時ですか",
+      "raw": "{\"answer\": \"水曜\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "API キーは何個まで発行できますか",
+      "raw": "{\"answer\": \"1\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "日本円の入金に手数料はかかりますか",
+      "raw": "{\"answer\": \"はい、日本円の入金に手数料がかかります。平日 15:00 までの出金申請は、その日のうちに振り込みます。\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "ステーキングの年利はどれくらいですか",
+      "raw": "{\"answer\": \"確認が必要\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "取り扱っている銘柄はいくつありますか",
+      "raw": "{\"answer\": \"0\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "本人確認書類にマイナンバーカードは使えますか",
+      "raw": "{\"answer\": \"確認が必要\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "メンテナンスの前に出した注文は取り消されますか",
+      "raw": "{\"answer\": \"確認が必要\"}",
+      "format_ok": false,
+      "format_reason": "missing_key",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    }
+  ]
+}
