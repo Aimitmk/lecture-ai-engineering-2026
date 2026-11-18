@@ -455,8 +455,10 @@ def measure(run: dict, gold: list[str]) -> dict:
     cited = [page_id_of(c) for c in cites]
     manual = MANUAL_CITATIONS.get(run["stem"])
     unresolved = [c["page"] for c in cites if c["doc"] is None]
-    if manual:  # 手で読んだ分を足し、決まらなかったページは残さない
-        cited += [p for p in manual["pages"] if p not in cited]
+    added = []
+    if manual:  # 手で読んだ分を足し、決まらなかったページは残さない。印は、手で読んで初めて入ったページだけ
+        added = [p for p in manual["pages"] if p not in cited]
+        cited += added
         unresolved = []
     given = set(ALL_PAGE_IDS) if run["full_context"] else set(run["pages_given"])
     return {
@@ -464,7 +466,7 @@ def measure(run: dict, gold: list[str]) -> dict:
         "gold_cited": {g: g in cited for g in gold},
         "cited": [c for c in cited if c],
         "inferred": [page_id_of(c) for c in cites if c["how"] == "inferred"],
-        "manual": manual["pages"] if manual else [],
+        "manual": added,
         "unresolved": unresolved,
         "cited_not_given": [] if run["full_context"] else [c for c in cited if c and c not in given],
         "n_given": len(given) if not run["full_context"] else None,
@@ -511,19 +513,23 @@ def level_table(level: str, runs: list[dict], questions: list[dict], judged: dic
                 lines.append(f"| {CONDITIONS[name].label} | 未実行 |" + " |" * 10)
                 continue
             per_run = [measure(r, q["gold"]) for r in mine]
-            verdicts = [judged.get(r["stem"], {}).get("verdict", "未") for r in mine]
-            not_given = [_join(label(p) if "（" not in p else p for p in m["cited_not_given"]) or "なし"
-                         for m in per_run]
-            calls = [len(r["tool_calls"]) for r in mine]
-            inputs = [format(r["usage"]["input_tokens"], ",") for r in mine]
-            n_given = [m["n_given"] if m["n_given"] is not None else "全" for m in per_run]
+            by_rep = {r["rep"]: (r, m) for r, m in zip(mine, per_run)}
+
+            def each(fn):  # 1・2・3 回目の順。実行が無い回は「－」（値を左に詰めない）
+                return [fn(*by_rep[n]) if n in by_rep else "－" for n in range(1, REPEATS + 1)]
+
+            verdicts = each(lambda r, m: judged.get(r["stem"], {}).get("verdict", "未"))
+            not_given = each(lambda r, m: _join(label(p) if "（" not in p else p for p in m["cited_not_given"]) or "なし")
             lines.append(
                 f"| {CONDITIONS[name].label} | {_join(verdicts)} | {_counts(per_run, q['gold'], 'gold_given')} "
                 f"| {_counts(per_run, q['gold'], 'gold_cited')} | {' / '.join(not_given)} "
-                f"| {_join(n_given)} | {_join(r['elapsed_seconds'] for r in mine)} | {_join(inputs)} "
-                f"| {_join(r['usage']['output_tokens'] for r in mine)} "
-                f"| {_join(r['usage']['requests'] for r in mine)} "
-                f"| {_join(r['cost'].lstrip('$') for r in mine)} | {_join(calls)} |")
+                f"| {_join(each(lambda r, m: m['n_given'] if m['n_given'] is not None else '全'))} "
+                f"| {_join(each(lambda r, m: r['elapsed_seconds']))} "
+                f"| {_join(each(lambda r, m: format(r['usage']['input_tokens'], ',')))} "
+                f"| {_join(each(lambda r, m: r['usage']['output_tokens']))} "
+                f"| {_join(each(lambda r, m: r['usage']['requests']))} "
+                f"| {_join(each(lambda r, m: r['cost'].lstrip('$')))} "
+                f"| {_join(each(lambda r, m: len(r['tool_calls'])))} |")
     return lines
 
 
@@ -537,11 +543,50 @@ def run_details(runs: list[dict], questions: list[dict], cond_names) -> list[str
         m = measure(r, gold_of[r["question_id"]])
         calls = "、".join(f"{c['tool']}({json.dumps(c['args'], ensure_ascii=False)})" for c in r["tool_calls"]) or "なし"
         given = "全資料" if r["full_context"] else "・".join(label(p) for p in r["pages_given"]) or "なし"
+        cited = []
+        for p in m["cited"]:
+            text = label(p) if "（" not in p else p
+            if p in m["inferred"]:
+                text += "（資料は前の行から）"
+            if p in m["manual"]:
+                text += "（手で読んだ）"
+            cited.append(text)
         lines += [f"- `{r['stem']}`（{r['started_at']}）",
                   f"  - ツール：{calls}",
                   f"  - 本文を渡したページ：{given}",
-                  f"  - 引用：{'・'.join(label(p) if '（' not in p else p for p in m['cited']) or 'なし'}"
+                  f"  - 引用：{'・'.join(cited) or 'なし'}"
                   + (f"（資料が読めない p.{_join(m['unresolved'])}）" if m["unresolved"] else "")]
+    return lines
+
+
+ROUTE = {"hit": "検索", "neighbor": "前後ページ", "read": "read_pages", "seed": "seed", "node": "Tree"}
+
+
+def route_of(run: dict, page_id: str) -> str:
+    """根拠ページの本文を、どの経路で最初に渡したか（× は渡していない）。"""
+    if run["full_context"]:
+        return "全文"
+    for ret in run["tool_returns"]:
+        for p in ret["pages"]:
+            if p["page_id"] == page_id and p["given"]:
+                if p["role"] == "expanded":
+                    return "expanded（用語）" if p.get("via_term") else "expanded（前後）"
+                return ROUTE.get(p["role"], p["role"])
+    return "×"
+
+
+def gold_routes(runs: list[dict], questions: list[dict], cond_names, qids=None) -> list[str]:
+    lines = []
+    for q in questions:
+        if not q["gold"] or (qids and q["id"] not in qids):
+            continue
+        mine = sorted((r for r in runs if r["condition"] in cond_names and r["question_id"] == q["id"]),
+                      key=lambda r: (list(CONDITIONS).index(r["condition"]), r["rep"]))
+        if not mine:
+            continue
+        lines += ["", f"### {q['id']}", "", "| 実行 | " + " | ".join(label(g) for g in q["gold"]) + " |",
+                  "|---|" + "---|" * len(q["gold"])]
+        lines += [f"| `{r['stem']}` | " + " | ".join(route_of(r, g) for g in q["gold"]) + " |" for r in mine]
     return lines
 
 
@@ -609,6 +654,8 @@ def summary() -> None:
                  "入力の一部が暗黙のキャッシュで安く数えられた実行がある（下の「暗黙のキャッシュ」）。"
                  "負担の比較には入力 tokens を使う。"]
         lines += level_table(level, runs, questions, judged)
+        lines += ["", "## 根拠ページの本文を、どの経路で渡したか（× は渡していない）"]
+        lines += gold_routes(runs, questions, cond_names, EXERCISE_QUESTIONS if level == "exercise" else None)
         lines += ["", "## 暗黙のキャッシュ（入力の一部が安く数えられた実行）", ""] + cache_table(runs, cond_names)
         if level == "exercise":
             lines += ["", "## Graph の expanded の経路", ""] + graph_paths(runs)
