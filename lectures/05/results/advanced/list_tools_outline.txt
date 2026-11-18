@@ -1,0 +1,16 @@
+モデルに見えているツール: 2 個
+
+[search_outline]
+  第1〜3回の本講義資料を検索し、関連ページの本文と、それらのページがある回の目次を返す。
+  
+  queryに調べたい内容を指定する。resultsに近いページの本文、outlineに回ごとの章と見出しの一覧が入る。
+  outlineの各行は「PDFページ 見出し［ページID］」で、★はresultsに本文があるページ。
+  本文を読みたいページは、read_pagesにページIDを渡す。
+  引数: {"query": {"type": "string"}}
+
+[read_pages]
+  ページIDを指定して、第1〜3回の本講義資料のページ本文と引用情報を返す。
+  
+  search_outlineの目次（outline）で見つけたページを読むときに使う。
+  page_idsには、目次の［］内のページIDを1回に5つまで入れる。
+  引数: {"page_ids": {"items": {"type": "string"}, "type": "array"}}

@@ -1,0 +1,243 @@
+{
+ "elapsed_seconds": 9.47,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 14502,
+  "output_tokens": 350,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.004130",
+ "tool_calls": [
+  {
+   "tool": "search_outline",
+   "args": {
+    "query": "モデル 見落とす 長い 会話 作業 対策"
+   }
+  },
+  {
+   "tool": "read_pages",
+   "args": {
+    "page_ids": [
+     "lec02-main-p015"
+    ]
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_outline",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2902
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2991
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3061
+    },
+    {
+     "page_id": "lec02-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3102
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3142
+    }
+   ],
+   "n_hits": 5,
+   "outline_pages": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-p007",
+    "lec02-main-p008",
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p011",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec02-main-p018",
+    "lec02-main-p019",
+    "lec02-main-p020",
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p024",
+    "lec02-main-p025",
+    "lec02-main-p026",
+    "lec02-main-p027",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p030",
+    "lec02-main-p031",
+    "lec02-main-p032",
+    "lec02-main-p033",
+    "lec02-main-p034",
+    "lec02-main-p035",
+    "lec02-main-p036",
+    "lec02-main-p037",
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p041",
+    "lec02-main-p042",
+    "lec02-main-p043",
+    "lec02-main-p044",
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p063",
+    "lec02-main-p064",
+    "lec02-main-p065",
+    "lec02-main-p066",
+    "lec02-main-p067",
+    "lec02-main-p068",
+    "lec02-main-p069",
+    "lec02-main-p070",
+    "lec03-main-p001",
+    "lec03-main-p002",
+    "lec03-main-p003",
+    "lec03-main-p004",
+    "lec03-main-p005",
+    "lec03-main-p006",
+    "lec03-main-p007",
+    "lec03-main-p008",
+    "lec03-main-p009",
+    "lec03-main-p010",
+    "lec03-main-p011",
+    "lec03-main-p012",
+    "lec03-main-p013",
+    "lec03-main-p014",
+    "lec03-main-p015",
+    "lec03-main-p016",
+    "lec03-main-p017",
+    "lec03-main-p018",
+    "lec03-main-p019",
+    "lec03-main-p020",
+    "lec03-main-p021",
+    "lec03-main-p022",
+    "lec03-main-p023",
+    "lec03-main-p024",
+    "lec03-main-p025",
+    "lec03-main-p026",
+    "lec03-main-p027",
+    "lec03-main-p028",
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p031",
+    "lec03-main-p032",
+    "lec03-main-p033",
+    "lec03-main-p034",
+    "lec03-main-p035",
+    "lec03-main-p036",
+    "lec03-main-p037",
+    "lec03-main-p038",
+    "lec03-main-p039",
+    "lec03-main-p040",
+    "lec03-main-p041",
+    "lec03-main-p042",
+    "lec03-main-p043",
+    "lec03-main-p044",
+    "lec03-main-p045",
+    "lec03-main-p046",
+    "lec03-main-p047",
+    "lec03-main-p048",
+    "lec03-main-p049",
+    "lec03-main-p050",
+    "lec03-main-p051",
+    "lec03-main-p052",
+    "lec03-main-p053",
+    "lec03-main-p054",
+    "lec03-main-p055",
+    "lec03-main-p056",
+    "lec03-main-p057",
+    "lec03-main-p058",
+    "lec03-main-p059",
+    "lec03-main-p060",
+    "lec03-main-p061",
+    "lec03-main-p062",
+    "lec03-main-p063",
+    "lec03-main-p064",
+    "lec03-main-p065",
+    "lec03-main-p066",
+    "lec03-main-p067",
+    "lec03-main-p068",
+    "lec03-main-p069",
+    "lec03-main-p070",
+    "lec03-main-p071"
+   ]
+  },
+  {
+   "tool": "read_pages",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "read",
+     "given": true
+    }
+   ],
+   "not_found": [],
+   "skipped": []
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec02-main-p003",
+  "lec03-main-p008",
+  "lec02-main-p019",
+  "lec02-main-p028"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落としてしまう理由と、講義で紹介されている対策は以下のとおりです。\n\n### なぜ見落としてしまうのか\n* **長い文脈を均等には使えない性質**\n  * LLMは一度に読める入力の長さが伸びていても、文脈の真ん中あたりにある情報ほど使われにくいという傾向（U字型になりやすい特徴）があります。そのため、資料や会話の途中に重要な情報や指示があっても、見落とされやすくなります（第2回・PDF p.15）。\n\n### 講義で紹介されている対策\nチャットボットや長い会話・資料における対策として、以下の方法が挙げられています（第2回・PDF p.15）。\n\n* **関係する部分だけを渡す（RAG）**\n  * 講義資料などをすべてまとめて一度に渡すのではなく、質問に関係する部分だけを検索してモデルに渡す手法です。\n* **要約や作業メモで情報を整理する**\n  * 長い会話や資料のなかで、要約や作業メモを活用して情報を整理・維持します。\n* **入力の長さを変えて正答率を測る**\n  * 実際に自分の用途やデータの長さにおいて、正答率が落ちていないかを測定・評価します。",
+ "condition": "outline",
+ "args": [
+  "--outline"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-18T23:40:08+09:00",
+ "question_id": "forget_long",
+ "rep": 1,
+ "attempt": 2
+}

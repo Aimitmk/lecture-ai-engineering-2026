@@ -133,12 +133,13 @@ def summarize_return(tool: str, content) -> dict:
         for hit in data.get("results", []):
             add(hit["page_id"], "hit", True, distance=round(hit["distance"], 4))
         out["n_hits"] = len(data.get("results", []))
-        out["outline_pages"] = [page["page_id"] for document in data.get("outline", [])
-                                for section in document.get("sections", []) for page in section.get("pages", [])]
+        # 目次は「p.13 見出し［lec03-main-p013］」の行。見出しだけを見せたページ（本文は渡していない）
+        out["outline_pages"] = re.findall(r"［([^］]+)］", json.dumps(data.get("outline", []), ensure_ascii=False))
     elif tool == "read_pages":
         for page in data.get("pages", []):
             add(page["page_id"], "read", True)
         out["not_found"] = data.get("not_found", [])
+        out["skipped"] = data.get("skipped", [])
     return out
 
 

@@ -24,6 +24,8 @@ GRAPH_HOPS = 2
 GRAPH_MAX_RESULTS = 10
 # 第5回 宿題（実装）: --neighbors のとき、検索で返ったページの前後何ページまで本文を付けるか。
 RAG_NEIGHBOR_PAGES = 1
+# 第5回 宿題（発展）: --outline のとき、read_pages で1回に読めるページ数。
+OUTLINE_READ_MAX = 5
 EMBEDDING_MODEL = "gemini-embedding-001"
 EMBEDDING_DIMENSIONS = 768
 # 2,048トークンの上限に対し、タスク指定等の分を残す。超過時は切り捨てず停止する。

@@ -17,7 +17,7 @@ import sqlite_vec
 from app.config import (
     EMBEDDING_DIMENSIONS, EMBEDDING_MAX_TOKENS, EMBEDDING_MODEL,
     RAG_DB, RAG_DOCUMENT_IDS, RAG_SOURCE, RAG_TOP_K, RAG_TREE, get_api_key,
-    RAG_GRAPH, GRAPH_START_K, GRAPH_HOPS, GRAPH_MAX_RESULTS, RAG_NEIGHBOR_PAGES,
+    RAG_GRAPH, GRAPH_START_K, GRAPH_HOPS, GRAPH_MAX_RESULTS, RAG_NEIGHBOR_PAGES, OUTLINE_READ_MAX,
 )
 
 
@@ -178,6 +178,52 @@ def add_neighbor_pages(hits: list[dict], window: int | None = None,
 def search_with_neighbors(query: str) -> list[dict]:
     """第5回 宿題（実装）: search() の結果に、同じ資料の前後 RAG_NEIGHBOR_PAGES ページの本文を足す。"""
     return add_neighbor_pages(search(query))
+
+
+def lecture_outline(document_ids: list[str], hit_ids: set[str] | frozenset[str] = frozenset(),
+                    pages: list[dict] | None = None) -> list[dict]:
+    """第5回 宿題（発展）: 指定した回の目次（章ごとの見出しの一覧）。本文は含めない。
+
+    各ページは「p.PDFページ 見出し［ページID］」の1行にし、hit_ids のページには先頭に★を付ける。
+    """
+    pages = load_pages(RAG_SOURCE) if pages is None else pages
+    outline = []
+    for document_id in document_ids:
+        mine = [page for page in pages if page["document_id"] == document_id]
+        if not mine:
+            continue
+        sections = []
+        for page in mine:
+            if not sections or sections[-1]["section"] != page["section"]:
+                sections.append({"section": page["section"], "pages": []})
+            mark = "★" if page["page_id"] in hit_ids else ""
+            sections[-1]["pages"].append(f"{mark}p.{page['page']} {page['title']}［{page['page_id']}］")
+        outline.append({"document_id": document_id, "lecture": mine[0]["lecture"],
+                        "document_title": mine[0]["document_title"], "sections": sections})
+    return outline
+
+
+def search_with_outline(query: str) -> dict:
+    """第5回 宿題（発展）: search() の結果（本文）に、hit がある回の目次を付ける。"""
+    hits = search(query)
+    document_ids = list(dict.fromkeys(hit["document_id"] for hit in hits))
+    return {"results": hits, "outline": lecture_outline(document_ids, {hit["page_id"] for hit in hits})}
+
+
+def read_pages(page_ids: list[str], limit: int | None = None) -> dict:
+    """第5回 宿題（発展）: 目次で選んだページの本文と引用情報を返す（1回に OUTLINE_READ_MAX ページまで）。
+
+    第1〜3回の本講義に無い ID は not_found、上限を超えた分は skipped に入れる。
+    """
+    limit = OUTLINE_READ_MAX if limit is None else limit
+    unique = list(dict.fromkeys(page_ids))
+    found, not_found = [], []
+    for page_id in unique[:limit]:
+        try:
+            found.append(read_page(page_id))
+        except ValueError:
+            not_found.append(page_id)
+    return {"pages": found, "not_found": not_found, "skipped": unique[limit:]}
 
 
 def search_graph(query: str) -> dict:
