@@ -166,8 +166,10 @@ def describe(result, elapsed: float) -> dict:
     return {
         "elapsed_seconds": round(elapsed, 2),
         "response_models": sorted(set(models)),
+        # cache_read_tokens は 2026-11-19 の 3 回目の再開から記録する（それより前は、費用から逆算する。summary を参照）
         "usage": {"input_tokens": usage.input_tokens, "output_tokens": usage.output_tokens,
-                  "requests": usage.requests, "tool_calls": usage.tool_calls},
+                  "requests": usage.requests, "tool_calls": usage.tool_calls,
+                  "cache_read_tokens": usage.cache_read_tokens},
         # 「算定不可」を 0 として扱わないよう、文字列のまま持つ
         "cost": f"${usage.cost:.6f}" if usage.cost is not None else "算定不可",
         "tool_calls": calls,
@@ -543,6 +545,41 @@ def run_details(runs: list[dict], questions: list[dict], cond_names) -> list[str
     return lines
 
 
+def cached_tokens(run: dict) -> tuple[int, str]:
+    """入力のうち、Gemini の暗黙のキャッシュから読まれた tokens（安く数えられる）と、その出し方。
+
+    記録が無い実行（3 回目の再開より前）は、キャッシュ無しの料金（genai-prices）と [cost] の差から逆算する。
+    [cost] は小数 6 桁なので、±2 tokens ほどの誤差がある。
+    """
+    usage = run["usage"]
+    if "cache_read_tokens" in usage:
+        return usage["cache_read_tokens"], "記録"
+    if not run["cost"].startswith("$"):
+        return 0, "算定不可"
+    from decimal import Decimal
+
+    from genai_prices import Usage, calc_price
+
+    def price(**tokens):
+        return calc_price(Usage(**tokens), model_ref=run["model"], provider_id="google").total_price
+
+    saved = price(input_tokens=usage["input_tokens"], output_tokens=usage["output_tokens"]) - Decimal(run["cost"][1:])
+    per_token = (price(input_tokens=10**6) - price(input_tokens=10**6, cache_read_tokens=10**6)) / 10**6
+    return (round(saved / per_token) if saved > Decimal("0.000001") else 0), "費用から逆算"
+
+
+def cache_table(runs: list[dict], cond_names) -> list[str]:
+    rows = []
+    for r in sorted(runs, key=lambda r: r["stem"]):
+        if r["condition"] in cond_names:
+            n, how = cached_tokens(r)
+            if n:
+                rows.append(f"| `{r['stem']}` | {r['usage']['input_tokens']:,} | {n:,} | {how} |")
+    if not rows:
+        return ["なし"]
+    return ["| 実行 | 入力 tokens | うちキャッシュから | 出し方 |", "|---|---|---|---|"] + rows
+
+
 def graph_paths(runs: list[dict]) -> list[str]:
     lines = ["| 実行 | expanded の数 | 前後ページ経由 | 用語経由 | 用語経由のページ |", "|---|---|---|---|---|"]
     for r in runs:
@@ -568,8 +605,11 @@ def summary() -> None:
                  "- 根拠の本文を渡せた／根拠を引用：根拠ページごとに、3 回のうち何回か。",
                  "- 渡していないページの引用：本文をモデルに渡していないページを、回答が引用した回（全文投入は対象外）。",
                  "- 判定（Claude）：questions.json の要点に照らした Claude の判定（条件名を伏せて判定した。results/judge/）。",
-                 "- 推定費用：`[cost]` の値（生成 API のみ。埋め込みと索引構築は含まない）。"]
+                 "- 推定費用：`[cost]` の値（生成 API のみ。埋め込みと索引構築は含まない）。"
+                 "入力の一部が暗黙のキャッシュで安く数えられた実行がある（下の「暗黙のキャッシュ」）。"
+                 "負担の比較には入力 tokens を使う。"]
         lines += level_table(level, runs, questions, judged)
+        lines += ["", "## 暗黙のキャッシュ（入力の一部が安く数えられた実行）", ""] + cache_table(runs, cond_names)
         if level == "exercise":
             lines += ["", "## Graph の expanded の経路", ""] + graph_paths(runs)
         lines += ["", "## 実行ごとの記録", ""] + run_details(runs, questions, cond_names)
