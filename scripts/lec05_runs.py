@@ -39,8 +39,10 @@ JST = timezone(timedelta(hours=9))
 REPEATS = 3
 PAUSE_SECONDS = 5
 PAUSE_AFTER_FULL_CONTEXT = 60  # 全文投入は 1 回で入力が大きいので、長めにあける
-RETRY_WAIT_SECONDS = 60
-TRIES = 3
+# やり直すときは、1 回分を最初から流し直す（記録に残る時間に、待ち時間を混ぜないため）。
+# 2026-11-18 の夜は 503（high demand）が試行の約半分で出たので、3 回・60 秒から、6 回・段々長く待つ形に変えた。
+RETRY_WAITS = (30, 60, 120, 180, 240)
+TRIES = len(RETRY_WAITS) + 1
 # tools.py が API エラーを、この文の error としてモデルに返す（モデルのせいではないので、やり直す）
 API_ERROR = re.compile(r"レート制限|混み合って|APIキーかモデル名|APIエラー|検索DBがありません")
 SEARCH_TOOLS = ("search_materials", "search_outline")
@@ -211,9 +213,43 @@ def child(cond_name: str, question: str, sidecar: Path) -> None:
         original_trace(result, elapsed_seconds)
 
     agent_module.print_trace = capture
+
+    # 失敗したときの記録（2026-11-19 03:50 に足した。成功した実行の動きは変えない）。
+    # app/agent.py は API エラーの本文を 200 文字で切るので、どの上限に当たったか（quotaId）が残らない。
+    # 全文と、失敗するまでに何回応答し、どのツールを呼んだかを stderr に残す。
+    from pydantic_ai import capture_run_messages
+    from pydantic_ai.exceptions import ModelHTTPError
+    from pydantic_ai.messages import ModelResponse, ToolCallPart, ToolReturnPart
+
+    inner_run_sync = agent_module.agent.run_sync
+
+    def run_sync_logged(*args, **kwargs):
+        try:
+            return inner_run_sync(*args, **kwargs)
+        except ModelHTTPError as e:
+            print(f"[http error] {e.status_code} {e.body}", file=sys.stderr, flush=True)
+            raise
+
+    agent_module.agent.run_sync = run_sync_logged
     sys.argv = ["app.agent", "--trace", *cond.args, question]
     started = datetime.now(JST)
-    agent_module.main()
+    with capture_run_messages() as messages:
+        try:
+            agent_module.main()
+        except SystemExit:
+            responses = sum(isinstance(m, ModelResponse) for m in messages)
+            print(f"[partial] 失敗するまでの応答 {responses} 回", file=sys.stderr)
+            for m in messages:
+                for part in m.parts:
+                    if isinstance(part, ToolCallPart):
+                        print(f"[partial] call {part.tool_name} {json.dumps(part.args_as_dict(), ensure_ascii=False)}",
+                              file=sys.stderr)
+                    elif isinstance(part, ToolReturnPart):
+                        ret = summarize_return(part.tool_name, part.content)
+                        print(f"[partial] return {part.tool_name} {[p['page_id'] for p in ret['pages']]}"
+                              + (f" error={ret['error']}" if ret.get("error") else ""), file=sys.stderr)
+            sys.stderr.flush()
+            raise
     sys.stdout.flush()
     record = describe(captured["result"], captured["elapsed"])
     record.update(condition=cond.name, args=list(cond.args), rag_top_k=retrieval.RAG_TOP_K,
@@ -262,7 +298,7 @@ def run_one(cond: Condition, q: dict, rep: int, out_dir: Path) -> str:
                           f"[stdout]\n{proc.stdout}\n[stderr]\n{proc.stderr[-6000:]}", encoding="utf-8")
         print(f"[retry] {stem.name}: {'; '.join(problems)}（{attempt}/{TRIES} 回目）", flush=True)
         if attempt < TRIES:
-            time.sleep(RETRY_WAIT_SECONDS)
+            time.sleep(RETRY_WAITS[attempt - 1])
     tmp.unlink(missing_ok=True)
     return "failed"
 
@@ -311,6 +347,17 @@ _SEP = r"\s*(?:,|、|，|・|/|及び|および|と)\s*"
 PAGE_GROUP = re.compile(rf"(?<![A-Za-z])[pP]{{1,2}}\.\s*({_RANGE}(?:{_SEP}(?:[pP]{{1,2}}\.\s*)?{_RANGE})*)")
 LECTURE = re.compile(r"第\s*(\d{1,2})\s*回(\s*(?:の)?\s*(?:演習|宿題))?")
 DOC_ID = re.compile(r"(?<![A-Za-z0-9])(lec\d{2}-(?:main|exercise)|orientation)(?![A-Za-z0-9-])")
+MULTI_LECTURE = re.compile(r"第\s*\d{1,2}\s*[・、,]\s*\d{1,2}\s*回")  # 「第1・2回」：どのページがどの回か決まらない
+
+# 読み取りで資料が決まらず、手で読んだもの（実行の名前 → その箇所の引用と理由）。
+MANUAL_CITATIONS = {
+    "vector__publish_ok__2": {
+        "text": "第1・2回・PDF p.17, 40-42",
+        "pages": ["lec02-main-p017", "lec01-main-p040", "lec01-main-p041", "lec01-main-p042"],
+        "reason": "同じ回答が 9 行目で「第2回・PDF p.17」と書いている。第2回 p.17 は「クイズ 1：公開してよい？（答え）」、"
+                  "第1回 p.40〜42 は評価の問題設定で、第1回 p.17・第2回 p.40〜42 は質問と関係が無い",
+    },
+}
 
 
 def _expand(group: str) -> list[int]:
@@ -331,7 +378,10 @@ def _expand(group: str) -> list[int]:
 def parse_citations(text: str) -> list[dict]:
     """回答の「第N回・PDF p.N」などを (資料ID, ページ) にする。資料が読めないものは doc=None。
 
-    資料は、同じ行の直前（無ければ直後）にある「第N回」・資料ID・資料名から決める。
+    資料は、同じ行の直前（無ければ直後）にある「第N回」・資料ID・資料名から決める（how="line"）。
+    同じ行に無いときは、それより前の行で最後に出た資料とみなす（how="inferred"。全文投入の回答が
+    「資料: lec02-main / …」の行の下に「PDFページ番号: p.51、p.52」と書く形）。
+    ただし「第1・2回」のように回が 2 つ並ぶ行は決めない（doc=None、how="multi"。MANUAL_CITATIONS で手で読む）。
     「第N回」は本講義（lecNN-main）、「第N回の演習」は演習資料（lecNN-exercise）とみなす。
     """
     t = unicodedata.normalize("NFKC", text)
@@ -349,10 +399,16 @@ def parse_citations(text: str) -> list[dict]:
         before = [doc for pos, doc in anchors if line_start <= pos < m.start()]
         after = [doc for pos, doc in anchors if m.end() <= pos < line_end]
         doc = before[-1] if before else (after[0] if after else None)
+        how = "line"
+        if doc is None:
+            earlier = [d for pos, d in anchors if pos < line_start]
+            if MULTI_LECTURE.search(t[line_start:line_end]):
+                how = "multi"
+            elif earlier:
+                doc, how = earlier[-1], "inferred"
         for page in _expand(m.group(1)):
-            item = {"doc": doc, "page": page}
-            if item not in cites:
-                cites.append(item)
+            if not any(c["doc"] == doc and c["page"] == page for c in cites):
+                cites.append({"doc": doc, "page": page, "how": how})
     return cites
 
 
@@ -386,12 +442,19 @@ def load_runs(directory: Path = RUNS_DIR) -> list[dict]:
 def measure(run: dict, gold: list[str]) -> dict:
     cites = parse_citations(run["output"])
     cited = [page_id_of(c) for c in cites]
+    manual = MANUAL_CITATIONS.get(run["stem"])
+    unresolved = [c["page"] for c in cites if c["doc"] is None]
+    if manual:  # 手で読んだ分を足し、決まらなかったページは残さない
+        cited += [p for p in manual["pages"] if p not in cited]
+        unresolved = []
     given = set(ALL_PAGE_IDS) if run["full_context"] else set(run["pages_given"])
     return {
         "gold_given": {g: g in given for g in gold},
         "gold_cited": {g: g in cited for g in gold},
         "cited": [c for c in cited if c],
-        "unresolved": [c["page"] for c in cites if c["doc"] is None],
+        "inferred": [page_id_of(c) for c in cites if c["how"] == "inferred"],
+        "manual": manual["pages"] if manual else [],
+        "unresolved": unresolved,
         "cited_not_given": [] if run["full_context"] else [c for c in cited if c and c not in given],
         "n_given": len(given) if not run["full_context"] else None,
     }
