@@ -533,6 +533,49 @@ def level_table(level: str, runs: list[dict], questions: list[dict], judged: dic
     return lines
 
 
+def answer_table(q: dict, runs: list[dict], cond_names, judged: dict) -> list[str]:
+    """answer.md のテンプレートと同じ列の表（1 つの質問）。値は 1・2・3 回目の順で、無い回は「－」。"""
+    lines = ["| 方式 | 回答の要点・正しさ（判定：Claude） | 引用ページと根拠 | 時間（秒） | 入力／出力トークン数 "
+             "| モデル応答回数 | 生成API推定費用（USD） |", "|---|---|---|---|---|---|---|"]
+    for name in cond_names:
+        mine = sorted((r for r in runs if r["condition"] == name and r["question_id"] == q["id"]), key=lambda r: r["rep"])
+        if not mine:
+            lines.append(f"| {CONDITIONS[name].label} | 未実行 | | | | | |")
+            continue
+        per_run = [measure(r, q["gold"]) for r in mine]
+        by_rep = {r["rep"]: (r, m) for r, m in zip(mine, per_run)}
+
+        def each(fn):
+            return _join(fn(*by_rep[n]) if n in by_rep else "－" for n in range(1, REPEATS + 1))
+
+        if q["gold"]:
+            evidence = (f"本文を渡せた {_counts(per_run, q['gold'], 'gold_given')}<br>"
+                        f"引用した {_counts(per_run, q['gold'], 'gold_cited')}")
+        else:
+            evidence = "根拠ページなし"
+        stray = [p for m in per_run for p in m["cited_not_given"]]
+        evidence += "<br>渡していないページの引用：" + (_join(dict.fromkeys(label(p) for p in stray)) if stray else "なし")
+        lines.append(
+            f"| {CONDITIONS[name].label} | {each(lambda r, m: judged.get(r['stem'], {}).get('verdict', '未'))} "
+            f"| {evidence} | {each(lambda r, m: r['elapsed_seconds'])} "
+            f"| {each(lambda r, m: format(r['usage']['input_tokens'], ',') + '／' + str(r['usage']['output_tokens']))} "
+            f"| {each(lambda r, m: r['usage']['requests'])} | {each(lambda r, m: r['cost'].lstrip('$'))} |")
+    return lines
+
+
+def answer_tables(runs: list[dict], questions: list[dict], judged: dict) -> None:
+    """answer.md に貼る表を、レベル・質問ごとに results/answer_tables.md に書く（answer.md の数字の出どころ）。"""
+    lines = ["# answer.md に貼る表（`scripts/lec05_runs.py summary` が作る。API は呼ばない）", ""]
+    for level, (title, cond_names) in LEVELS.items():
+        lines += [f"## {title}", ""]
+        for q in questions:
+            if level == "exercise" and q["id"] not in EXERCISE_QUESTIONS:
+                continue
+            lines += [f"### {q['id']}", ""] + answer_table(q, runs, cond_names, judged) + [""]
+    (RESULTS / "answer_tables.md").write_text("\n".join(lines), encoding="utf-8")
+    print(f"[summary] {(RESULTS / 'answer_tables.md').relative_to(ROOT)}")
+
+
 def run_details(runs: list[dict], questions: list[dict], cond_names) -> list[str]:
     """実行ごとの、ツールの呼び方（引数）と、本文を渡したページ・引用したページ。"""
     gold_of = {q["id"]: q["gold"] for q in questions}
@@ -662,6 +705,7 @@ def summary() -> None:
         lines += ["", "## 実行ごとの記録", ""] + run_details(runs, questions, cond_names)
         out.write_text("\n".join(lines) + "\n", encoding="utf-8")
         print(f"[summary] {out.relative_to(ROOT)}")
+    answer_tables(runs, questions, judged)
 
 
 # ---------------------------------------------------------------- 判定用
