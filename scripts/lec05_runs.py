@@ -312,7 +312,7 @@ def brief(path: Path) -> str:
 
 def run(questions: list[dict], only: set[str] | None, repeats: int) -> None:
     by_id = {q["id"]: q for q in questions}
-    failures_in_row = 0
+    failures_in_row, last_failed = 0, None
     for rep in range(1, repeats + 1):  # 幅優先：全条件の 1 回目 → 2 回目 → 3 回目
         for cond_name, qid in planned(questions):
             if only and cond_name not in only:
@@ -324,9 +324,18 @@ def run(questions: list[dict], only: set[str] | None, repeats: int) -> None:
             now = datetime.now(JST).strftime("%H:%M:%S")
             print(f"[{now}] [{status}] {stem.name}"
                   + (f"  {brief(stem.with_suffix('.json'))}" if status == "ok" else ""), flush=True)
-            failures_in_row = failures_in_row + 1 if status == "failed" else 0
+            if status == "failed":
+                last_body = (stem.parent / f"{stem.name}.fail{TRIES}.txt").read_text(encoding="utf-8")
+                if "PerDay" in last_body:  # 1 日の上限（quotaId に PerDay）。待っても戻らないので止める
+                    raise SystemExit("[stop] 1 日の上限に当たった（fail の本文に PerDay）。上限が戻ってから再開する")
+                # 同じ（条件, 質問）が別の回でも失敗したのは、その組に固有の失敗なので、続けて数えない
+                if last_failed != (cond_name, qid):
+                    failures_in_row += 1
+                last_failed = (cond_name, qid)
+            else:
+                failures_in_row, last_failed = 0, None
             if failures_in_row >= 2:
-                raise SystemExit("[stop] 2 回続けて失敗した。上限に当たった可能性がある。"
+                raise SystemExit("[stop] 別の実行が 2 回続けて失敗した。上限に当たった可能性がある。"
                                  "fail*.txt の本文を確かめてから再開する（済んだ実行は飛ばされる）")
             time.sleep(PAUSE_AFTER_FULL_CONTEXT if cond_name == "full" else PAUSE_SECONDS)
 
