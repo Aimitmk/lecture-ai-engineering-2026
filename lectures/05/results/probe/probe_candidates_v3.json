@@ -1,0 +1,1388 @@
+[
+ {
+  "id": "publish_ok",
+  "kind": "連続ページ（言い換え）",
+  "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+  "gold": [
+   "lec01-main-p041",
+   "lec01-main-p042"
+  ],
+  "top10": [
+   {
+    "rank": 1,
+    "page_id": "lec02-main-p016",
+    "title": "クイズ 1 ：公開してよい？",
+    "distance": 0.3067
+   },
+   {
+    "rank": 2,
+    "page_id": "lec02-main-p017",
+    "title": "クイズ 1 ：公開してよい？（答え）",
+    "distance": 0.3089
+   },
+   {
+    "rank": 3,
+    "page_id": "lec01-main-p041",
+    "title": "おそらく十分ではない。なぜなら……",
+    "distance": 0.3177
+   },
+   {
+    "rank": 4,
+    "page_id": "lec02-main-p018",
+    "title": "揺れと誤りに、こう付き合う",
+    "distance": 0.3207
+   },
+   {
+    "rank": 5,
+    "page_id": "lec01-main-p040",
+    "title": "[1] 問題設定（続き）：良さをどう測るか",
+    "distance": 0.3305
+   },
+   {
+    "rank": 6,
+    "page_id": "lec02-main-p003",
+    "title": "チャットボットを作ると、すぐにこんな「厄介さ」に出会う",
+    "distance": 0.3439
+   },
+   {
+    "rank": 7,
+    "page_id": "lec02-main-p014",
+    "title": "帰結②：知らないことも、それらしく答えてしまう",
+    "distance": 0.3475
+   },
+   {
+    "rank": 8,
+    "page_id": "lec03-main-p046",
+    "title": "失敗しても「できた」と言ってしまう",
+    "distance": 0.349
+   },
+   {
+    "rank": 9,
+    "page_id": "lec02-main-p039",
+    "title": "ベンチマークの順位ではなく、自分の評価セットで選ぶ",
+    "distance": 0.3522
+   },
+   {
+    "rank": 10,
+    "page_id": "lec02-main-p026",
+    "title": "クイズ 2 ：どこを動かす？",
+    "distance": 0.3584
+   }
+  ],
+  "graph": [
+   {
+    "page_id": "lec02-main-p016",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec02-main-p017",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p041",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec02-main-p015",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec02-main-p018",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p040",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p042",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec02-main-p014",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec02-main-p019",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p039",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   }
+  ],
+  "graph_candidates": 11,
+  "sets": {
+   "K=3": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041"
+   ],
+   "K=5": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041",
+    "lec02-main-p018",
+    "lec01-main-p040"
+   ],
+   "K=10": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041",
+    "lec02-main-p018",
+    "lec01-main-p040",
+    "lec02-main-p003",
+    "lec02-main-p014",
+    "lec03-main-p046",
+    "lec02-main-p039",
+    "lec02-main-p026"
+   ],
+   "前後1": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041",
+    "lec02-main-p018",
+    "lec01-main-p040",
+    "lec02-main-p015",
+    "lec01-main-p042",
+    "lec02-main-p019",
+    "lec01-main-p039"
+   ],
+   "Graph": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041",
+    "lec02-main-p015",
+    "lec02-main-p018",
+    "lec01-main-p040",
+    "lec01-main-p042",
+    "lec02-main-p014",
+    "lec02-main-p019",
+    "lec01-main-p039"
+   ],
+   "Graph全候補": [
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec01-main-p041",
+    "lec02-main-p015",
+    "lec02-main-p018",
+    "lec01-main-p040",
+    "lec01-main-p042",
+    "lec02-main-p014",
+    "lec02-main-p019",
+    "lec01-main-p039",
+    "lec01-main-p043"
+   ],
+   "目次": [
+    "lec01-main-p001",
+    "lec01-main-p002",
+    "lec01-main-p003",
+    "lec01-main-p004",
+    "lec01-main-p005",
+    "lec01-main-p006",
+    "lec01-main-p007",
+    "lec01-main-p008",
+    "lec01-main-p009",
+    "lec01-main-p010",
+    "lec01-main-p011",
+    "lec01-main-p012",
+    "lec01-main-p013",
+    "lec01-main-p014",
+    "lec01-main-p015",
+    "lec01-main-p016",
+    "lec01-main-p017",
+    "lec01-main-p018",
+    "lec01-main-p019",
+    "lec01-main-p020",
+    "lec01-main-p021",
+    "lec01-main-p022",
+    "lec01-main-p023",
+    "lec01-main-p024",
+    "lec01-main-p025",
+    "lec01-main-p026",
+    "lec01-main-p027",
+    "lec01-main-p028",
+    "lec01-main-p029",
+    "lec01-main-p030",
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p033",
+    "lec01-main-p034",
+    "lec01-main-p035",
+    "lec01-main-p036",
+    "lec01-main-p037",
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p040",
+    "lec01-main-p041",
+    "lec01-main-p042",
+    "lec01-main-p043",
+    "lec01-main-p044",
+    "lec01-main-p045",
+    "lec01-main-p046",
+    "lec01-main-p047",
+    "lec01-main-p048",
+    "lec01-main-p049",
+    "lec01-main-p050",
+    "lec01-main-p051",
+    "lec01-main-p052",
+    "lec01-main-p053",
+    "lec01-main-p054",
+    "lec01-main-p055",
+    "lec01-main-p056",
+    "lec01-main-p057",
+    "lec01-main-p058",
+    "lec01-main-p059",
+    "lec01-main-p060",
+    "lec01-main-p061",
+    "lec01-main-p062",
+    "lec01-main-p063",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p066",
+    "lec01-main-p067",
+    "lec01-main-p068",
+    "lec01-main-p069",
+    "lec01-main-p070",
+    "lec01-main-p071",
+    "lec01-main-p072",
+    "lec01-main-p073",
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-p007",
+    "lec02-main-p008",
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p011",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec02-main-p018",
+    "lec02-main-p019",
+    "lec02-main-p020",
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p024",
+    "lec02-main-p025",
+    "lec02-main-p026",
+    "lec02-main-p027",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p030",
+    "lec02-main-p031",
+    "lec02-main-p032",
+    "lec02-main-p033",
+    "lec02-main-p034",
+    "lec02-main-p035",
+    "lec02-main-p036",
+    "lec02-main-p037",
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p041",
+    "lec02-main-p042",
+    "lec02-main-p043",
+    "lec02-main-p044",
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p063",
+    "lec02-main-p064",
+    "lec02-main-p065",
+    "lec02-main-p066",
+    "lec02-main-p067",
+    "lec02-main-p068",
+    "lec02-main-p069",
+    "lec02-main-p070"
+   ]
+  },
+  "found": {
+   "K=3": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": false
+   },
+   "K=5": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": false
+   },
+   "K=10": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": false
+   },
+   "前後1": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": true
+   },
+   "Graph": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": true
+   },
+   "Graph全候補": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": true
+   },
+   "目次": {
+    "lec01-main-p041": true,
+    "lec01-main-p042": true
+   }
+  }
+ },
+ {
+  "id": "io_design",
+  "kind": "連続ページ（間に問いのページ）",
+  "question": "第1回の例題で、問題設定のときに入力と出力はどう決めますか。決め方は一通りですか",
+  "gold": [
+   "lec01-main-p037",
+   "lec01-main-p039"
+  ],
+  "top10": [
+   {
+    "rank": 1,
+    "page_id": "lec01-main-p038",
+    "title": "[1] 問題設定：この例では、入力と出力は何になるか？",
+    "distance": 0.2143
+   },
+   {
+    "rank": 2,
+    "page_id": "lec01-main-p039",
+    "title": "同じお題でも、入力と出力の決め方は何通りもある",
+    "distance": 0.2255
+   },
+   {
+    "rank": 3,
+    "page_id": "lec01-main-p037",
+    "title": "[1] 問題設定：まず入力と出力を決める",
+    "distance": 0.2369
+   },
+   {
+    "rank": 4,
+    "page_id": "lec01-main-p036",
+    "title": "例題：講義中の大量の質問に、 AI でどう対応するか",
+    "distance": 0.2959
+   },
+   {
+    "rank": 5,
+    "page_id": "lec01-main-p040",
+    "title": "[1] 問題設定（続き）：良さをどう測るか",
+    "distance": 0.2966
+   },
+   {
+    "rank": 6,
+    "page_id": "lec01-main-p047",
+    "title": "[3] モデル学習：モデルを選び、不調の原因を切り分ける",
+    "distance": 0.2985
+   },
+   {
+    "rank": 7,
+    "page_id": "lec01-main-p051",
+    "title": "[4] デプロイ：作ったものを、使える状態にする",
+    "distance": 0.2988
+   },
+   {
+    "rank": 8,
+    "page_id": "lec01-main-p062",
+    "title": "最終課題のお題例：講義の質問応答を支援するシステム",
+    "distance": 0.2991
+   },
+   {
+    "rank": 9,
+    "page_id": "lec01-main-p044",
+    "title": "[2] データ収集：データを集め、流れごと設計する",
+    "distance": 0.3037
+   },
+   {
+    "rank": 10,
+    "page_id": "lec01-main-p060",
+    "title": "講義の進み方",
+    "distance": 0.307
+   }
+  ],
+  "graph": [
+   {
+    "page_id": "lec01-main-p038",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p039",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p037",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p040",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p036",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p041",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p035",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   }
+  ],
+  "graph_candidates": 7,
+  "sets": {
+   "K=3": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037"
+   ],
+   "K=5": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037",
+    "lec01-main-p036",
+    "lec01-main-p040"
+   ],
+   "K=10": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037",
+    "lec01-main-p036",
+    "lec01-main-p040",
+    "lec01-main-p047",
+    "lec01-main-p051",
+    "lec01-main-p062",
+    "lec01-main-p044",
+    "lec01-main-p060"
+   ],
+   "前後1": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037",
+    "lec01-main-p036",
+    "lec01-main-p040",
+    "lec01-main-p035",
+    "lec01-main-p041"
+   ],
+   "Graph": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037",
+    "lec01-main-p040",
+    "lec01-main-p036",
+    "lec01-main-p041",
+    "lec01-main-p035"
+   ],
+   "Graph全候補": [
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p037",
+    "lec01-main-p040",
+    "lec01-main-p036",
+    "lec01-main-p041",
+    "lec01-main-p035"
+   ],
+   "目次": [
+    "lec01-main-p001",
+    "lec01-main-p002",
+    "lec01-main-p003",
+    "lec01-main-p004",
+    "lec01-main-p005",
+    "lec01-main-p006",
+    "lec01-main-p007",
+    "lec01-main-p008",
+    "lec01-main-p009",
+    "lec01-main-p010",
+    "lec01-main-p011",
+    "lec01-main-p012",
+    "lec01-main-p013",
+    "lec01-main-p014",
+    "lec01-main-p015",
+    "lec01-main-p016",
+    "lec01-main-p017",
+    "lec01-main-p018",
+    "lec01-main-p019",
+    "lec01-main-p020",
+    "lec01-main-p021",
+    "lec01-main-p022",
+    "lec01-main-p023",
+    "lec01-main-p024",
+    "lec01-main-p025",
+    "lec01-main-p026",
+    "lec01-main-p027",
+    "lec01-main-p028",
+    "lec01-main-p029",
+    "lec01-main-p030",
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p033",
+    "lec01-main-p034",
+    "lec01-main-p035",
+    "lec01-main-p036",
+    "lec01-main-p037",
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p040",
+    "lec01-main-p041",
+    "lec01-main-p042",
+    "lec01-main-p043",
+    "lec01-main-p044",
+    "lec01-main-p045",
+    "lec01-main-p046",
+    "lec01-main-p047",
+    "lec01-main-p048",
+    "lec01-main-p049",
+    "lec01-main-p050",
+    "lec01-main-p051",
+    "lec01-main-p052",
+    "lec01-main-p053",
+    "lec01-main-p054",
+    "lec01-main-p055",
+    "lec01-main-p056",
+    "lec01-main-p057",
+    "lec01-main-p058",
+    "lec01-main-p059",
+    "lec01-main-p060",
+    "lec01-main-p061",
+    "lec01-main-p062",
+    "lec01-main-p063",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p066",
+    "lec01-main-p067",
+    "lec01-main-p068",
+    "lec01-main-p069",
+    "lec01-main-p070",
+    "lec01-main-p071",
+    "lec01-main-p072",
+    "lec01-main-p073"
+   ]
+  },
+  "found": {
+   "K=3": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "K=5": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "K=10": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "前後1": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "Graph": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "Graph全候補": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   },
+   "目次": {
+    "lec01-main-p037": true,
+    "lec01-main-p039": true
+   }
+  }
+ },
+ {
+  "id": "improve_cycle",
+  "kind": "連続ページ（言い換え）",
+  "question": "AIエンジニアリングの改善は、決まった順番で一方向に進むものですか",
+  "gold": [
+   "lec01-main-p052",
+   "lec01-main-p053"
+  ],
+  "top10": [
+   {
+    "rank": 1,
+    "page_id": "lec01-main-p053",
+    "title": "[5] 改善：実際は、行ったり来たりしながら前に進む",
+    "distance": 0.1976
+   },
+   {
+    "rank": 2,
+    "page_id": "lec01-main-p052",
+    "title": "[5] 改善： AI エンジニアリングの肝は改善サイクル",
+    "distance": 0.2086
+   },
+   {
+    "rank": 3,
+    "page_id": "lec01-main-p035",
+    "title": "AI エンジニアリングでは、評価と改善が特に重要になる",
+    "distance": 0.2364
+   },
+   {
+    "rank": 4,
+    "page_id": "lec01-main-p034",
+    "title": "AI エンジニアリングは、 5 つの工程の繰り返し",
+    "distance": 0.2375
+   },
+   {
+    "rank": 5,
+    "page_id": "lec01-main-p010",
+    "title": "AI が AI を改善する上昇スパイラル（ RSI ）に近づいている",
+    "distance": 0.2436
+   },
+   {
+    "rank": 6,
+    "page_id": "lec01-main-p069",
+    "title": "AI エンジニアリングの 3 層：上から始め、必要なら下りる",
+    "distance": 0.2452
+   },
+   {
+    "rank": 7,
+    "page_id": "lec01-main-p063",
+    "title": "本講座の地図： AI エンジニアリングの工程と各回の対応",
+    "distance": 0.2455
+   },
+   {
+    "rank": 8,
+    "page_id": "lec01-main-p054",
+    "title": "AI エンジニアリングの基礎のまとめ",
+    "distance": 0.2497
+   },
+   {
+    "rank": 9,
+    "page_id": "lec01-main-p026",
+    "title": "どこまで引き出せるかは、使う側の設計次第",
+    "distance": 0.2528
+   },
+   {
+    "rank": 10,
+    "page_id": "lec01-main-p051",
+    "title": "[4] デプロイ：作ったものを、使える状態にする",
+    "distance": 0.2548
+   }
+  ],
+  "graph": [
+   {
+    "page_id": "lec01-main-p053",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p052",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p035",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p054",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p051",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p034",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p036",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p055",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p050",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec01-main-p033",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   }
+  ],
+  "graph_candidates": 79,
+  "sets": {
+   "K=3": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035"
+   ],
+   "K=5": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035",
+    "lec01-main-p034",
+    "lec01-main-p010"
+   ],
+   "K=10": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035",
+    "lec01-main-p034",
+    "lec01-main-p010",
+    "lec01-main-p069",
+    "lec01-main-p063",
+    "lec01-main-p054",
+    "lec01-main-p026",
+    "lec01-main-p051"
+   ],
+   "前後1": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035",
+    "lec01-main-p034",
+    "lec01-main-p010",
+    "lec01-main-p054",
+    "lec01-main-p051",
+    "lec01-main-p036",
+    "lec01-main-p033",
+    "lec01-main-p009",
+    "lec01-main-p011"
+   ],
+   "Graph": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035",
+    "lec01-main-p054",
+    "lec01-main-p051",
+    "lec01-main-p034",
+    "lec01-main-p036",
+    "lec01-main-p055",
+    "lec01-main-p050",
+    "lec01-main-p033"
+   ],
+   "Graph全候補": [
+    "lec01-main-p053",
+    "lec01-main-p052",
+    "lec01-main-p035",
+    "lec01-main-p054",
+    "lec01-main-p051",
+    "lec01-main-p034",
+    "lec01-main-p036",
+    "lec01-main-p055",
+    "lec01-main-p050",
+    "lec01-main-p033",
+    "lec01-main-p037",
+    "lec01-main-p058",
+    "lec01-main-p063",
+    "lec01-main-p001",
+    "lec01-main-p003",
+    "lec01-main-p004",
+    "lec01-main-p005",
+    "lec01-main-p006",
+    "lec01-main-p012",
+    "lec01-main-p021",
+    "lec01-main-p023",
+    "lec01-main-p026",
+    "lec01-main-p028",
+    "lec01-main-p029",
+    "lec01-main-p030",
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p056",
+    "lec01-main-p059",
+    "lec01-main-p065",
+    "lec01-main-p066",
+    "lec01-main-p067",
+    "lec01-main-p068",
+    "lec01-main-p069",
+    "lec01-main-p070",
+    "lec01-main-p071",
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec03-main-p001",
+    "lec01-main-p013",
+    "lec01-main-p019",
+    "lec01-main-p027",
+    "lec01-main-p040",
+    "lec01-main-p048",
+    "lec02-main-p033",
+    "lec02-main-p039",
+    "lec03-main-p003",
+    "lec03-main-p004",
+    "lec03-main-p006",
+    "lec03-main-p009",
+    "lec03-main-p010",
+    "lec03-main-p011",
+    "lec03-main-p012",
+    "lec03-main-p014",
+    "lec03-main-p019",
+    "lec03-main-p022",
+    "lec03-main-p023",
+    "lec03-main-p024",
+    "lec03-main-p027",
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p032",
+    "lec03-main-p033",
+    "lec03-main-p034",
+    "lec03-main-p035",
+    "lec03-main-p039",
+    "lec03-main-p043",
+    "lec03-main-p045",
+    "lec03-main-p050",
+    "lec03-main-p051",
+    "lec03-main-p058",
+    "lec03-main-p059",
+    "lec03-main-p061",
+    "lec03-main-p062",
+    "lec03-main-p063",
+    "lec03-main-p065",
+    "lec03-main-p066",
+    "lec03-main-p070",
+    "lec03-main-p071"
+   ],
+   "目次": [
+    "lec01-main-p001",
+    "lec01-main-p002",
+    "lec01-main-p003",
+    "lec01-main-p004",
+    "lec01-main-p005",
+    "lec01-main-p006",
+    "lec01-main-p007",
+    "lec01-main-p008",
+    "lec01-main-p009",
+    "lec01-main-p010",
+    "lec01-main-p011",
+    "lec01-main-p012",
+    "lec01-main-p013",
+    "lec01-main-p014",
+    "lec01-main-p015",
+    "lec01-main-p016",
+    "lec01-main-p017",
+    "lec01-main-p018",
+    "lec01-main-p019",
+    "lec01-main-p020",
+    "lec01-main-p021",
+    "lec01-main-p022",
+    "lec01-main-p023",
+    "lec01-main-p024",
+    "lec01-main-p025",
+    "lec01-main-p026",
+    "lec01-main-p027",
+    "lec01-main-p028",
+    "lec01-main-p029",
+    "lec01-main-p030",
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p033",
+    "lec01-main-p034",
+    "lec01-main-p035",
+    "lec01-main-p036",
+    "lec01-main-p037",
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p040",
+    "lec01-main-p041",
+    "lec01-main-p042",
+    "lec01-main-p043",
+    "lec01-main-p044",
+    "lec01-main-p045",
+    "lec01-main-p046",
+    "lec01-main-p047",
+    "lec01-main-p048",
+    "lec01-main-p049",
+    "lec01-main-p050",
+    "lec01-main-p051",
+    "lec01-main-p052",
+    "lec01-main-p053",
+    "lec01-main-p054",
+    "lec01-main-p055",
+    "lec01-main-p056",
+    "lec01-main-p057",
+    "lec01-main-p058",
+    "lec01-main-p059",
+    "lec01-main-p060",
+    "lec01-main-p061",
+    "lec01-main-p062",
+    "lec01-main-p063",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p066",
+    "lec01-main-p067",
+    "lec01-main-p068",
+    "lec01-main-p069",
+    "lec01-main-p070",
+    "lec01-main-p071",
+    "lec01-main-p072",
+    "lec01-main-p073"
+   ]
+  },
+  "found": {
+   "K=3": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "K=5": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "K=10": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "前後1": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "Graph": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "Graph全候補": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   },
+   "目次": {
+    "lec01-main-p052": true,
+    "lec01-main-p053": true
+   }
+  }
+ },
+ {
+  "id": "stop_loop",
+  "kind": "連続ページ（言い換え）",
+  "question": "エージェントが作業を終えたかどうかは、どうやって判断し、どうやって止めればよいですか",
+  "gold": [
+   "lec03-main-p043",
+   "lec03-main-p044"
+  ],
+  "top10": [
+   {
+    "rank": 1,
+    "page_id": "lec03-main-p044",
+    "title": "「終わった」かどうかは、作業したモデル以外が決める",
+    "distance": 0.2595
+   },
+   {
+    "rank": 2,
+    "page_id": "lec03-main-p043",
+    "title": "ループを止める3つの仕組み",
+    "distance": 0.2692
+   },
+   {
+    "rank": 3,
+    "page_id": "lec03-main-p048",
+    "title": "冪等性の担保",
+    "distance": 0.2872
+   },
+   {
+    "rank": 4,
+    "page_id": "lec03-main-p046",
+    "title": "失敗しても「できた」と言ってしまう",
+    "distance": 0.2908
+   },
+   {
+    "rank": 5,
+    "page_id": "lec03-main-p042",
+    "title": "Part 7 停止条件・失敗時の振る舞い",
+    "distance": 0.2977
+   },
+   {
+    "rank": 6,
+    "page_id": "lec03-main-p047",
+    "title": "プロンプトで不正は減る",
+    "distance": 0.3063
+   },
+   {
+    "rank": 7,
+    "page_id": "lec03-main-p045",
+    "title": "ツールが失敗したときに確かめる3つのこと",
+    "distance": 0.308
+   },
+   {
+    "rank": 8,
+    "page_id": "lec03-main-p026",
+    "title": "Human in the loop",
+    "distance": 0.3086
+   },
+   {
+    "rank": 9,
+    "page_id": "lec03-main-p025",
+    "title": "Human in the loop",
+    "distance": 0.3274
+   },
+   {
+    "rank": 10,
+    "page_id": "lec03-main-p064",
+    "title": "補足：長時間タスクの実行能力の最新動向",
+    "distance": 0.328
+   }
+  ],
+  "graph": [
+   {
+    "page_id": "lec03-main-p044",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p043",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p048",
+    "role": "seeds",
+    "hops": 0,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p045",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p042",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p047",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p049",
+    "role": "expanded",
+    "hops": 1,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p046",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p041",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   },
+   {
+    "page_id": "lec03-main-p050",
+    "role": "expanded",
+    "hops": 2,
+    "via": "前後ページ"
+   }
+  ],
+  "graph_candidates": 82,
+  "sets": {
+   "K=3": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048"
+   ],
+   "K=5": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048",
+    "lec03-main-p046",
+    "lec03-main-p042"
+   ],
+   "K=10": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048",
+    "lec03-main-p046",
+    "lec03-main-p042",
+    "lec03-main-p047",
+    "lec03-main-p045",
+    "lec03-main-p026",
+    "lec03-main-p025",
+    "lec03-main-p064"
+   ],
+   "前後1": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048",
+    "lec03-main-p046",
+    "lec03-main-p042",
+    "lec03-main-p045",
+    "lec03-main-p047",
+    "lec03-main-p049",
+    "lec03-main-p041"
+   ],
+   "Graph": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048",
+    "lec03-main-p045",
+    "lec03-main-p042",
+    "lec03-main-p047",
+    "lec03-main-p049",
+    "lec03-main-p046",
+    "lec03-main-p041",
+    "lec03-main-p050"
+   ],
+   "Graph全候補": [
+    "lec03-main-p044",
+    "lec03-main-p043",
+    "lec03-main-p048",
+    "lec03-main-p045",
+    "lec03-main-p042",
+    "lec03-main-p047",
+    "lec03-main-p049",
+    "lec03-main-p046",
+    "lec03-main-p041",
+    "lec03-main-p050",
+    "lec03-main-p004",
+    "lec03-main-p010",
+    "lec03-main-p012",
+    "lec03-main-p014",
+    "lec03-main-p015",
+    "lec03-main-p017",
+    "lec03-main-p023",
+    "lec03-main-p051",
+    "lec03-main-p058",
+    "lec03-main-p059",
+    "lec03-main-p061",
+    "lec03-main-p063",
+    "lec03-main-p068",
+    "lec03-main-p070",
+    "lec03-main-p071",
+    "lec01-main-p004",
+    "lec01-main-p013",
+    "lec01-main-p019",
+    "lec01-main-p027",
+    "lec01-main-p033",
+    "lec01-main-p035",
+    "lec01-main-p040",
+    "lec01-main-p048",
+    "lec01-main-p054",
+    "lec01-main-p058",
+    "lec02-main-p033",
+    "lec02-main-p039",
+    "lec03-main-p003",
+    "lec03-main-p006",
+    "lec03-main-p009",
+    "lec03-main-p011",
+    "lec03-main-p019",
+    "lec03-main-p022",
+    "lec03-main-p024",
+    "lec03-main-p027",
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p032",
+    "lec03-main-p033",
+    "lec03-main-p034",
+    "lec03-main-p035",
+    "lec03-main-p039",
+    "lec03-main-p062",
+    "lec03-main-p065",
+    "lec03-main-p066",
+    "lec01-main-p010",
+    "lec01-main-p016",
+    "lec01-main-p024",
+    "lec01-main-p047",
+    "lec01-main-p050",
+    "lec01-main-p055",
+    "lec01-main-p056",
+    "lec01-main-p059",
+    "lec01-main-p063",
+    "lec01-main-p070",
+    "lec01-main-p072",
+    "lec02-main-p005",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p041",
+    "lec02-main-p062",
+    "lec02-main-p065",
+    "lec03-main-p001",
+    "lec03-main-p002",
+    "lec03-main-p005",
+    "lec03-main-p026",
+    "lec03-main-p031",
+    "lec03-main-p052",
+    "lec03-main-p053",
+    "lec03-main-p054",
+    "lec03-main-p056",
+    "lec03-main-p057"
+   ],
+   "目次": [
+    "lec03-main-p001",
+    "lec03-main-p002",
+    "lec03-main-p003",
+    "lec03-main-p004",
+    "lec03-main-p005",
+    "lec03-main-p006",
+    "lec03-main-p007",
+    "lec03-main-p008",
+    "lec03-main-p009",
+    "lec03-main-p010",
+    "lec03-main-p011",
+    "lec03-main-p012",
+    "lec03-main-p013",
+    "lec03-main-p014",
+    "lec03-main-p015",
+    "lec03-main-p016",
+    "lec03-main-p017",
+    "lec03-main-p018",
+    "lec03-main-p019",
+    "lec03-main-p020",
+    "lec03-main-p021",
+    "lec03-main-p022",
+    "lec03-main-p023",
+    "lec03-main-p024",
+    "lec03-main-p025",
+    "lec03-main-p026",
+    "lec03-main-p027",
+    "lec03-main-p028",
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p031",
+    "lec03-main-p032",
+    "lec03-main-p033",
+    "lec03-main-p034",
+    "lec03-main-p035",
+    "lec03-main-p036",
+    "lec03-main-p037",
+    "lec03-main-p038",
+    "lec03-main-p039",
+    "lec03-main-p040",
+    "lec03-main-p041",
+    "lec03-main-p042",
+    "lec03-main-p043",
+    "lec03-main-p044",
+    "lec03-main-p045",
+    "lec03-main-p046",
+    "lec03-main-p047",
+    "lec03-main-p048",
+    "lec03-main-p049",
+    "lec03-main-p050",
+    "lec03-main-p051",
+    "lec03-main-p052",
+    "lec03-main-p053",
+    "lec03-main-p054",
+    "lec03-main-p055",
+    "lec03-main-p056",
+    "lec03-main-p057",
+    "lec03-main-p058",
+    "lec03-main-p059",
+    "lec03-main-p060",
+    "lec03-main-p061",
+    "lec03-main-p062",
+    "lec03-main-p063",
+    "lec03-main-p064",
+    "lec03-main-p065",
+    "lec03-main-p066",
+    "lec03-main-p067",
+    "lec03-main-p068",
+    "lec03-main-p069",
+    "lec03-main-p070",
+    "lec03-main-p071"
+   ]
+  },
+  "found": {
+   "K=3": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "K=5": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "K=10": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "前後1": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "Graph": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "Graph全候補": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   },
+   "目次": {
+    "lec03-main-p043": true,
+    "lec03-main-p044": true
+   }
+  }
+ }
+]

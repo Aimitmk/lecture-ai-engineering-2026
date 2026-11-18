@@ -1,0 +1,78 @@
+{
+ "elapsed_seconds": 9.58,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2761,
+  "output_tokens": 289,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001551",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024"
+ ],
+ "errors": [],
+ "output": "講義資料によると、RAGとファインチューニング（FT）の使い分けの基本線は**「知識」か「振る舞い（答え方）」か**という基準で考えます（第2回・PDF p.46）。\n\n* **知識の追加（新しい事実や資料など）**\n  * **RAGが向いています。**\n  * 新しい知識や変化する情報（今日の講義内容や毎年の課題の締切など）をモデルに覚えさせるのは、FTでは非効率であり、ハルシネーション（誤り）が増える傾向があるため、まず資料を検索して渡すRAGが効果的とされています（第2回・PDF p.46, p.47, p.57）。\n* **振る舞いの修正（出力形式、口調、手順の守り方など）**\n  * **ファインチューニング（FT）が向いています。**\n  * 「必ず決まったJSON形式で返す」「特定の口調や手順を守らせる」といった答え方のルールは、まずプロンプトで指示し、それでも直らない場合に手本を与えてFTを行います（第2回・PDF p.46, p.57）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-18T23:31:51+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 1,
+ "attempt": 1
+}

@@ -1,0 +1,124 @@
+{
+ "elapsed_seconds": 23.35,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5755,
+  "output_tokens": 364,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.002636",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "評価 テスト 100問 公開"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "100 個ほど入力して そのうち 95 個"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2919
+    },
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3051
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3104
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3113
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.319
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3287
+    },
+    {
+     "page_id": "lec01-main-p045",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3342
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3346
+    },
+    {
+     "page_id": "lec02-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3394
+    },
+    {
+     "page_id": "lec01-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3423
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p039",
+  "lec01-main-p040",
+  "lec02-main-p016",
+  "lec02-main-p017",
+  "lec02-main-p043",
+  "lec01-main-p039",
+  "lec01-main-p045",
+  "lec02-main-p042",
+  "lec01-main-p038"
+ ],
+ "errors": [],
+ "output": "講義資料によると、LLMは確率で次の言葉を選ぶ仕組みであるため、答えが揺れたり、知らないことももっとらしく答えてしまったりすることがあります（第2回・PDF p.16〜17）。そのため、1回のテストで正解だったとしても、それはたまたまかもしれません（第2回・PDF p.17）。\n\n開発者が100問ほど試して95問が正しそうだったという状況について、講義資料では以下のような点が指摘されています。\n\n* **確率的な揺れへの注意**: 答えは確率で揺れるため、同じ質問を何回か聞き直したり、答えられない質問も含めたりして複数回測る必要があります（第2回・PDF p.16〜17）。\n* **自分の評価セットの重要性**: 公開ベンチマークや一般的な成績ではなく、自身の用途に合わせた「自分の評価セット」を用いて、実際の質問への正答率や、分からない質問に「分かりません」と言えるかを確認することが大切です（第2回・PDF p.39）。\n\n公開してよいかを判断するにあたっては、「95問正解した」という1回限りの結果だけで判断するのではなく、以下のような点を確認してみましょう。\n\n* 同じ質問を何度か繰り返したときも安定して正解するか？\n* モデルが知らない質問や答えられない質問が混ざったとき、知ったかぶりをせずに「分かりません」と適切に答えられるか？",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-18T23:29:31+09:00",
+ "question_id": "publish_ok",
+ "rep": 1,
+ "attempt": 2
+}
