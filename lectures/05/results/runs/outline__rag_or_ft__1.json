@@ -1,0 +1,152 @@
+{
+ "elapsed_seconds": 18.88,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5682,
+  "output_tokens": 487,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002922",
+ "tool_calls": [
+  {
+   "tool": "search_outline",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_outline",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    }
+   ],
+   "n_hits": 5,
+   "outline_pages": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-p007",
+    "lec02-main-p008",
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p011",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec02-main-p018",
+    "lec02-main-p019",
+    "lec02-main-p020",
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p024",
+    "lec02-main-p025",
+    "lec02-main-p026",
+    "lec02-main-p027",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p030",
+    "lec02-main-p031",
+    "lec02-main-p032",
+    "lec02-main-p033",
+    "lec02-main-p034",
+    "lec02-main-p035",
+    "lec02-main-p036",
+    "lec02-main-p037",
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p041",
+    "lec02-main-p042",
+    "lec02-main-p043",
+    "lec02-main-p044",
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p063",
+    "lec02-main-p064",
+    "lec02-main-p065",
+    "lec02-main-p066",
+    "lec02-main-p067",
+    "lec02-main-p068",
+    "lec02-main-p069",
+    "lec02-main-p070"
+   ]
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024"
+ ],
+ "errors": [],
+ "output": "チャットボットを作る際、RAG（検索拡張生成）とファインチューニング（FT）は、直したい「困りごと」の種類によって以下のように使い分けます（第2回・PDF p.20, 46）。\n\n### 1. 知識の追加・更新には「RAG」を使う\n- **向いているケース**: 「新しい事実」や「社内資料・最新の文書」などの知識を教えたいとき（例：今日の講義で話した新しい内容や、毎年変わる資料の内容）（第2回・PDF p.46, 57）\n- **理由**: 小規模なファインチューニングで新しい知識を覚えさせるのは非効率であり、覚えさせようとするほど誤り（ハルシネーション）が増える傾向が研究で報告されています。そのため、知識の追加にはまず検索（RAG）が適しています（第2回・PDF p.46, 47）。\n\n### 2. 出力形式・口調・手順などの「振る舞い」には「ファインチューニング（FT）」を使う\n- **向いているケース**: 出力フォーマット（必ず決まったJSON形式で返すなど）、口調、手順の守り方などの「答え方（振る舞い）」を変えたいとき（第2回・PDF p.46, 57）\n- **理由**: 振る舞いは、良質な手本データを用いることで少量の学習でも大きく変えることができます（第2回・PDF p.46, 47）。まずはプロンプトによる指示で試し、それでも直らない場合にファインチューニングを検討します（第2回・PDF p.20, 50）。\n\n---\n\n### まとめ（判断の基本線）\n- **知識**が足りない・新しい → **RAG**（まず資料を渡す）（第2回・PDF p.20, 46）\n- **振る舞い**（形式や口調）を直したい → **プロンプト**、または **ファインチューニング**（第2回・PDF p.20, 46）",
+ "condition": "outline",
+ "args": [
+  "--outline"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T01:37:41+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 1,
+ "attempt": 4
+}

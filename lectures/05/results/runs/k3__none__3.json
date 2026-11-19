@@ -1,0 +1,95 @@
+{
+ "elapsed_seconds": 5.84,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5476,
+  "output_tokens": 233,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002225",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "実測平均応答時間 正答率 RAG"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG 実測 平均応答時間 正答率"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2953
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3047
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3237
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2959
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3131
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3278
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p013",
+  "lec03-main-p064",
+  "lec03-main-p019"
+ ],
+ "errors": [],
+ "output": "第1〜3回の講義資料を確認しましたが、今回作成したRAGの「実測平均応答時間」や「正答率」に関する具体的な数値データは記載されていません。\n\n講義資料では、RAGなどの評価に関して以下のように説明されています。\n* LLMは確率で次の言葉を選ぶため、同じ質問でも答えは毎回変わる（第2回・PDF p.13）\n* 1回試して動いただけでは評価にならず、同じ質問を複数回聞いて平均やばらつきを見る必要がある（第2回・PDF p.13）\n\nご自身で実装されたRAGの応答時間や正答率を測るためには、実際に同じ質問を複数回繰り返してテストを行い、その結果を集計・評価する必要があります。どのように測定・評価を進めるとよいか、確認したい点があればお手伝いします。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T20:10:46+09:00",
+ "question_id": "none",
+ "rep": 3,
+ "attempt": 2
+}

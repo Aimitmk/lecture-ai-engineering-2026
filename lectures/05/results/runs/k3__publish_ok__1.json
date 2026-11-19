@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 188.35,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1604,
+  "output_tokens": 270,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001156",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "公開 100問 評価 テスト"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2892
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3074
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3077
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p039",
+  "lec02-main-p016",
+  "lec02-main-p017"
+ ],
+ "errors": [],
+ "output": "講義資料では、公開前のテストに関して次のような点が解説されています。\n\n* **確率の揺れとテストの重要性について**\n  LLMは確率で次の言葉を選ぶ仕組みであるため、1回のテストで正解したとしても、それは「たまたま」である可能性があります。また、知らないことでもそれらしく答えてしまう特性があるため、同じ質問を何回か聞き直したり、答えられないような質問も加えたりしてもう一度測る必要があるとされています（第2回・PDF p.16, 17）。\n* **自分の評価セットでの確認について**\n  公開ベンチマークの順位だけでなく、実際の質問を使った自分の評価セット（実際の質問への正答率や、答えられない質問に「分かりません」と言えるかなど）で確認することが重要視されています（第2回・PDF p.39）。\n\nこれらの点を踏まえて、100問中95問が正しそうだった場合にそのまま公開してよいと言えるかどうか、確率の揺れやテストの網羅性の観点から考えてみましょう。（第2回・PDF p.16, 17, 39）",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T00:34:51+09:00",
+ "question_id": "publish_ok",
+ "rep": 1,
+ "attempt": 1
+}

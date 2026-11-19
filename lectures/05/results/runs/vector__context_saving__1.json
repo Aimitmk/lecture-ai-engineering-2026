@@ -1,0 +1,123 @@
+{
+ "elapsed_seconds": 24.55,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 6201,
+  "output_tokens": 473,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.003043",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 圧縮 あふれ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3008
+    },
+    {
+     "page_id": "lec03-main-p010",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3162
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3194
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3221
+    },
+    {
+     "page_id": "lec03-main-p009",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3236
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3279
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.348
+    },
+    {
+     "page_id": "lec03-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3594
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3628
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3649
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p013",
+  "lec03-main-p010",
+  "lec03-main-p008",
+  "lec03-main-p065",
+  "lec03-main-p009",
+  "lec03-main-p032",
+  "lec03-main-p016",
+  "lec03-main-p039"
+ ],
+ "errors": [],
+ "output": "第3回講義資料において、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫として、主に以下の手法が紹介されています。\n\n1. **メモリ（外の保存先への書き出しと戻し）**\n   - 有限であるコンテキストから、重要な情報を外の保存先（ファイルやデータベースなど）に書き出し、必要なときに新しいコンテキストへ戻すことで、過去の情報を引き継ぎつつコンテキストを圧迫しないようにする（第3回・PDF p.13）。\n\n2. **履歴の要約（コンパクション）**\n   - セッション内の古い履歴を要約に置き換えてコンテキストを詰める（第3回・PDF p.39, 65）。自動でサーバー側が要約するAPIや、アプリケーション側で任意の時点を決められるコンパクションが提供されている（第3回・PDF p.65）。\n\n3. **メモリツール（セッションをまたぐ記録）**\n   - モデルがファイル操作を要求し、アプリケーション側が自分の保存先で実行・保存することで、セッションをまたいで必要な記憶をコンテキスト外に保持・再注入する（第3回・PDF p.39, 65）。\n\n4. **ツール検索（Tool Search）**\n   - MCPを含む大量のツールの定義を最初からすべてコンテキストに入れるのではなく、ツールを探すツール（`tool_search`）だけを常に入れ、必要なときに見つかった定義だけをコンテキストに読み込むことで、定義によるコンテキストの圧迫を防ぐ（第3回・PDF p.32）。\n\n5. **プロンプトキャッシュ（キャッシュの活用）**\n   - 会話ややり取りで毎回同じ先頭部分（システムプロンプトやこれまでの履歴の前半など）を送り直す際、前回と同じ先頭部分をキャッシュとして使い回すことにより、コストや処理の面で効率化を図る（第3回・PDF p.16）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T00:53:46+09:00",
+ "question_id": "context_saving",
+ "rep": 1,
+ "attempt": 2
+}

@@ -1,0 +1,164 @@
+{
+ "elapsed_seconds": 11.19,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5299,
+  "output_tokens": 482,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002795",
+ "tool_calls": [
+  {
+   "tool": "search_graph",
+   "args": {
+    "query": "コンパクション セッション 長期メモリ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_graph",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec03-main-p065"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec03-main-p039"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec03-main-p038"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p065",
+      "lec03-main-p064"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p066",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p065",
+      "lec03-main-p066"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p039",
+      "lec03-main-p040"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p037",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p038",
+      "lec03-main-p037"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p063",
+     "role": "expanded",
+     "given": true,
+     "hops": 2,
+     "via_term": false,
+     "path": [
+      "lec03-main-p065",
+      "lec03-main-p064",
+      "lec03-main-p063"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p067",
+     "role": "expanded",
+     "given": true,
+     "hops": 2,
+     "via_term": false,
+     "path": [
+      "lec03-main-p065",
+      "lec03-main-p066",
+      "lec03-main-p067"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "expanded",
+     "given": true,
+     "hops": 2,
+     "via_term": false,
+     "path": [
+      "lec03-main-p039",
+      "lec03-main-p040",
+      "lec03-main-p041"
+     ]
+    }
+   ]
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p065",
+  "lec03-main-p039",
+  "lec03-main-p038",
+  "lec03-main-p064",
+  "lec03-main-p066",
+  "lec03-main-p040",
+  "lec03-main-p037",
+  "lec03-main-p063",
+  "lec03-main-p067",
+  "lec03-main-p041"
+ ],
+ "errors": [],
+ "output": "ご質問ありがとうございます。AIエンジニアリング講座（AIE2026）の第3回講義資料を基に、コンパクションとセッションをまたぐメモリの違い、および日々のメモの長期メモリへの保存について解説します。\n\n### 1. コンパクションと「セッションをまたぐメモリ」の違い\n* **コンパクション（ループの中の履歴の圧縮）**\n  * **目的・範囲：** 1つのセッション（同じ会話やタスクのコンテキスト内）で行われます（第3回・PDF p.39）。長時間のやり取りでコンテキストの制限に近づいた際、古い履歴を要約して詰めることで、同じセッション内での容量オーバーを防ぎます（第3回・PDF p.39）。\n* **セッションをまたぐメモリ（メモリツールなど）**\n  * **目的・範囲：** 会話やセッションが終了して一度リセットされた後も、次のセッションへ情報を引き継ぐために使われます（第3回・PDF p.39）。外部の保存先（ファイルなど）に記録され、次回以降のセッションの最初に読み込まれます（第3回・PDF p.39）。\n\n---\n\n### 2. 日々のメモはすべて長期メモリに入りますか？\n第3回のOpenClawなどの実装例を見てみましょう。\n\n* 日々の細かいメモ（例：その日ごとの `memory/日付.md`）には、一度きりの調べものや日々のやり取りがそのまま記録されます（第3回・PDF p.40）。\n* しかし、**「すべて」がそのまま長期メモリ（`MEMORY.md`）に入るわけではありません**。\n* 夜間の見直しなどのプロセスを経て、「何度も出てくる重要なテーマ」や「残すべき基準を超えたもの」だけが選別されて長期メモリに引き継がれます（第3回・PDF p.40）。すべてを蓄積すると古い情報や不要なデータまで戻ってしまうため、「何を残し、何を消すか」が設計されています（第3回・PDF p.38, p.40）。",
+ "condition": "graph",
+ "args": [
+  "--graph"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T02:00:58+09:00",
+ "question_id": "memory",
+ "rep": 2,
+ "attempt": 1
+}

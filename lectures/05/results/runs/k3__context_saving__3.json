@@ -1,0 +1,97 @@
+{
+ "elapsed_seconds": 5.84,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4829,
+  "output_tokens": 354,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002334",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 あふれない"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 履歴 圧縮 節約"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3149
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3214
+    },
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3279
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.305
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3433
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3443
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p032",
+  "lec03-main-p065",
+  "lec03-main-p031",
+  "lec03-main-p039",
+  "lec03-main-p013"
+ ],
+ "errors": [],
+ "output": "第3回講義資料において紹介されている、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫（および関連するアプローチ）としては、主に以下のものが挙げられます。\n\n1. **サブエージェントの活用**\n   - エージェントが別のエージェント（サブエージェント）を呼び出して調べものなどのタスクを任せることで、親エージェントのコンテキストを切り分け、節約する（第3回・PDF p.31）。\n2. **ツール検索（Tool search）**\n   - ツールの説明（定義）が増えるとコンテキストが埋まってしまうため、すべての定義を最初から入れるのではなく、必要なときだけツール検索ツールを使って該当する定義を呼び出す（第3回・PDF p.32）。\n3. **コンパクション（履歴の要約）**\n   - セッション内のコンテキストにおいて、古い履歴を要約に置き換えて圧縮することで容量を空ける（第3回・PDF p.39, p.65）。\n4. **メモリの活用（メモリツール / 自動メモリ）**\n   - セッションをまたぐ記録として、必要な情報だけを外の保存先（ファイルなど）に書き出し、必要なときだけコンテキストに読み戻すことで、コンテキストの圧迫を防ぐ（第3回・PDF p.13, p.39, p.65）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T20:14:34+09:00",
+ "question_id": "context_saving",
+ "rep": 3,
+ "attempt": 1
+}

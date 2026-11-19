@@ -1,0 +1,20 @@
+[model] gemini-3.5-flash-lite
+第3回（AIエージェント）では、有限であるコンテキストを節約したり、あふれないようにしたりするための工夫として、主に以下の手法や仕組みが紹介されています。
+
+1. **メモリ（外の保存先への書き出しと読み戻し）**
+   - コンテキストがあふれないよう、過去のやり取りや重要な情報を外の保存先（ファイルやデータベースなど）に書き出し、必要なときに新しいコンテキストへ読み戻す仕組み（第3回・PDF p.13, p.39）。
+   - **セッションをまたぐ記録（メモリツールや自動メモリ）**：Claudeなどの実装例として、モデルが自分でメモを書いたりファイル操作を要求したりして、セッションをまたいで情報を維持する（第3回・PDF p.39）。
+
+2. **コンパクション（履歴を要約して詰める）**
+   - ループの中の履歴や古い履歴を要約に置き換えることで、コンテキストを圧迫しないように圧縮する仕組み（第3回・PDF p.39, p.65）。
+
+--- trace ---
+[tool call]   search_materials({'query': 'コンテキスト'})
+[tool return] search_materials -> {"results": [{"page_id": "lec03-main-p013", "document_id": "lec03-main", "lecture": 3, "document_title": "AIエージェント", "se…
+[tool call]   search_materials({'query': '節約 あふれ'})
+[tool return] search_materials -> {"results": [{"page_id": "lec03-main-p016", "document_id": "lec03-main", "lecture": 3, "document_title": "AIエージェント", "se…
+[tool call]   search_materials({'query': 'コンテキスト メモリ'})
+[tool return] search_materials -> {"results": [{"page_id": "lec03-main-p013", "document_id": "lec03-main", "lecture": 3, "document_title": "AIエージェント", "se…
+[time] 回答完了まで 17.86 秒（検索・埋め込みを含む）
+[usage] 入力 7,588 tokens / 出力 290 tokens / モデル応答 4 回
+[cost] 生成APIの推定コスト: $0.003001 USD（埋め込み・索引構築分は含まない）

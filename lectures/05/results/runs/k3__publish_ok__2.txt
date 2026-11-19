@@ -1,0 +1,25 @@
+[model] gemini-3.5-flash-lite
+開発者自身が100問ほど試して95問が正しそうだったという状況について、講義資料では以下のような点が評価の観点として挙げられています。
+
+- **評価者やテストケースの偏り**：開発者自身が自分で思いついた100問だけでテストした場合、開発者の想定しやすい問題や偏った問題ばかりになっている可能性があります。実際の多様なユーザーが使う際の入力に対して同じ精度が出るかはわかりません（第1回・PDF p.40）。
+- **「正しそう」という判断の基準**：人手による評価では、採点者の主観や見落としが含まれる場合があります。また、もしエージェントのように複数ステップの処理を伴う仕組みであれば、1ステップごとの成功率が高くても、処理が連続すると全体としての成功率は下がっていく「誤差の累積」という問題もあります（第1回・PDF p.40、第3回・PDF p.19）。
+
+これらを踏まえて、以下の点について考えてみるとヒントになります。
+
+1. その100問は、実際のユーザーが入力する多様な質問や想定外の入力を十分に網羅できているでしょうか？
+2. 開発者以外の第三者が評価を行ったり、より客観的なテストセットを用意したりする必要はないでしょうか？
+
+（参考：第1回・PDF p.40）
+
+--- trace ---
+[tool call]   search_materials({'query': '公開'})
+[tool return] search_materials -> {"results": [{"page_id": "lec01-main-p024", "document_id": "lec01-main", "lecture": 1, "document_title": "AIエンジニアリング概論とA…
+[tool call]   search_materials({'query': '評価 テスト 100問'})
+[tool return] search_materials -> {"results": [{"page_id": "lec01-main-p040", "document_id": "lec01-main", "lecture": 1, "document_title": "AIエンジニアリング概論とA…
+[tool call]   search_materials({'query': '100個 95個 十分'})
+[tool return] search_materials -> {"results": [{"page_id": "lec03-main-p019", "document_id": "lec03-main", "lecture": 3, "document_title": "AIエージェント", "se…
+[tool call]   search_materials({'query': '人手評価 偏り'})
+[tool return] search_materials -> {"results": [{"page_id": "lec01-main-p040", "document_id": "lec01-main", "lecture": 1, "document_title": "AIエンジニアリング概論とA…
+[time] 回答完了まで 38.29 秒（検索・埋め込みを含む）
+[usage] 入力 13,047 tokens / 出力 375 tokens / モデル応答 5 回
+[cost] 生成APIの推定コスト: $0.004852 USD（埋め込み・索引構築分は含まない）

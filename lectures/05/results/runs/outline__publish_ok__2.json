@@ -1,0 +1,253 @@
+{
+ "elapsed_seconds": 10.74,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 15165,
+  "output_tokens": 374,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.004388",
+ "tool_calls": [
+  {
+   "tool": "search_outline",
+   "args": {
+    "query": "評価 テスト 100問 公開"
+   }
+  },
+  {
+   "tool": "read_pages",
+   "args": {
+    "page_ids": [
+     "lec01-main-p041",
+     "lec01-main-p042"
+    ]
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_outline",
+   "pages": [
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2919
+    },
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3051
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3104
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3113
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.319
+    }
+   ],
+   "n_hits": 5,
+   "outline_pages": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-p007",
+    "lec02-main-p008",
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p011",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec02-main-p018",
+    "lec02-main-p019",
+    "lec02-main-p020",
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p024",
+    "lec02-main-p025",
+    "lec02-main-p026",
+    "lec02-main-p027",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p030",
+    "lec02-main-p031",
+    "lec02-main-p032",
+    "lec02-main-p033",
+    "lec02-main-p034",
+    "lec02-main-p035",
+    "lec02-main-p036",
+    "lec02-main-p037",
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p041",
+    "lec02-main-p042",
+    "lec02-main-p043",
+    "lec02-main-p044",
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p063",
+    "lec02-main-p064",
+    "lec02-main-p065",
+    "lec02-main-p066",
+    "lec02-main-p067",
+    "lec02-main-p068",
+    "lec02-main-p069",
+    "lec02-main-p070",
+    "lec01-main-p001",
+    "lec01-main-p002",
+    "lec01-main-p003",
+    "lec01-main-p004",
+    "lec01-main-p005",
+    "lec01-main-p006",
+    "lec01-main-p007",
+    "lec01-main-p008",
+    "lec01-main-p009",
+    "lec01-main-p010",
+    "lec01-main-p011",
+    "lec01-main-p012",
+    "lec01-main-p013",
+    "lec01-main-p014",
+    "lec01-main-p015",
+    "lec01-main-p016",
+    "lec01-main-p017",
+    "lec01-main-p018",
+    "lec01-main-p019",
+    "lec01-main-p020",
+    "lec01-main-p021",
+    "lec01-main-p022",
+    "lec01-main-p023",
+    "lec01-main-p024",
+    "lec01-main-p025",
+    "lec01-main-p026",
+    "lec01-main-p027",
+    "lec01-main-p028",
+    "lec01-main-p029",
+    "lec01-main-p030",
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p033",
+    "lec01-main-p034",
+    "lec01-main-p035",
+    "lec01-main-p036",
+    "lec01-main-p037",
+    "lec01-main-p038",
+    "lec01-main-p039",
+    "lec01-main-p040",
+    "lec01-main-p041",
+    "lec01-main-p042",
+    "lec01-main-p043",
+    "lec01-main-p044",
+    "lec01-main-p045",
+    "lec01-main-p046",
+    "lec01-main-p047",
+    "lec01-main-p048",
+    "lec01-main-p049",
+    "lec01-main-p050",
+    "lec01-main-p051",
+    "lec01-main-p052",
+    "lec01-main-p053",
+    "lec01-main-p054",
+    "lec01-main-p055",
+    "lec01-main-p056",
+    "lec01-main-p057",
+    "lec01-main-p058",
+    "lec01-main-p059",
+    "lec01-main-p060",
+    "lec01-main-p061",
+    "lec01-main-p062",
+    "lec01-main-p063",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p066",
+    "lec01-main-p067",
+    "lec01-main-p068",
+    "lec01-main-p069",
+    "lec01-main-p070",
+    "lec01-main-p071",
+    "lec01-main-p072",
+    "lec01-main-p073"
+   ]
+  },
+  {
+   "tool": "read_pages",
+   "pages": [
+    {
+     "page_id": "lec01-main-p041",
+     "role": "read",
+     "given": true
+    },
+    {
+     "page_id": "lec01-main-p042",
+     "role": "read",
+     "given": true
+    }
+   ],
+   "not_found": [],
+   "skipped": []
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p039",
+  "lec01-main-p040",
+  "lec02-main-p016",
+  "lec02-main-p017",
+  "lec02-main-p043",
+  "lec01-main-p041",
+  "lec01-main-p042"
+ ],
+ "errors": [],
+ "output": "開発者が自分で100問ほど試して95問が正しそうだったとしても、そのまま公開するのは**おそらく十分ではない**と考えられます（第1回・PDF p.40-42）。\n\nその主な理由や、評価において考慮すべきポイントには以下のようなものがあります。\n\n1. **開発者は一般的なエンドユーザーではない**\n   - 「自分は典型的なエンドユーザーではない（You are not a typical end user）」という原則があり、開発者が思いつく質問と、実際のユーザーが入力する想定外の質問にはギャップがあります（第1回・PDF p.41）。\n2. **確率的な揺れや、条件の変化がある**\n   - チャットボットは確率で次の言葉を選ぶため、1回のテストで正解していても、質問の言い回しや試行回数によって結果が変わることがあります。また、本番のデータは開発時とは異なる場合があります（第1回・PDF p.41、第2回・PDF p.17）。\n3. **機能以外の要件（非機能要件）の確認**\n   - 正答率だけでなく、応答速度や、コスト、本当に目指す価値（例：講師の負担軽減など）を満たせているかも重要になります（第1回・PDF p.41-42）。\n\n公開する前に、どのような点を確認するとよさそうか、評価セットやテストの方法について少し考えてみるとヒントが見えてきます。",
+ "condition": "outline",
+ "args": [
+  "--outline"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T02:50:30+09:00",
+ "question_id": "publish_ok",
+ "rep": 2,
+ "attempt": 1
+}

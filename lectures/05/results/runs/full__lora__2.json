@@ -1,0 +1,30 @@
+{
+ "elapsed_seconds": 10.61,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 117025,
+  "output_tokens": 194,
+  "requests": 1,
+  "tool_calls": 0
+ },
+ "cost": "$0.035592",
+ "tool_calls": [],
+ "tool_returns": [],
+ "pages_given": [],
+ "errors": [],
+ "output": "ご質問ありがとうございます。\n\nLoRAとQLoRAの仕組みについては、以下の資料に記載されています。\n\n- **LoRAが固定するものと学習するもの**について：資料名 `lec02-main / 基盤モデルの仕組み`（PDF p.52）\n- **QLoRAが加えるもの**について：資料名 `lec02-main / 基盤モデルの仕組み`（PDF p.51、p.52）\n\n具体的な考え方のヒントは以下の通りです。\n\n- **LoRA**では、元のモデル全体の重みを「固定（学習しない）」し、その代わりにどのような部分を追加・更新して差分を表現しているかを確認してみましょう。\n- **QLoRA**は、LoRAの仕組みにさらにどのような圧縮処理（ビット数の削減など）を加えることで省メモリ化を実現しているか、スライスの図や解説を読み解いてみてください。",
+ "condition": "full",
+ "args": [
+  "--full-context"
+ ],
+ "rag_top_k": 5,
+ "full_context": true,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T01:38:22+09:00",
+ "question_id": "lora",
+ "rep": 2,
+ "attempt": 1
+}

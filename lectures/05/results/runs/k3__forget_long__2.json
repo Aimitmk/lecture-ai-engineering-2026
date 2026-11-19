@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 15.99,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1663,
+  "output_tokens": 309,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001271",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "モデル 見落とし 長い会話 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.29
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2937
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2972
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec02-main-p003",
+  "lec03-main-p008"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが情報を見落としてしまう理由や、講義で紹介されている対策について、資料に記載されている内容は以下の通りです。\n\n### なぜ見落としてしまうのか\n* **長い文脈を均等には使えないため**\n  * 一度に読める長さが伸びていても、途中の情報は見落とされやすい傾向があります（最新モデルでは改善傾向にありますが、確認が必要です）。\n  * 研究（Liu et al. 「Lost in the Middle」）によると、答えが文脈の真ん中にあるほど使われにくいという「U字型」の特性があります（第2回・PDF p.15）。\n\n### 講義で紹介されている対策\nチャットボットなどで長い会話や資料を扱う場合の対策として、以下の方法が挙げられています。\n* **検索して渡す（RAG）**：講義資料などを全部まとめて渡すのではなく、質問に関係する部分だけを検索して渡す（第2回・PDF p.15）。\n* **情報の整理**：長い会話や資料では、要約や作業メモを使って情報を整理する（第2回・PDF p.15）。\n* **評価**：入力の長さを変えて、正答率が落ちないかを測る（第2回・PDF p.15）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T02:57:31+09:00",
+ "question_id": "forget_long",
+ "rep": 2,
+ "attempt": 1
+}

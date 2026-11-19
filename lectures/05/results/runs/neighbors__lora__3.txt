@@ -1,0 +1,16 @@
+[model] gemini-3.5-flash-lite
+第2回講義資料によると、LoRAとQLoRAの仕組みについて以下のように説明されています。
+
+* **LoRA**
+  * **固定するもの**: モデルの本体（元の重み）は固定して学習しません（第2回・PDF p.51, 52）。
+  * **学習するもの**: 小さな追加部分である、細長い2つの小さな行列の積（低ランク）を表す行列（$\text{A}$ と $\text{B}$）だけを学習します（第2回・PDF p.51, 52）。
+
+* **QLoRA**
+  * **加えるもの**: LoRAの手法に加えて、元の重みを **4bit（数値を粗く保存する形）に圧縮** します（第2回・PDF p.51, 52）。これにより、さらに少ないメモリで大きなモデルの微調整を可能にしています。
+
+--- trace ---
+[tool call]   search_materials({'query': 'LoRA 固定 学習 QLoRA 加える'})
+[tool return] search_materials -> {"results": [{"page_id": "lec02-main-p050", "document_id": "lec02-main", "lecture": 2, "document_title": "基盤モデルの仕組み", "s…
+[time] 回答完了まで 3.65 秒（検索・埋め込みを含む）
+[usage] 入力 5,371 tokens / 出力 221 tokens / モデル応答 2 回
+[cost] 生成APIの推定コスト: $0.002164 USD（埋め込み・索引構築分は含まない）

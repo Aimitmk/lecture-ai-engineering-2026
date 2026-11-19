@@ -1,0 +1,194 @@
+{
+ "elapsed_seconds": 6.04,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 12363,
+  "output_tokens": 367,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 4065
+ },
+ "cost": "$0.003529",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "公開"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "確率 揺れ テスト 評価"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3381
+    },
+    {
+     "page_id": "lec02-main-p033",
+     "role": "hit",
+     "given": true,
+     "distance": 0.339
+    },
+    {
+     "page_id": "lec01-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3431
+    },
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3461
+    },
+    {
+     "page_id": "lec02-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3484
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3552
+    },
+    {
+     "page_id": "lec03-main-p068",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3553
+    },
+    {
+     "page_id": "lec03-main-p002",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3592
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3599
+    },
+    {
+     "page_id": "lec01-main-p014",
+     "role": "hit",
+     "given": true,
+     "distance": 0.36
+    }
+   ],
+   "n_hits": 10
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3209
+    },
+    {
+     "page_id": "lec02-main-p018",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3295
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3376
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3389
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3389
+    },
+    {
+     "page_id": "lec01-main-p035",
+     "role": "hit",
+     "given": true,
+     "distance": 0.349
+    },
+    {
+     "page_id": "lec02-main-p012",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3492
+    },
+    {
+     "page_id": "lec02-main-p007",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3548
+    },
+    {
+     "page_id": "lec03-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3549
+    },
+    {
+     "page_id": "lec03-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3566
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec01-main-p024",
+  "lec02-main-p033",
+  "lec01-main-p013",
+  "lec02-main-p039",
+  "lec02-main-p038",
+  "lec02-main-p016",
+  "lec03-main-p068",
+  "lec03-main-p002",
+  "lec02-main-p017",
+  "lec01-main-p014",
+  "lec02-main-p018",
+  "lec03-main-p019",
+  "lec02-main-p013",
+  "lec01-main-p035",
+  "lec02-main-p012",
+  "lec02-main-p007",
+  "lec03-main-p046",
+  "lec03-main-p047"
+ ],
+ "errors": [],
+ "output": "LLM（大規模言語モデル）を活用したチャットボットを公開するにあたっては、**数例試して「動いた」や「95問正しそうだった」という状態だけでそのまま公開するのは不十分**とされています。その理由は主に以下の通りです。\n\n1. **出力が確率的に揺れるため**\n   - LLMは確率で次の言葉を選ぶ仕組みのため、同じ質問であっても毎回同じ答えを返すとは限りません（第2回・PDF p.13, 17）。1回試してうまくいったとしても、それはたまたまかもしれません。\n2. **知らないことでもそれらしく答えてしまうため**\n   - モデルは知らない質問に対しても、もっともらしい嘘（ハルシネーション）をつくことがあります（第2回・PDF p.17）。\n\nそのため、公開前には以下のような点を確認・実施することが推奨されています。\n\n* **同じ質問を複数回聞き直して測る**（例：各質問を5回試すなどしてばらつきを確認する）（第2回・PDF p.17, 18）\n* **答えられないような質問（知らない情報に関する質問など）もあらかじめ含めてテストし、「分かりません」と正しく答えられるか確かめる**（第2回・PDF p.17, 18）\n\nまずはご自身の評価セットを用いて、確率的な揺れや苦手な傾向がないかを複数回・多角的に確かめてから公開を検討してみてください（第2回・PDF p.18）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T20:13:01+09:00",
+ "question_id": "publish_ok",
+ "rep": 3,
+ "attempt": 1
+}

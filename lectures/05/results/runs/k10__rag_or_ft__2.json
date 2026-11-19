@@ -1,0 +1,113 @@
+{
+ "elapsed_seconds": 15.53,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4703,
+  "output_tokens": 380,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002361",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2734
+    },
+    {
+     "page_id": "lec02-main-p050",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2782
+    },
+    {
+     "page_id": "lec02-main-p006",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2796
+    },
+    {
+     "page_id": "lec02-main-p053",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2877
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2882
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024",
+  "lec02-main-p028",
+  "lec02-main-p050",
+  "lec02-main-p006",
+  "lec02-main-p053",
+  "lec02-main-p013"
+ ],
+ "errors": [],
+ "output": "講義資料によると、チャットボットを作成する際のRAG（Retrieval-Augmented Generation）とファインチューニング（FT）の使い分けの基本線は、**「知識」の追加にはRAGを使い、「振る舞い」の調整にはファインチューニングを使う**こととされています。\n\n具体的には次のように切り分けます。\n\n* **知識（新しい事実、社内資料、最新情報など）**\n  * **RAGが向いています。** 新しい知識や資料の中身をモデルに覚えさせようとすると、ファインチューニングでは非効率であり、ハルシネーション（誤り）が増えるという研究報告もあります（第2回・PDF p.46, 47）。そのため、質問に応じて関係する資料を検索し、入力に含めて答えさせるRAGを使用します（第2回・PDF p.6, 46）。\n* **振る舞い（出力形式、口調、手順、ルールを守らせるなど）**\n  * **ファインチューニング（またはプロンプト）が向いています。** まずは指示（プロンプト）やAPIの構造化出力を試しますが、それでも直らない出力形式や特定のトーンなどの「答え方（振る舞い）」を直したい場合に、少量の手本を使ってファインチューニングを検討します（第2回・PDF p.46, 50, 53）。\n\n実務では、安く速く試せる方法（プロンプトやRAG）から順に検討し、評価セットで確かめながら進めることが推奨されています（第2回・PDF p.50）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T03:05:41+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 2,
+ "attempt": 3
+}

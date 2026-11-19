@@ -1,0 +1,230 @@
+{
+ "elapsed_seconds": 5.55,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 15261,
+  "output_tokens": 279,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 4071
+ },
+ "cost": "$0.004177",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 あふれない"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p030",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p031"
+    },
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3279
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3149
+    },
+    {
+     "page_id": "lec03-main-p033",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p032"
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3214
+    },
+    {
+     "page_id": "lec03-main-p066",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3298
+    },
+    {
+     "page_id": "lec03-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p007",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3318
+    },
+    {
+     "page_id": "lec03-main-p009",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p030",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p031"
+    },
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3097
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2972
+    },
+    {
+     "page_id": "lec03-main-p033",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p032"
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3114
+    },
+    {
+     "page_id": "lec03-main-p066",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec02-main-p048",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p049"
+    },
+    {
+     "page_id": "lec02-main-p049",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3159
+    },
+    {
+     "page_id": "lec02-main-p050",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p049"
+    },
+    {
+     "page_id": "lec03-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3207
+    },
+    {
+     "page_id": "lec03-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p030",
+  "lec03-main-p031",
+  "lec03-main-p032",
+  "lec03-main-p033",
+  "lec03-main-p064",
+  "lec03-main-p065",
+  "lec03-main-p066",
+  "lec03-main-p012",
+  "lec03-main-p013",
+  "lec03-main-p014",
+  "lec03-main-p007",
+  "lec03-main-p008",
+  "lec03-main-p009",
+  "lec02-main-p048",
+  "lec02-main-p049",
+  "lec02-main-p050"
+ ],
+ "errors": [],
+ "output": "第3回講義資料において、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫として、主に以下の手法が紹介されています。\n\n1. **サブエージェントの活用**\n   - 調査などの細かなタスクを別のエージェント（サブエージェント）に任せることで、調べものの記録（検索結果や読んだファイルの中身など）が親エージェントのコンテキストに入らないように切り分け、要約された報告だけを受け取る（第3回・PDF p.31）\n\n2. **ツール検索（Tool Search）の導入**\n   - すべてのツールの定義を最初からコンテキストに入れず、ツールを探す専用のツール（`tool_search`）を常に入れておき、必要なときに見つかった定義だけを読み込む（第3回・PDF p.32）\n\n3. **ツールのバッチコール**\n   - 前の結果を必要としない複数のツール呼び出しを、1回の応答でまとめて（バッチで）呼び出す（第3回・PDF p.30）",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T20:14:57+09:00",
+ "question_id": "context_saving",
+ "rep": 3,
+ "attempt": 1
+}

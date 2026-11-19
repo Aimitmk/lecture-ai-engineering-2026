@@ -1,0 +1,136 @@
+{
+ "elapsed_seconds": 14.14,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5255,
+  "output_tokens": 307,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002344",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 あふれない"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p030",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p031"
+    },
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3279
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3149
+    },
+    {
+     "page_id": "lec03-main-p033",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p032"
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3214
+    },
+    {
+     "page_id": "lec03-main-p066",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3298
+    },
+    {
+     "page_id": "lec03-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p007",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3318
+    },
+    {
+     "page_id": "lec03-main-p009",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p030",
+  "lec03-main-p031",
+  "lec03-main-p032",
+  "lec03-main-p033",
+  "lec03-main-p064",
+  "lec03-main-p065",
+  "lec03-main-p066",
+  "lec03-main-p012",
+  "lec03-main-p013",
+  "lec03-main-p014",
+  "lec03-main-p007",
+  "lec03-main-p008",
+  "lec03-main-p009"
+ ],
+ "errors": [],
+ "output": "第3回講義資料において、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫として、以下の方法が紹介されています。\n\n1. **サブエージェントの活用**\n   - 親エージェントとは別に、調べものなどを実行する別のエージェント（サブエージェント）を呼び出す方法です。詳細な調べものの記録（検索結果やファイルの中身など）をサブエージェント側のコンテキストに閉じ込め、親エージェントには要約された報告だけを入れることで、親エージェントのコンテキストを節約できます（第3回・PDF p.31）。\n\n2. **ツール検索（Tool Search）の活用**\n   - すべてのツールの定義を最初からコンテキストに入れておくのではなく、「ツールを探すツール（`tool_search`）」だけを常にシステムプロンプト等に入れておき、必要なときに見つかったツールの定義だけをコンテキストに読み込ませる方法です（第3回・PDF p.32）。\n\n3. **ツールのバッチコールの活用**\n   - 前の結果を使わないツール呼び出しについては、1回の応答でまとめて（バッチで）呼び出すことで、コンテキストややりとりの効率を高める工夫が紹介されています（第3回・PDF p.30）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T00:56:41+09:00",
+ "question_id": "context_saving",
+ "rep": 1,
+ "attempt": 2
+}

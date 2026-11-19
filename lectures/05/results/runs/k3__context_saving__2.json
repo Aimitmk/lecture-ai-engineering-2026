@@ -1,0 +1,129 @@
+{
+ "elapsed_seconds": 17.86,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 7588,
+  "output_tokens": 290,
+  "requests": 4,
+  "tool_calls": 3
+ },
+ "cost": "$0.003001",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "節約 あふれ"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト メモリ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3008
+    },
+    {
+     "page_id": "lec03-main-p010",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3162
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3194
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3794
+    },
+    {
+     "page_id": "lec02-main-p049",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3813
+    },
+    {
+     "page_id": "lec02-main-p068",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3849
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2541
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2755
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2767
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p013",
+  "lec03-main-p010",
+  "lec03-main-p008",
+  "lec03-main-p016",
+  "lec02-main-p049",
+  "lec02-main-p068",
+  "lec03-main-p039",
+  "lec03-main-p065"
+ ],
+ "errors": [],
+ "output": "第3回（AIエージェント）では、有限であるコンテキストを節約したり、あふれないようにしたりするための工夫として、主に以下の手法や仕組みが紹介されています。\n\n1. **メモリ（外の保存先への書き出しと読み戻し）**\n   - コンテキストがあふれないよう、過去のやり取りや重要な情報を外の保存先（ファイルやデータベースなど）に書き出し、必要なときに新しいコンテキストへ読み戻す仕組み（第3回・PDF p.13, p.39）。\n   - **セッションをまたぐ記録（メモリツールや自動メモリ）**：Claudeなどの実装例として、モデルが自分でメモを書いたりファイル操作を要求したりして、セッションをまたいで情報を維持する（第3回・PDF p.39）。\n\n2. **コンパクション（履歴を要約して詰める）**\n   - ループの中の履歴や古い履歴を要約に置き換えることで、コンテキストを圧迫しないように圧縮する仕組み（第3回・PDF p.39, p.65）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T02:51:53+09:00",
+ "question_id": "context_saving",
+ "rep": 2,
+ "attempt": 1
+}

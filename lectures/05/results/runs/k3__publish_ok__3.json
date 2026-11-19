@@ -1,0 +1,97 @@
+{
+ "elapsed_seconds": 5.77,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 3962,
+  "output_tokens": 350,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002064",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "チャットボット 公開 評価 テスト"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "100個 95個 評価"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2974
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3005
+    },
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3012
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3259
+    },
+    {
+     "page_id": "lec01-main-p035",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3404
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3477
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec01-main-p040",
+  "lec02-main-p016",
+  "lec02-main-p039",
+  "lec01-main-p035",
+  "lec02-main-p043"
+ ],
+ "errors": [],
+ "output": "講義資料によると、開発者自身が100問ほど試して95問が正しそうだったとしても、それだけですぐに公開してよいか（評価として十分か）については、いくつか注意すべきポイントがあります。（第1回・PDF p.40）\n\nAIシステム（LLM）の特性を思い出すと、以下のような観点から「本当にその評価で足りているか」を考える必要があります。\n\n* **テストの網羅性や偏りはないか：** 開発者自身が思いついた100問だけでテストしている場合、実際のユーザーが入力する多様な質問や、答えにくい難しい質問が十分にカバーできているでしょうか？\n* **確率的な揺らぎへの配慮：** LLMは同じ入力でも出力が揺らぐことがあります。数例や1回試しただけでは「本当に正しく動くか」を測るには足りません（第1回・PDF p.35）。\n* **「答えられない質問」への対応：** 正解の質問だけでなく、知らないことや答えられない質問が来たり、意地悪な質問が来たりしたときに、適切に「分かりません」と答えられるかも確認する必要があります（第2回・PDF p.39）。\n\nまずは、「実際のユーザーが使いそうな多様な質問」や「答えられないべき質問」も含めて評価セットを見直し、テストを多角的に行うことが重要です。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T20:12:50+09:00",
+ "question_id": "publish_ok",
+ "rep": 3,
+ "attempt": 2
+}

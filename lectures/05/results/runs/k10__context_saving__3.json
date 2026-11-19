@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 5.1,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4366,
+  "output_tokens": 515,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002597",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 あふれない 対策 工夫 第3回"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2742
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2768
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2805
+    },
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2826
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2917
+    },
+    {
+     "page_id": "lec03-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2973
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2976
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2979
+    },
+    {
+     "page_id": "lec03-main-p010",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3007
+    },
+    {
+     "page_id": "lec03-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3023
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p032",
+  "lec03-main-p013",
+  "lec03-main-p065",
+  "lec03-main-p031",
+  "lec03-main-p008",
+  "lec03-main-p016",
+  "lec03-main-p039",
+  "lec03-main-p041",
+  "lec03-main-p010",
+  "lec03-main-p047"
+ ],
+ "errors": [],
+ "output": "第3回講義資料で紹介されている、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫（Context Engineeringに関連する手法や仕組み）として、以下のものが挙げられます。\n\n1. **サブエージェントの活用**\n   - 調べものなどのタスクを別のエージェント（サブエージェント）に任せることで、大量の検索結果やファイル読み込みログなどの詳細な履歴を親エージェントのコンテキストに入らず切り分ける。親エージェントには要約された報告のみが入る（第3回・PDF p.31）。\n2. **ツール検索（Tool search）**\n   - すべてのツールの定義を最初からコンテキストに入れず、ツールを探すツール（`tool_search`）だけを常に入れておき、見つかった必要な定義だけをコンテキストに読み込ませることで、ツール説明によるコンテキストの圧迫を防ぐ（第3回・PDF p.32）。\n3. **プロンプトキャッシュ（キャッシュの利用）**\n   - 会話が長くなり毎回全体を送り直す場合でも、前回と同じ先頭部分はプロンプトキャッシュとして使い回し、安く速く処理できるようにする（第3回・PDF p.16）。\n4. **履歴の要約（コンパクション）**\n   - ループの中の履歴（古い履歴）を要約に置き換えることで、コンテキストの容量を圧縮する（第3回・PDF p.39, 65）。\n5. **メモリ（メモリツール・自動メモリ）**\n   - セッションをまたいで必要な情報（「何があったか」など）を外の保存先に書き出し、必要なときに読み戻して新しいコンテキストに再注入する（第3回・PDF p.13, 39, 41）。\n6. **Skill（スキル）の活用**\n   - 繰り返す作業の手順（「どうやるか」）について、本文ではなく名前と説明（約100トークン）だけをコンテキストに入れ、そのスキルを使う依頼が来たとき初めて手順の本文を読み込むことでコンテキストを圧迫しないようにする（第3回・PDF p.41）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T20:14:46+09:00",
+ "question_id": "context_saving",
+ "rep": 3,
+ "attempt": 1
+}

@@ -1,0 +1,151 @@
+{
+ "elapsed_seconds": 4.46,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 7127,
+  "output_tokens": 238,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002733",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "実測平均応答時間 正答率 RAG"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p013"
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2953
+    },
+    {
+     "page_id": "lec02-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p063",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p064"
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3047
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p064"
+    },
+    {
+     "page_id": "lec03-main-p018",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p019"
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3237
+    },
+    {
+     "page_id": "lec03-main-p020",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p019"
+    },
+    {
+     "page_id": "lec01-main-p018",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p019"
+    },
+    {
+     "page_id": "lec01-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3313
+    },
+    {
+     "page_id": "lec01-main-p020",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p019"
+    },
+    {
+     "page_id": "lec02-main-p023",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p024"
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3321
+    },
+    {
+     "page_id": "lec02-main-p025",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p024"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p012",
+  "lec02-main-p013",
+  "lec02-main-p014",
+  "lec03-main-p063",
+  "lec03-main-p064",
+  "lec03-main-p065",
+  "lec03-main-p018",
+  "lec03-main-p019",
+  "lec03-main-p020",
+  "lec01-main-p018",
+  "lec01-main-p019",
+  "lec01-main-p020",
+  "lec02-main-p023",
+  "lec02-main-p024",
+  "lec02-main-p025"
+ ],
+ "errors": [],
+ "output": "講義資料を確認しましたが、第1〜3回の講義資料内には、今回作成された個別具体的なRAGシステムの「実測平均応答時間」や「正答率」の数値データは記載されていません（第2回資料に記載されているRAGの正答率等の例は、あくまで説明用の例示となります）。\n\nそのため、お手元の環境で実際に計測されたデータを直接お答えすることはできません。\n\nもしご自身のRAGシステムの実測値について確認や評価を行いたい場合は、以下のような観点をヒントにテストや計測を考えてみてください。\n\n- **評価方法のヒント**: \n  - 1回の試行だけで判断せず、同じ質問を複数回行って出力のばらつきや平均を測る（第2回・PDF p.13）\n  - 正解・不正解を判定するための評価セットを用意し、知らない質問に対して「分かりません」と正しく答えられるかも含めて測る（第2回・PDF p.14）",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T20:11:41+09:00",
+ "question_id": "none",
+ "rep": 3,
+ "attempt": 1
+}

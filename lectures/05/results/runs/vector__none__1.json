@@ -1,0 +1,78 @@
+{
+ "elapsed_seconds": 13.65,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2772,
+  "output_tokens": 170,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001257",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "実測平均応答時間 正答率"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3025
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3231
+    },
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3286
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.335
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3375
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p064",
+  "lec03-main-p019",
+  "lec02-main-p039",
+  "lec02-main-p013",
+  "lec02-main-p017"
+ ],
+ "errors": [],
+ "output": "第1〜3回の講義資料を確認しましたが、今回作成したRAGの実測平均応答時間や正答率に関する具体的な数値やデータは記載されていません。\n\n講義資料では、LLMやRAGの評価に関して以下のように述べられています。\n- LLMは確率で次の言葉を選ぶため、同じ質問でも答えは毎回変わり、1回試しただけでは実際の正答率は分からない（第2回・PDF p.13, p.17）。\n- 評価セットの作り方や詳細な評価については第4回で扱うことになっています（第2回・PDF p.39）。\n\nそのため、現時点の講義資料の範囲では確認できません。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T00:05:13+09:00",
+ "question_id": "none",
+ "rep": 1,
+ "attempt": 1
+}

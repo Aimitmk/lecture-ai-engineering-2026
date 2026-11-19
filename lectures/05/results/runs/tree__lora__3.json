@@ -1,0 +1,122 @@
+{
+ "elapsed_seconds": 9.95,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 9229,
+  "output_tokens": 326,
+  "requests": 5,
+  "tool_calls": 4,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.003584",
+ "tool_calls": [
+  {
+   "tool": "browse_tree",
+   "args": {}
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main-s045"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main-p052"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "aie2026-materials",
+   "children": [
+    "lec01-main",
+    "lec02-main",
+    "lec03-main"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec02-main",
+   "children": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-s007",
+    "lec02-main-s019",
+    "lec02-main-s030",
+    "lec02-main-s045",
+    "lec02-main-s063"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec02-main-s045",
+   "children": [
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [
+    {
+     "page_id": "lec02-main-p052",
+     "role": "node",
+     "given": true
+    }
+   ],
+   "node": "lec02-main-p052",
+   "children": []
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p052"
+ ],
+ "errors": [],
+ "output": "第2回の講義資料によると、LoRAとQLoRAの仕組みについて以下のように説明されています。\n\n* **LoRAが固定するもの・学習するもの**\n  * **固定するもの**：モデルの元の重み（Pretrained Weights）は固定し、学習しません（第2回・PDF p.52）。\n  * **学習するもの**：元の重みに対する小さな「差分」（低ランクの小さな行列 $A$ と $B$）だけを学習します（第2回・PDF p.52）。イメージとしては、本体はそのままにして薄い「付箋」を書き足すように、全体の1%未満だけを学習させます。\n\n* **QLoRAが加えるもの**\n  * **加える（組み合わせる）もの**：LoRAの手法に加えて、**元の重みを4bitに量子化（圧縮）して保持する**という工夫を加えます（第2回・PDF p.52）。これにより、数値を粗く保存してメモリを大幅に削減し、比較的小さなGPU（Colab環境など）でも巨大なモデルの微調整ができるようになります。",
+ "condition": "tree",
+ "args": [
+  "--tree"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T20:01:03+09:00",
+ "question_id": "lora",
+ "rep": 3,
+ "attempt": 1
+}

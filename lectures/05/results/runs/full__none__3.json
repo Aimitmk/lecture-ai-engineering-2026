@@ -1,0 +1,31 @@
+{
+ "elapsed_seconds": 4.12,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 117016,
+  "output_tokens": 273,
+  "requests": 1,
+  "tool_calls": 0,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.035787",
+ "tool_calls": [],
+ "tool_returns": [],
+ "pages_given": [],
+ "errors": [],
+ "output": "学習支援エージェントとして質問にお答えします。\n\nご質問にある「今回作ったRAGの実測平均応答時間と正答率」について、提供されている資料（orientation、lec01-main、lec02-main、lec03-main、lec05-main、lec01-exercise、lec02-exercise、lec03-exercise、lec04-exercise）をすべて確認いたしましたが、**今回作成したRAGシステムの実測平均応答時間や正答率の具体的な数値が記載された根拠は見つかりませんでした。**\n\nそのため、資料から直接確認することができないためお答えできません。\n\n---\n\n**【考え方のヒント】**\n- **正答率や応答時間について**：講座の中では、モデルの性能やRAGの評価について「同じ質問を複数回聞いてばらつきごと測る」「自分の評価セットで精度・料金・待ち時間を比べる」といった考え方が紹介されています（例: `lec02-main / 基盤モデルの仕組み` PDF p.13, p.44）。\n- ご自身で構築・検証された環境のログや計測結果（`answer.md` やテスト結果など）をご確認いただくか、具体的な検証方法についてもう一度資料を見返してみましょう。",
+ "condition": "full",
+ "args": [
+  "--full-context"
+ ],
+ "rag_top_k": 5,
+ "full_context": true,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T20:07:42+09:00",
+ "question_id": "none",
+ "rep": 3,
+ "attempt": 1
+}

@@ -1,0 +1,65 @@
+{
+ "elapsed_seconds": 3.98,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1845,
+  "output_tokens": 288,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.001274",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "長くなると 見落とす 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2901
+    },
+    {
+     "page_id": "lec02-main-p055",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3162
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3259
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec02-main-p055",
+  "lec03-main-p038"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落としやすくなる理由、および講義で紹介されている対策は以下の通りです。\n\n### 理由\n* **長い文脈を均等に使えない（Lost in the Middle）**：一度に読める長さが伸びても、真ん中にある情報ほど使われにくく（U字型）、途中の情報は見落とされやすくなります（第2回・PDF p.15）。\n* **長い作業が途切れる**：コンテキストの上限に達すると、途中経過が落ちてしまうという課題もあります（第3回・PDF p.38）。\n\n### 講義で紹介されている対策\nチャットボットや長い会話・資料における対策として、以下のものが紹介されています。\n* 講義資料を全部まとめて渡すのではなく、質問に関係する部分だけを検索して渡す（RAG）（第2回・PDF p.15）。\n* 長い会話や資料では、要約や作業メモで情報を整理する（第2回・PDF p.15）。\n* 入力の長さを変えて、正答率が落ちないかを測る（第2回・PDF p.15）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T20:16:03+09:00",
+ "question_id": "forget_long",
+ "rep": 3,
+ "attempt": 2
+}

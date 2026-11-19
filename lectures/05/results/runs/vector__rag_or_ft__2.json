@@ -1,0 +1,78 @@
+{
+ "elapsed_seconds": 15.6,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2761,
+  "output_tokens": 465,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001991",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024"
+ ],
+ "errors": [],
+ "output": "講義資料によると、RAGとファインチューニング（FT）の使い分けの基本線は**「知識」か「振る舞い（答え方）」か**によって決まります（第2回・PDF p.46）。\n\n### 1. 知識の追加・更新には RAG\n* **向いているケース**：新しい事実や最新の資料、毎年変わる情報、専門知識など、モデルが知らない「知識」を扱わせる場合（第2回・PDF p.20, p.46）。\n* **理由**：研究報告でも、知識を問う課題では文書をそのまま学習させるFTよりもRAGが一貫して優れていることや、FTで新しい知識を覚えさせようとすると学習が遅く、ハルシネーション（誤り）が増える傾向があるためです（第2回・PDF p.47）。\n\n### 2. 出力形式や口調の調整には ファインチューニング（FT）\n* **向いているケース**：出力の形式（必ず決まったJSON形式で返すなど）、口調、手順の守り方といった「振る舞い」を直したい場合（第2回・PDF p.46, p.57）。\n* **理由**：振る舞いはプロンプトで直らなければ、少量の手本を用いた小規模なFT（事後学習）が効果的であるためです（第2回・PDF p.20, p.46）。また、コストを下げる目的（短いプロンプトや小さいモデルで同じ振る舞いを出せるようにすること）でも使われます（第2回・PDF p.46, p.57）。\n\n---\n\n講義資料のまとめとして、次のように整理されています。\n* **「振る舞い」** はプロンプトで直らなければ **Fine-Tuning**（第2回・PDF p.46）\n* **「知識」** ならまず検索（ **RAG** ）（第2回・PDF p.46）",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T03:00:54+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 2,
+ "attempt": 2
+}

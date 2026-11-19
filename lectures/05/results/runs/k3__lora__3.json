@@ -1,0 +1,65 @@
+{
+ "elapsed_seconds": 4.82,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2079,
+  "output_tokens": 201,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.001126",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "LoRA 固定 学習 QLoRA 加える"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p052",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2185
+    },
+    {
+     "page_id": "lec02-main-p051",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2376
+    },
+    {
+     "page_id": "lec02-main-p060",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2611
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p052",
+  "lec02-main-p051",
+  "lec02-main-p060"
+ ],
+ "errors": [],
+ "output": "第2回の講義資料によると、LoRAとQLoRAの仕組みは以下のようになっています。\n\n* **LoRA**\n  * **何を固定するか**：元の重み $W$ は固定して学習しない（本体はそのままにする）\n  * **何を学習するか**：小さな行列 $A$・$B$（細長い2つの小さな行列の積による、変化分の「差分」や低ランクの部分）だけを学習する\n  （第2回・PDF p.51, p.52）\n\n* **QLoRA**\n  * **何を加える（あるいは組み合わせる）か**：LoRAの手法に加えて、**元の重みを4bitに圧縮（数値を粗く保存）**する（第2回・PDF p.51, p.52）",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T20:02:01+09:00",
+ "question_id": "lora",
+ "rep": 3,
+ "attempt": 1
+}

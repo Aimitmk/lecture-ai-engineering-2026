@@ -1,0 +1,79 @@
+{
+ "elapsed_seconds": 6.78,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2500,
+  "output_tokens": 494,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.001985",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ 日々のメモ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2712
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2715
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2743
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2945
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.308
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p039",
+  "lec03-main-p065",
+  "lec03-main-p038",
+  "lec03-main-p040",
+  "lec03-main-p013"
+ ],
+ "errors": [],
+ "output": "第3回の講義資料に基づき、コンパクションとセッションをまたぐメモリの違い、および日々のメモの長期メモリへの保存について解説します。\n\n### 1. コンパクションとセッションをまたぐメモリの違い\n* **コンパクション（コンテキストの中・同じセッション）**\n  * **仕組み**: 1つのセッションやループの中で、古い履歴を要約してコンテキストの中に詰め直す機能です（第3回・PDF p.39, p.65）。\n  * **役割**: コンテキストの長さに上限があるため、古いやり取りを圧縮して容量を空けるために使われます（第3回・PDF p.38, p.39）。\n* **セッションをまたぐメモリ（外の保存先）**\n  * **仕組み**: セッションが終了しても消えない、ファイルやデータベースなどの外の保存先に情報を書き出し、次回の会話の最初に読み戻す仕組みです（第3回・PDF p.39, p.13）。\n  * **役割**: 「前回見つけた原因」や「ユーザーの好み（コメントは日本語で、など）」といった情報を、新しい別のセッションや別の日でも引き継げるようにするために使われます（第3回・PDF p.38, p.13）。\n\n---\n\n### 2. 日々のメモはすべて長期メモリに入りますか？\n* **いいえ、すべては入りません。**\n* **仕組み**: OpenClawなどの実装例では、日々のやり取りはまず「日々のメモ（日付ごとのファイル）」として残されます（第3回・PDF p.40）。\n* **長期メモリへの移行**: 毎晩自動で見直し（dreaming）が行われ、「何度も出てくるテーマを探す」「基準を超えたものだけ残す」といった処理を経て、厳選されたものだけが長期メモリ（`MEMORY.md` など）に移動します（第3回・PDF p.40）。\n* **理由**: 一度きりの調べものなどは日々のメモに残るだけで終わり、長期メモリが膨らまないように設計されています（第3回・PDF p.40）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T20:03:20+09:00",
+ "question_id": "memory",
+ "rep": 3,
+ "attempt": 2
+}

@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 4.16,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4174,
+  "output_tokens": 373,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002185",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ 日々のメモ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2712
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2715
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2743
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2945
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.308
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3164
+    },
+    {
+     "page_id": "lec03-main-p037",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3386
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3833
+    },
+    {
+     "page_id": "lec03-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.384
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3848
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p039",
+  "lec03-main-p065",
+  "lec03-main-p038",
+  "lec03-main-p040",
+  "lec03-main-p013",
+  "lec03-main-p041",
+  "lec03-main-p037",
+  "lec02-main-p015",
+  "lec03-main-p016",
+  "lec03-main-p008"
+ ],
+ "errors": [],
+ "output": "講義資料に基づき、それぞれの違いと日々のメモの扱いについて解説します。\n\n### 1. コンパクションとセッションをまたぐメモリの違い\n* **コンパクション**\n  * **目的・範囲**：同じセッション（コンテキストの中）で行われる処理です。長くなった会話の古い履歴を要約に置き換えることで、コンテキストの上限や圧迫に対応します（第3回・PDF p.39、p.65）。\n* **セッションをまたぐメモリ**\n  * **目的・範囲**：外の保存先（ファイルやデータベースなど）に情報を書き出し、別のセッションや未来の会話に持ち越すための仕組みです（第3回・PDF p.39、p.65）。\n\n---\n\n### 2. 日々のメモはすべて長期メモリに入りますか？\n日々のメモがすべて長期メモリに入るわけではありません。\n\n資料のOpenClawの実装例（第3回・PDF p.40）では、以下のような仕組みになっています。\n* 日々のメモ（例：`memory/日付.md`）には、その日のやり取りや一度きりの調べものなどがそのまま記録されます。\n* その後、毎晩の見直し（dreaming）の段階で、重複の除外やテーマの比較が行われ、**基準を超えたものだけ**が長期メモリ（`MEMORY.md`）に移されます。\n* そのため、一度きりの調べものなどは日々のメモに残るだけであり、長期メモリが膨らまないように設計されています（第3回・PDF p.40）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T20:07:02+09:00",
+ "question_id": "memory",
+ "rep": 3,
+ "attempt": 1
+}

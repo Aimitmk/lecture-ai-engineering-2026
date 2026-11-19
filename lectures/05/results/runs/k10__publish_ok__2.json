@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 5.12,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4128,
+  "output_tokens": 368,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002158",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "評価 テスト 100問 公開"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2919
+    },
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3051
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3104
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3113
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.319
+    },
+    {
+     "page_id": "lec02-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3223
+    },
+    {
+     "page_id": "lec02-main-p061",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3286
+    },
+    {
+     "page_id": "lec01-main-p035",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3351
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3428
+    },
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3431
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p039",
+  "lec01-main-p040",
+  "lec02-main-p016",
+  "lec02-main-p017",
+  "lec02-main-p043",
+  "lec02-main-p042",
+  "lec02-main-p061",
+  "lec01-main-p035",
+  "lec02-main-p013",
+  "lec02-main-p057"
+ ],
+ "errors": [],
+ "output": "ご質問のケース（開発者が100問ほど試して95問が正しそうだった場合に公開してよいか）について、AIエンジニアリングの観点から考え方のヒントをお伝えします。\n\nLLM（大規模言語モデル）を活用したシステム開発では、従来のソフトウェアと異なり、以下のような特性を考慮して評価を行う必要があります。\n\n* **出力が確率的で揺れること**\n  同じ入力であっても、LLMは確率で次の言葉を選ぶため、出力は毎回変わる可能性があります。そのため、1回試して「動いた」や「うまくいった」と感じても、それだけでは実際の正答率や安定性は分かりません（第1回・PDF p.35、第2回・PDF p.13）。\n* **評価の信頼性と網羅性**\n  開発者が自分で思いついた100問だけでテストした場合、モデルにとって得意な問題や偏った問題ばかりになっていないか、あるいは実際のユーザーが入力する多様な質問や「答えられない質問」が含まれているかを確認する必要があります（第2回・PDF p.39）。また、確率的な揺れを考慮して複数回テストを行ったり、ばらつきを含めて評価したりすることが重要になります（第2回・PDF p.13, p.17）。\n\nこれらを踏まえると、開発者が100問を1回ずつ試して95問正解したという結果だけでそのまま公開してよいと言えるでしょうか？ \n実際のユーザーが使う環境での揺れや、テストケースの性質をもう少し多角的に検証してから判断するのが望ましいと言えます。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T19:59:34+09:00",
+ "question_id": "publish_ok",
+ "rep": 2,
+ "attempt": 1
+}

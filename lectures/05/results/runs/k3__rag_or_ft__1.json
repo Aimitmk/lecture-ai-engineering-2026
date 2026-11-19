@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 16.7,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1773,
+  "output_tokens": 322,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001337",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046"
+ ],
+ "errors": [],
+ "output": "講義資料によると、RAGとファインチューニング（FT）の使い分けの基本線は**「知識ならまずRAG、振る舞いならFT」**となります（第2回・PDF p.46）。\n\n具体的には以下のように使い分けます。\n\n* **知識（新しい事実・最新の資料など）**\n  * **RAGが向いています**。講義資料の新しい内容や、毎年変わる課題の締切といった知識を覚えさせる場合は、RAGを使うのが効果的です（第2回・PDF p.47, p.57）。FTで知識を覚えさせようとすると、非効率であり、ハルシネーション（誤り）が増えるという報告もあります（第2回・PDF p.46, p.47）。\n* **振る舞い（出力形式・口調・手順の守り方など）**\n  * **ファインチューニングが向いています**。例えば「回答を必ず決まったJSON形式で返す」といった出力の形式やトーンを制御したい場合、プロンプトで直らなければFT（または構造化出力など）を用います（第2回・PDF p.46, p.57）。振る舞いは少量の手本でも変わりやすく、コストを下げるためにも使われます（第2回・PDF p.46, p.57）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T01:28:17+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 1,
+ "attempt": 1
+}
