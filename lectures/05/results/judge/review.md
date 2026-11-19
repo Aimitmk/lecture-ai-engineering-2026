@@ -28,6 +28,6 @@
 
 - A（lora・memory）：B018・B027・B029・B031
 - B（none・publish_ok）：B077（p1 を × にすると不足）
-- C（context_saving・forget_long・rag_or_ft）：B107・B125・B130
+- C（context_saving・forget_long・rag_or_ft）：B107・B125・B130。判定役は、B129 も B125 と同じ書き方だと書いていた（厳しく読めば、どちらも誤り）
 
 どの条件の回答かは、条件に戻した後に answer.md に書く。

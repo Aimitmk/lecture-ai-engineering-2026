@@ -604,9 +604,29 @@ def level_overview(level: str, runs: list[dict], questions: list[dict], judged: 
     return lines
 
 
+# 答えを書かずに、考え方やページの案内で返す言い回し（指示文の「宿題の答えそのものは書かず」に近い書き方）
+HINT_STYLE = re.compile(r"ヒント|考えてみ(ましょう|てください)|確認してみ(ましょう|てください)|整理してみ(ましょう|てください)"
+                        r"|見てみ(ましょう|てください)|振り返って")
+
+
+def hint_table(runs: list[dict]) -> list[str]:
+    groups = ("lora", "memory", "none", "宿題の 4 問")
+    lines = [f"回答の文に `{HINT_STYLE.pattern}` が出た回 / 実行の回数。", "",
+             "| 条件 | " + " | ".join(groups) + " |", "|---|" + "---|" * len(groups)]
+    for name, cond in CONDITIONS.items():
+        cells = []
+        for g in groups:
+            mine = [r for r in runs if r["condition"] == name
+                    and (r["question_id"] == g or (g == "宿題の 4 問" and r["question_id"] not in EXERCISE_QUESTIONS))]
+            cells.append(f"{sum(bool(HINT_STYLE.search(r['output'])) for r in mine)}/{len(mine)}" if mine else "－")
+        lines.append(f"| {cond.label} | " + " | ".join(cells) + " |")
+    return lines
+
+
 def answer_tables(runs: list[dict], questions: list[dict], judged: dict) -> None:
     """answer.md に貼る表を、レベル・質問ごとに results/answer_tables.md に書く（answer.md の数字の出どころ）。"""
-    lines = ["# answer.md に貼る表（`scripts/lec05_runs.py summary` が作る。API は呼ばない）", ""]
+    lines = ["# answer.md に貼る表（`scripts/lec05_runs.py summary` が作る。API は呼ばない）", "",
+             "## 答えをヒントの形で書いた回（全条件）", ""] + hint_table(runs) + [""]
     for level, (title, cond_names) in LEVELS.items():
         lines += [f"## {title}", "", "### 全体（短い表）", ""] + level_overview(level, runs, questions, judged) + [""]
         for q in questions:
