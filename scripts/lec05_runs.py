@@ -563,11 +563,52 @@ def answer_table(q: dict, runs: list[dict], cond_names, judged: dict) -> list[st
     return lines
 
 
+VERDICT_SHORT = {"正答": "正", "一部正答": "部", "誤り": "誤", "ヒントのみ": "ヒ", "回答なし": "無", "不足": "不"}
+
+
+def level_overview(level: str, runs: list[dict], questions: list[dict], judged: dict) -> list[str]:
+    """レベルの条件を横に並べた、短い表（根拠ページごとの取得・引用と、負担・判定）。"""
+    _, cond_names = LEVELS[level]
+    qs = [q for q in questions if level != "exercise" or q["id"] in EXERCISE_QUESTIONS]
+    head = " | ".join(CONDITIONS[n].label for n in cond_names)
+    lines = ["根拠ページごとに「本文を渡せた回数｜引用した回数」（3 回中）。", "",
+             f"| 質問 | 根拠ページ | {head} |", "|---|---|" + "---|" * len(cond_names)]
+    mine = {(n, q["id"]): [r for r in runs if r["condition"] == n and r["question_id"] == q["id"]]
+            for n in cond_names for q in qs}
+    for q in qs:
+        per = {n: [measure(r, q["gold"]) for r in mine[(n, q["id"])]] for n in cond_names}
+        for i, g in enumerate(q["gold"] or [None]):
+            cells = ["－" if g is None or not per[n] else
+                     f"{sum(m['gold_given'][g] for m in per[n])}｜{sum(m['gold_cited'][g] for m in per[n])}"
+                     for n in cond_names]
+            lines.append(f"| {q['id'] if i == 0 else ''} | {label(g) if g else 'なし'} | {' | '.join(cells)} |")
+    lines += ["", "負担と判定。入力 tokens は 3 回の平均、ツール呼び出しは 3 回の合計。判定（Claude）は "
+              + "・".join(f"{s}＝{v}" for v, s in VERDICT_SHORT.items()) + "。", "",
+              f"| 質問 | 項目 | {head} |", "|---|---|" + "---|" * len(cond_names)]
+    for q in qs:
+        rows = {"入力 tokens": [], "ツール呼び出し": [], "判定": []}
+        for n in cond_names:
+            rs = mine[(n, q["id"])]
+            if not rs:
+                for v in rows.values():
+                    v.append("－")
+                continue
+            rows["入力 tokens"].append(format(round(sum(r["usage"]["input_tokens"] for r in rs) / len(rs)), ","))
+            rows["ツール呼び出し"].append(str(sum(len(r["tool_calls"]) for r in rs)))
+            verdicts = [judged.get(r["stem"], {}).get("verdict", "未") for r in rs]
+            rows["判定"].append("".join(f"{VERDICT_SHORT.get(v, v)}{verdicts.count(v)}"
+                                       for v in dict.fromkeys(sorted(verdicts, key=lambda v: list(VERDICT_SHORT).index(v)
+                                                                     if v in VERDICT_SHORT else 99))))
+        for i, (name, cells) in enumerate(rows.items()):
+            lines.append(f"| {q['id'] if i == 0 else ''} | {name} | {' | '.join(cells)} |")
+    return lines
+
+
 def answer_tables(runs: list[dict], questions: list[dict], judged: dict) -> None:
     """answer.md に貼る表を、レベル・質問ごとに results/answer_tables.md に書く（answer.md の数字の出どころ）。"""
     lines = ["# answer.md に貼る表（`scripts/lec05_runs.py summary` が作る。API は呼ばない）", ""]
     for level, (title, cond_names) in LEVELS.items():
-        lines += [f"## {title}", ""]
+        lines += [f"## {title}", "", "### 全体（短い表）", ""] + level_overview(level, runs, questions, judged) + [""]
         for q in questions:
             if level == "exercise" and q["id"] not in EXERCISE_QUESTIONS:
                 continue
