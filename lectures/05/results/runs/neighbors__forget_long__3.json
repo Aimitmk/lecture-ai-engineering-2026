@@ -1,0 +1,244 @@
+{
+ "elapsed_seconds": 11.4,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 14986,
+  "output_tokens": 382,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 4069
+ },
+ "cost": "$0.004352",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "モデルが途中の情報や前の指示を見落とす 対策 理由"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "長い文脈 均等には扱えない 見落とし メモリ 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2541
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec02-main-p002",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p003"
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2715
+    },
+    {
+     "page_id": "lec02-main-p004",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p003"
+    },
+    {
+     "page_id": "lec03-main-p007",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2784
+    },
+    {
+     "page_id": "lec03-main-p009",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec02-main-p027",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p028"
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.28
+    },
+    {
+     "page_id": "lec02-main-p029",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p028"
+    },
+    {
+     "page_id": "lec03-main-p002",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p003"
+    },
+    {
+     "page_id": "lec03-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2807
+    },
+    {
+     "page_id": "lec03-main-p004",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p003"
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p037",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p038"
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2449
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p038"
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2742
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2872
+    },
+    {
+     "page_id": "lec03-main-p042",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p041"
+    },
+    {
+     "page_id": "lec02-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2721
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec03-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2799
+    },
+    {
+     "page_id": "lec03-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p014",
+  "lec02-main-p015",
+  "lec02-main-p016",
+  "lec02-main-p002",
+  "lec02-main-p003",
+  "lec02-main-p004",
+  "lec03-main-p007",
+  "lec03-main-p008",
+  "lec03-main-p009",
+  "lec02-main-p027",
+  "lec02-main-p028",
+  "lec02-main-p029",
+  "lec03-main-p002",
+  "lec03-main-p003",
+  "lec03-main-p004",
+  "lec03-main-p037",
+  "lec03-main-p038",
+  "lec03-main-p039",
+  "lec03-main-p040",
+  "lec03-main-p041",
+  "lec03-main-p042",
+  "lec03-main-p012",
+  "lec03-main-p013",
+  "lec03-main-p014"
+ ],
+ "errors": [],
+ "output": "講義資料によると、会話や作業が長くなるとモデルが途中の情報や前の指示を見落とす現象は、**「長い文脈を、均等には使えない（U字型になり、真ん中にある情報ほど使われにくい）」**という基盤モデルの限界に起因しています（第2回・PDF p.15）。一度に読める入力の長さが伸びても、この傾向は残ることが知られています（第2回・PDF p.15 / 第3回・PDF p.3）。\n\n講義では、チャットボットやエージェントにおけるこの問題に対して、以下のような対策が紹介されています。\n\n* **情報の絞り込み（RAG）**\n  * 講義資料などをすべてまとめて長大に渡すのではなく、質問に関係する部分だけを検索して渡す（第2回・PDF p.15）。\n* **情報の整理・要約（メモリの活用）**\n  * 長い会話や資料では、要約や作業メモを使って情報を整理する（第2回・PDF p.15 / 第3回・PDF p.38, p.39）。古い履歴を要約して詰め込む（コンパクション）などの手法がとられます（第3回・PDF p.39）。\n* **評価・測定による確認**\n  * 入力の長さを変えたりして、正答率が落ちないかを測る（第2回・PDF p.15）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T20:16:23+09:00",
+ "question_id": "forget_long",
+ "rep": 3,
+ "attempt": 1
+}

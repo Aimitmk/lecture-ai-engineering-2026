@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 4.42,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5189,
+  "output_tokens": 201,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002059",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "LoRA 固定 学習 QLoRA 加える"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p052",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2185
+    },
+    {
+     "page_id": "lec02-main-p051",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2376
+    },
+    {
+     "page_id": "lec02-main-p060",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2611
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2838
+    },
+    {
+     "page_id": "lec02-main-p061",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2874
+    },
+    {
+     "page_id": "lec02-main-p054",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2981
+    },
+    {
+     "page_id": "lec02-main-p058",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3057
+    },
+    {
+     "page_id": "lec02-main-p023",
+     "role": "hit",
+     "given": true,
+     "distance": 0.306
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3072
+    },
+    {
+     "page_id": "lec02-main-p048",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3092
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p052",
+  "lec02-main-p051",
+  "lec02-main-p060",
+  "lec02-main-p047",
+  "lec02-main-p061",
+  "lec02-main-p054",
+  "lec02-main-p058",
+  "lec02-main-p023",
+  "lec02-main-p046",
+  "lec02-main-p048"
+ ],
+ "errors": [],
+ "output": "第2回の講義資料によると、LoRAとQLoRAの仕組みについて以下の説明があります。\n\n* **LoRA**\n  * **固定するもの**: 元の重み（本体）は固定して学習しません（第2回・PDF p.52）\n  * **学習するもの**: 細長い2つの小さな行列（差分を表す低ランクの行列 $A$ や $B$）だけを学習します（第2回・PDF p.52）\n* **QLoRA**\n  * LoRAの手法に加え、**元の重みを4bitに圧縮する**という点（およびそれに伴う省メモリ化）が加えられています（第2回・PDF p.51, p.52）\n\n（根拠：第2回・PDF p.51, 52）",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T20:02:12+09:00",
+ "question_id": "lora",
+ "rep": 3,
+ "attempt": 1
+}

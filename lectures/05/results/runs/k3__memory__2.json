@@ -1,0 +1,95 @@
+{
+ "elapsed_seconds": 17.87,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4642,
+  "output_tokens": 464,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.002553",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "自動メモリ Claude Code 毎回 すべて長期メモリ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2893
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2915
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2957
+    }
+   ],
+   "n_hits": 3
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2612
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.293
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3058
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p065",
+  "lec03-main-p039",
+  "lec03-main-p038",
+  "lec03-main-p040"
+ ],
+ "errors": [],
+ "output": "第3回の講義資料に基づき、コンパクションとセッションをまたぐメモリの違い、および日々のメモの扱いについて回答します。\n\n### 1. コンパクションとセッションをまたぐメモリの違い\n* **コンパクション（履歴の要約）**\n  * **範囲:** コンテキストの中（同じセッション）で機能します（第3回・PDF p.39）。\n  * **動作:** ループの中で長くなった古い履歴を要約し、要約に置き換えてコンテキストサイズを詰める仕組みです（第3回・PDF p.39, p.65）。\n* **セッションをまたぐメモリ（メモリツールなど）**\n  * **範囲:** 外の保存先を利用し、セッションをまたいで持続します（第3回・PDF p.39）。\n  * **動作:** セッション終了後もファイル等に保存され、次回の会話や別のセッションに読み戻して利用されます（第3回・PDF p.39）。\n\n### 2. 日々のメモはすべて長期メモリに入りますか？\n* 資料のOpenClawの実装例では、日々のメモ（`memory/日付.md`）がすべてそのまま長期メモリ（`MEMORY.md`）に入るわけではありません（第3回・PDF p.40）。\n* 毎晩の見直し（dreaming）のプロセスを通じて、以下のように選別が行われます（第3回・PDF p.40）。\n  1. **集める：** 重複を除いて候補を並べる\n  2. **見比べる：** 何度も出てくるテーマを探す\n  3. **移す：** 基準を超えたものだけを残す\n* これにより、一度きりの調べものなどは日々のメモに残るだけで終わり、長期メモリが膨らまないように設計されています（第3回・PDF p.40）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T02:09:06+09:00",
+ "question_id": "memory",
+ "rep": 2,
+ "attempt": 5
+}

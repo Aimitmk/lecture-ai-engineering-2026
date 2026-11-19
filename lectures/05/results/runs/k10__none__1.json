@@ -1,0 +1,113 @@
+{
+ "elapsed_seconds": 17.21,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5143,
+  "output_tokens": 178,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001988",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "実測平均応答時間 正答率 RAG"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2953
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3047
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3237
+    },
+    {
+     "page_id": "lec01-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3313
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3321
+    },
+    {
+     "page_id": "lec01-main-p049",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3355
+    },
+    {
+     "page_id": "lec02-main-p027",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3363
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3372
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3385
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3409
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p013",
+  "lec03-main-p064",
+  "lec03-main-p019",
+  "lec01-main-p019",
+  "lec02-main-p024",
+  "lec01-main-p049",
+  "lec02-main-p027",
+  "lec02-main-p003",
+  "lec02-main-p047",
+  "lec02-main-p015"
+ ],
+ "errors": [],
+ "output": "第1〜3回の講義資料を確認しましたが、今回作成したRAGの「実測平均応答時間」や「正答率」についての具体的な数値データは記載されていません。\n\n講義資料（第2回・PDF p.13）では、LLMやRAGの評価に関して「同じ質問を1回試して『動いた』は評価にならない。同じ質問を複数回聞いて、ばらつきごと測る」と説明されており、実際の評価では複数回の試行による平均やばらつきを確認することが重要とされています（第2回・PDF p.13）。\n\nご自身で実装・計測された環境での具体的な結果については、お手元の測定ログやコードの出力結果をご確認ください。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T00:10:59+09:00",
+ "question_id": "none",
+ "rep": 1,
+ "attempt": 1
+}

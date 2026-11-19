@@ -1,0 +1,150 @@
+{
+ "elapsed_seconds": 10.25,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 6005,
+  "output_tokens": 340,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002652",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "会話 作業 長くなる モデル 見落とす 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2701
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p015"
+    },
+    {
+     "page_id": "lec02-main-p002",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p003"
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2765
+    },
+    {
+     "page_id": "lec02-main-p004",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p003"
+    },
+    {
+     "page_id": "lec03-main-p007",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2874
+    },
+    {
+     "page_id": "lec03-main-p009",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p008"
+    },
+    {
+     "page_id": "lec02-main-p027",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p028"
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.288
+    },
+    {
+     "page_id": "lec02-main-p029",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p028"
+    },
+    {
+     "page_id": "lec02-main-p054",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p055"
+    },
+    {
+     "page_id": "lec02-main-p055",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2885
+    },
+    {
+     "page_id": "lec02-main-p056",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p055"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p014",
+  "lec02-main-p015",
+  "lec02-main-p016",
+  "lec02-main-p002",
+  "lec02-main-p003",
+  "lec02-main-p004",
+  "lec03-main-p007",
+  "lec03-main-p008",
+  "lec03-main-p009",
+  "lec02-main-p027",
+  "lec02-main-p028",
+  "lec02-main-p029",
+  "lec02-main-p054",
+  "lec02-main-p055",
+  "lec02-main-p056"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落とす理由と、講義で紹介されている対策について、資料をもとに説明します。\n\n### 見落とすが起きる理由\n講義資料では、モデルが長い文脈を扱う際の限界として以下のように説明されています。\n* 一度に読める長さが伸びたとしても、**「長い文脈を、均等には使えない」**という性質があります（第2回・PDF p.15）。\n* 特に、文書や情報の**真ん中にある情報ほど使われにくい（U字型になりやすい）**ことが知られています（第2回・PDF p.15）。\n\n### 講義で紹介されている対策\nチャットや長い資料を扱う際には、以下のような対策が紹介されています（第2回・PDF p.15）。\n\n1. **関係する部分だけを検索して渡す（RAG）**\n   * 講義資料などを全部まとめて一度に渡すのではなく、質問に関係する部分だけを検索してモデルに渡します。\n2. **要約や作業メモで情報を整理する**\n   * 長い会話や資料をそのまま流し込み続けるのではなく、途中で要約したり作業メモを活用したりして情報を整理します。\n3. **入力の長さを変えて測る**\n   * 実際に自分の用途において、入力の長さを変えたときに正答率が落ちないかを評価・測定します。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T01:12:00+09:00",
+ "question_id": "forget_long",
+ "rep": 1,
+ "attempt": 3
+}

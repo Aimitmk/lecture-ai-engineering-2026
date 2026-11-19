@@ -1,0 +1,78 @@
+{
+ "elapsed_seconds": 11.81,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2495,
+  "output_tokens": 302,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001504",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2893
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2915
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2957
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3168
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3327
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p065",
+  "lec03-main-p039",
+  "lec03-main-p038",
+  "lec03-main-p040",
+  "lec03-main-p013"
+ ],
+ "errors": [],
+ "output": "第3回講義資料によると、コンパクションとセッションをまたぐメモリ（外の保存先）には、以下のような違いがあります。\n\n* **コンパクション（ループの中の履歴の圧縮）**\n  * 同じセッション（コンテキストの中）において、古い履歴を要約に置き換えてコンテキストの中に詰める仕組みです（第3回・PDF p.39）。\n* **セッションをまたぐメモリ（外の保存先）**\n  * 会話をまたいで情報を残すために、コンテキストの外にある保存先（ファイルやデータベースなど）に書き出し、必要に応じて読み戻す仕組みです（第3回・PDF p.13, p.39）。\n\nまた、日々のメモがすべて長期メモリに入るかどうかについては、OpenClawの実装例などが紹介されています（第3回・PDF p.40）。この例では、日々のメモをそのまま全て長期メモリにするのではなく、毎晩の見直し（dreaming）のプロセスを経て、基準を超えたものだけが長期メモリ（`MEMORY.md`）に残される仕組みになっています（第3回・PDF p.40）。一度きりの調べものは日々のメモに残るだけで、長期メモリが膨らまないように設計されています（第3回・PDF p.40）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-18T23:53:01+09:00",
+ "question_id": "memory",
+ "rep": 1,
+ "attempt": 3
+}

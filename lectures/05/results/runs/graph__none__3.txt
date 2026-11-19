@@ -1,0 +1,11 @@
+[model] gemini-3.5-flash-lite
+学習資料（第1〜3回）を確認いたしましたが、今回作成されたRAGの実測平均応答時間や正答率に関する具体的な数値やデータは記載されていません。
+
+講義資料では、LLMやRAGの評価において「同じ質問を複数回行って平均とばらつき（揺れ）を見る」ことの重要性や、定量的な目標設定・評価の考え方が解説されています（第2回・PDF p.13など）。ご自身で実装されたRAGの測定結果やログをご確認の上、評価を行ってみてください。
+
+--- trace ---
+[tool call]   search_graph({'query': 'RAG 実測 平均応答時間 正答率'})
+[tool return] search_graph -> {"seeds": [{"page_id": "lec02-main-p013", "document_id": "lec02-main", "lecture": 2, "document_title": "基盤モデルの仕組み", "sec…
+[time] 回答完了まで 3.40 秒（検索・埋め込みを含む）
+[usage] 入力 5,335 tokens / 出力 143 tokens / モデル応答 2 回
+[cost] 生成APIの推定コスト: $0.001958 USD（埋め込み・索引構築分は含まない）

@@ -98,6 +98,25 @@ def search_materials(query: str) -> str:
         return json.dumps({"error": api_error_message(e.code), "results": []}, ensure_ascii=False)
 
 
+def search_materials_with_neighbors(query: str) -> str:
+    """第1〜3回の本講義資料を検索し、関連ページの本文・タイトル・ページ番号を返す。
+
+    queryに調べたい内容を指定する。
+    """
+    # 第5回 宿題（実装）: 説明文（モデルに見える）は search_materials と同じにし、返す範囲だけを変える。
+    # 検索で返ったページに、同じ資料の前後1ページの本文を足す（neighbor_of が付いたものが足したページ）。
+    from google.genai.errors import APIError
+    import sqlite3
+    from app.retrieval import search_with_neighbors
+
+    try:
+        return json.dumps({"results": search_with_neighbors(query)}, ensure_ascii=False)
+    except (ValueError, FileNotFoundError, sqlite3.Error) as e:
+        return json.dumps({"error": str(e), "results": []}, ensure_ascii=False)
+    except APIError as e:
+        return json.dumps({"error": api_error_message(e.code), "results": []}, ensure_ascii=False)
+
+
 def browse_tree(node_id: str | None = None) -> str:
     """目次とページの先頭文を返す。ページIDを指定すると全文を返す。
 
@@ -126,3 +145,37 @@ def search_graph(query: str) -> str:
         return json.dumps({"error": str(e)}, ensure_ascii=False)
     except APIError as e:
         return json.dumps({"error": api_error_message(e.code)}, ensure_ascii=False)
+
+
+def search_outline(query: str) -> str:
+    """第1〜3回の本講義資料を検索し、関連ページの本文と、それらのページがある回の目次を返す。
+
+    queryに調べたい内容を指定する。resultsに近いページの本文、outlineに回ごとの章と見出しの一覧が入る。
+    outlineの各行は「PDFページ 見出し［ページID］」で、★はresultsに本文があるページ。
+    本文を読みたいページは、read_pagesにページIDを渡す。
+    """
+    # 第5回 宿題（発展）: 検索（入口）と目次（見出しの一覧）の組合せ。目次には本文を入れない。
+    from google.genai.errors import APIError
+    import sqlite3
+    from app.retrieval import search_with_outline
+
+    try:
+        return json.dumps(search_with_outline(query), ensure_ascii=False)
+    except (ValueError, FileNotFoundError, sqlite3.Error) as e:
+        return json.dumps({"error": str(e), "results": [], "outline": []}, ensure_ascii=False)
+    except APIError as e:
+        return json.dumps({"error": api_error_message(e.code), "results": [], "outline": []}, ensure_ascii=False)
+
+
+def read_pages(page_ids: list[str]) -> str:
+    """ページIDを指定して、第1〜3回の本講義資料のページ本文と引用情報を返す。
+
+    search_outlineの目次（outline）で見つけたページを読むときに使う。
+    page_idsには、目次の［］内のページIDを1回に5つまで入れる。
+    """
+    from app.retrieval import read_pages as read
+
+    try:
+        return json.dumps(read(page_ids), ensure_ascii=False)
+    except (ValueError, OSError) as e:
+        return json.dumps({"error": str(e), "pages": []}, ensure_ascii=False)

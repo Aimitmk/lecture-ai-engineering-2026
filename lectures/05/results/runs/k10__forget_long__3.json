@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 3.97,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 3994,
+  "output_tokens": 360,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002098",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "長い 会話 作業 モデル 見落とし 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2823
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2903
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2981
+    },
+    {
+     "page_id": "lec02-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3123
+    },
+    {
+     "page_id": "lec02-main-p055",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3179
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.318
+    },
+    {
+     "page_id": "lec02-main-p014",
+     "role": "hit",
+     "given": true,
+     "distance": 0.319
+    },
+    {
+     "page_id": "lec02-main-p045",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3193
+    },
+    {
+     "page_id": "lec03-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3214
+    },
+    {
+     "page_id": "lec02-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3224
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec03-main-p008",
+  "lec02-main-p003",
+  "lec02-main-p019",
+  "lec02-main-p055",
+  "lec02-main-p028",
+  "lec02-main-p014",
+  "lec02-main-p045",
+  "lec03-main-p003",
+  "lec02-main-p042"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落とすのは、LLMの仕組みにおける「**長い文脈を、均等には使えない**」という限界によるものです（第2回・PDF p.15）。\n一度に読める入力の長さ（コンテキスト長）が伸びていても、情報の位置によって使われやすさにムラがあり、**真ん中にある情報ほど見落とされやすい（U字型の傾向）**ことが知られています（第2回・PDF p.15）。また、チャットなどの仕組みでは、会話が続いて見えるのは毎回これまでの全文（コンテキスト）をすべて送り直しているためですが、作業や会話が長くなるとこうした現象が起きやすくなります（第3回・PDF p.8）。\n\n講義では、このような長い文脈・資料に関する見落とし対策として、以下の方法を紹介しています。\n\n* **検索と絞り込み（RAG）**\n  * 講義資料などを全部まとめて一度に渡すのではなく、質問に関係する部分だけを検索して渡す（第2回・PDF p.15）。\n* **情報の整理（要約・作業メモ）**\n  * 長い会話や資料においては、要約や作業メモを用いて情報をこまめに整理する（第2回・PDF p.15）。\n* **入力の長さを変えて評価する**\n  * 実際の用途に合わせて、入力の長さを変えて正答率が落ちないかを測る（第2回・PDF p.15）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T20:16:13+09:00",
+ "question_id": "forget_long",
+ "rep": 3,
+ "attempt": 1
+}

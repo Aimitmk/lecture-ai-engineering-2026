@@ -1,0 +1,79 @@
+{
+ "elapsed_seconds": 4.0,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2761,
+  "output_tokens": 348,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.001698",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024"
+ ],
+ "errors": [],
+ "output": "講義資料によると、RAGとファインチューニング（FT）の使い分けの基本線は**「知識」か「振る舞い（答え方）」か**によって決まります（第2回・PDF p.46）。\n\n### 1. 知識の追加・更新には **RAG**\n* **向いているケース**: 今日の講義で話した新しい内容、毎年変わる課題の締切、新しい事実や最新の資料など（第2回・PDF p.57）。\n* **理由**: 知識をFTで覚えさせるのは非効率であり、覚えるほどハルシネーション（誤り）が増えるという研究報告があります。そのため、知識の追加にはまず検索（RAG）が効きやすいとされています（第2回・PDF p.46, 47）。\n\n### 2. 振る舞い（答え方）の調整には **ファインチューニング（FT）**\n* **向いているケース**: 出力形式（例: 必ず決まったJSON形式で返す）、口調、手順の守り方など（第2回・PDF p.46, 57）。\n* **理由**: 振る舞いは「事後学習」の領域であり、プロンプトで直らなければ少量の手本を使ったFTで行います（第2回・PDF p.20, 46）。良質な手本があれば、小規模なFTでも大きく変えることができます（第2回・PDF p.47）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T20:16:50+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 3,
+ "attempt": 1
+}

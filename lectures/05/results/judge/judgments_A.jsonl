@@ -1,0 +1,48 @@
+{"id": "B001", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B002", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B003", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：略称の展開（Low-Rank Adaptation／Quantized LoRA）を書いている（食い違いではない）"}
+{"id": "B004", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：略称の展開（Low-Rank Adaptation／Quantized LoRA）を書いている（食い違いではない）"}
+{"id": "B005", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：略称の展開（Low-Rank Adaptation／Quantized LoRA）を書いている（食い違いではない）"}
+{"id": "B006", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B007", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：略称の展開（Low-Rank Adaptation／Quantized LoRA）を書いている（食い違いではない）"}
+{"id": "B008", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B009", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B010", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：「全体の1%未満だけを学習させます」「Colab 環境などでも巨大なモデルを微調整できる」は、p.52 の「1% 未満にもできる」「Colab の GPU でも数十億パラメータ級なら」より言い切りが強い（食い違いとまではしない）"}
+{"id": "B011", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B012", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B013", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B014", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B015", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "ヒントの形で書いているが、中身は要点どおり"}
+{"id": "B016", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B017", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B018", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "ヒントの形だが、元の重みの固定・小さな部分（差分）だけの更新（細長い2つの行列の積）・元の重みの圧縮（量子化）を書いているので、すべて ○ とした（4bit は伏せている）"}
+{"id": "B019", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B020", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B021", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "△"}, "verdict": "一部正答", "note": "p3：4bit も量子化も無く、「どのような圧縮処理（ビット数の削減など）を加えるか」と問いかけにしている（元の重みに対してとも書いていない）。p2 は「差分を表現する部分を追加・更新」とあるので ○ とした（小さな行列とは書いていない）"}
+{"id": "B022", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：略称の展開（Low-Rank Adaptation／Quantized LoRA）を書いている（食い違いではない）"}
+{"id": "B023", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B024", "question_id": "lora", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B025", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B026", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B027", "question_id": "memory", "points": {"p1": "○", "p2": "△", "p3": "○"}, "verdict": "一部正答", "note": "p2：「セッションをまたいで外の保存先に記録を残す」だけで、次の会話のコンテキストに読み戻すことが無い（保存する・残すだけは △、読み込む・読み戻す・持ち越すまであれば ○ とした）"}
+{"id": "B028", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B029", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "p2 は「外の保存先に置かれ、次の会話や別のセッションへ持ち越す」を、書き出しと読み戻しの両方とみて ○ とした"}
+{"id": "B030", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B031", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "p2 は「外の保存先に書き出し、別のセッションや未来の会話に持ち越す」を、読み戻しまであるとみて ○ とした"}
+{"id": "B032", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "△"}, "verdict": "一部正答", "note": "p3：すべては入らないとは書いているが、毎晩の見直し（dreaming）で基準を超えたものだけを移すことは書かず、「どのような基準で取捨選択し、長期メモリに移すべきか考えてみましょう」と問いかけにしている"}
+{"id": "B033", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B034", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B035", "question_id": "memory", "points": {"p1": "○", "p2": "△", "p3": "△"}, "verdict": "一部正答", "note": "p2：「セッションをまたいで外の保存先で行われる処理」とだけで、書き出し・次の会話への読み戻しが無い（保存先だけは △ とした）。p3：毎晩の見直し（dreaming）で長期メモリに移ることには触れるが、すべては入らないこと・基準を超えたものだけを移すことは「記載されています」と案内するだけ"}
+{"id": "B036", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B037", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B038", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "△"}, "verdict": "一部正答", "note": "p3：すべてを蓄積せず取捨選択する設計が大事という向きはあるが、OpenClaw の例（毎晩の見直しで基準を超えたものだけを移す）に触れず、p.38 の「何を残し、何を消すかを設計する」から述べるだけ。資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B039", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B040", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションについて「セッションを閉じると保持されない情報も含まれる」と書き、p.65 の「要約に置き換えた範囲の画像や文書は失われる」をそれに結びつけている（p.65 では要約で失われる。括弧内は p.65 どおりなので食い違いとまではしない）"}
+{"id": "B041", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B042", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B043", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B044", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B045", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B046", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}
+{"id": "B047", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": "資料に無い補足：コンパクションの要約はセッションが終わると消える（リセットされる）と書いている（p.39 は「1つのセッションの中で効く」とだけ。食い違いではない）"}
+{"id": "B048", "question_id": "memory", "points": {"p1": "○", "p2": "○", "p3": "○"}, "verdict": "正答", "note": ""}

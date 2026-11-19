@@ -1,0 +1,153 @@
+{
+ "elapsed_seconds": 4.57,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5682,
+  "output_tokens": 574,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.003140",
+ "tool_calls": [
+  {
+   "tool": "search_outline",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_outline",
+   "pages": [
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    }
+   ],
+   "n_hits": 5,
+   "outline_pages": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-p007",
+    "lec02-main-p008",
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p011",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p016",
+    "lec02-main-p017",
+    "lec02-main-p018",
+    "lec02-main-p019",
+    "lec02-main-p020",
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p024",
+    "lec02-main-p025",
+    "lec02-main-p026",
+    "lec02-main-p027",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p030",
+    "lec02-main-p031",
+    "lec02-main-p032",
+    "lec02-main-p033",
+    "lec02-main-p034",
+    "lec02-main-p035",
+    "lec02-main-p036",
+    "lec02-main-p037",
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p041",
+    "lec02-main-p042",
+    "lec02-main-p043",
+    "lec02-main-p044",
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p063",
+    "lec02-main-p064",
+    "lec02-main-p065",
+    "lec02-main-p066",
+    "lec02-main-p067",
+    "lec02-main-p068",
+    "lec02-main-p069",
+    "lec02-main-p070"
+   ]
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p057",
+  "lec02-main-p047",
+  "lec02-main-p046",
+  "lec02-main-p020",
+  "lec02-main-p024"
+ ],
+ "errors": [],
+ "output": "講義資料では、チャットボットを作る際の困りごと（目的）に応じて、RAGとファインチューニング（FT）を次のように使い分ける基本線が示されています。\n\n### 1. 使い分けの基本原則\n* **「知識」（新しい事実や最新・固有の資料）の追加**\n  * **打ち手：まず検索（RAG）**\n  * 新しい情報や資料の中身をモデルに覚えさせたい場合、RAGが最も効果的とされています（第2回・PDF p.20, p.46）。FTで知識を覚えさせようとすると非効率であり、ハルシネーション（誤り）が増えるという報告もあります（第2回・PDF p.46, p.47）。\n* **「振る舞い」（出力形式、口調、手順の守り方など）の調整**\n  * **打ち手：まずプロンプト、直らなければファインチューニング（FT）**\n  * 必ず決まった形式（JSON形式など）で返させたり、特定の口調やルールに則って答えさせたりする「振る舞い」は、少量の手本を用いたFTが向いています（第2回・PDF p.46, p.57）。\n\n---\n\n### 2. それぞれの特徴と注意点\n* **RAG（検索拡張生成）**\n  * 質問に関係する外部資料を検索し、それを根拠として回答に含める方法です。\n  * 「資料の中身や新しいことを知らない」という困りごとに対応できます（第2回・PDF p.20）。\n* **ファインチューニング（FT）**\n  * 事後学習を自分たちで行う小規模な追加学習のことです（第2回・PDF p.20）。\n  * 形式や口調といった「答え方（振る舞い）」を直すのに強く、少ない手本データでも効果が出やすい一方、新しい知識の追加には不向きです（第2回・PDF p.20, p.46）。また、FTを行う前には、本当にプロンプトの工夫だけで解決できないかを確認するチェックリストを踏むことが推奨されています（第2回・PDF p.58）。\n\nこのように、**「新しい知識や最新資料を扱わせたいならRAG」**、**「出力形式や口調などの振る舞いを直したいならファインチューニング」**というように、目的に応じて使い分けます（第2回・PDF p.46）。",
+ "condition": "outline",
+ "args": [
+  "--outline"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T20:17:30+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 3,
+ "attempt": 1
+}

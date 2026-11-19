@@ -1,0 +1,191 @@
+{
+ "elapsed_seconds": 17.93,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 12499,
+  "output_tokens": 414,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.004785",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "会話や作業が長くなると モデルが途中の情報や前の指示を見落とす 対策"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "長い文脈 均等には使えない 対策 要約 作業メモ RAG"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.246
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2593
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2746
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2813
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2836
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2845
+    },
+    {
+     "page_id": "lec03-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2894
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2918
+    },
+    {
+     "page_id": "lec02-main-p027",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2935
+    }
+   ],
+   "n_hits": 10
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2353
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2682
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2755
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2761
+    },
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2764
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2792
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2796
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2886
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.291
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2943
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec03-main-p038",
+  "lec03-main-p008",
+  "lec03-main-p013",
+  "lec03-main-p040",
+  "lec02-main-p003",
+  "lec03-main-p039",
+  "lec03-main-p003",
+  "lec02-main-p028",
+  "lec02-main-p027",
+  "lec02-main-p047",
+  "lec02-main-p013",
+  "lec02-main-p046",
+  "lec02-main-p024",
+  "lec03-main-p064",
+  "lec03-main-p041"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落とすのは、基盤モデルの性質として**「長い文脈を均等には使えない」**という限界があるためです（第2回・PDF p.15）。\n\n資料によると、一度に読める入力の長さ（コンテキスト長）が伸びていても、文脈の真ん中あたりにある情報ほどモデルが使いにくいという性質（U字型の傾向）が知られています（第2回・PDF p.15）。また、チャットが長くなると毎回これまでの全文が入力として送り直されるため、コンテキストの上限に近づくにつれて途中経過の情報が落ちてしまうという課題もあります（第3回・PDF p.8, p.38）。\n\n講義では、こうした長い文脈における見落としや情報の脱落に対する対策として、次のようなアプローチを紹介しています。\n\n* **検索の活用（RAG）**\n  資料や情報をすべてまとめて一度に渡すのではなく、質問に関係する部分だけをその都度検索して渡す（第2回・PDF p.15）。\n* **要約や作業メモによる情報の整理**\n  長い会話や資料では、そのまますべてを抱え込まずに要約や作業メモ（メモリ）を用いて情報を整理する（第2回・PDF p.15、第3回・PDF p.38-39）。\n* **評価による確認**\n  入力の長さを変えて、正答率が落ちないかを実際に測る（第2回・PDF p.15）。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T02:57:53+09:00",
+ "question_id": "forget_long",
+ "rep": 2,
+ "attempt": 1
+}

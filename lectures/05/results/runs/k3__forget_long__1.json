@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 11.5,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1661,
+  "output_tokens": 203,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001006",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "会話 長くなる モデル 見落とし 対策"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2647
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.278
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2859
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p015",
+  "lec02-main-p003",
+  "lec03-main-p008"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や前の指示を見落としやすくなるのは、LLM（大規模言語モデル）の限界として、長い文脈を均等には使えず、真ん中にある情報ほど使われにくいという性質（U字型の傾向）があるためです（最新モデルでは改善傾向にありますが課題として残っています）。\n\n講義では、この長い文脈に関する問題への対策として以下の方法が紹介されています。\n\n* 講義資料を全部まとめて渡すのではなく、質問に関係する部分だけを検索して渡す（RAG）\n* 長い会話や資料では、要約や作業メモで情報を整理する\n* 入力の長さを変えて、正答率が落ちないかを測る\n\n（根拠：第2回・PDF p.3, p.15）",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T01:09:41+09:00",
+ "question_id": "forget_long",
+ "rep": 1,
+ "attempt": 2
+}

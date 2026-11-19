@@ -1,0 +1,8 @@
+# 2026-11-19T02:24:09+09:00 終了コード 1; 記録なし
+
+[stdout]
+[model] gemini-3.5-flash-lite
+[full-context] 入力227,957文字
+[full-context] APIエラー HTTP 503: {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+
+[stderr]

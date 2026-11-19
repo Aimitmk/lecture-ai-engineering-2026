@@ -1,0 +1,163 @@
+{
+ "elapsed_seconds": 3.4,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5335,
+  "output_tokens": 143,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.001958",
+ "tool_calls": [
+  {
+   "tool": "search_graph",
+   "args": {
+    "query": "RAG 実測 平均応答時間 正答率"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_graph",
+   "pages": [
+    {
+     "page_id": "lec02-main-p013",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec02-main-p013"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec03-main-p064"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "seed",
+     "given": true,
+     "hops": 0,
+     "via_term": false,
+     "path": [
+      "lec03-main-p019"
+     ]
+    },
+    {
+     "page_id": "lec02-main-p012",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec02-main-p013",
+      "lec02-main-p012"
+     ]
+    },
+    {
+     "page_id": "lec02-main-p014",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec02-main-p013",
+      "lec02-main-p014"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p063",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p064",
+      "lec03-main-p063"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p064",
+      "lec03-main-p065"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p018",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p019",
+      "lec03-main-p018"
+     ]
+    },
+    {
+     "page_id": "lec03-main-p020",
+     "role": "expanded",
+     "given": true,
+     "hops": 1,
+     "via_term": false,
+     "path": [
+      "lec03-main-p019",
+      "lec03-main-p020"
+     ]
+    },
+    {
+     "page_id": "lec02-main-p011",
+     "role": "expanded",
+     "given": true,
+     "hops": 2,
+     "via_term": false,
+     "path": [
+      "lec02-main-p013",
+      "lec02-main-p012",
+      "lec02-main-p011"
+     ]
+    }
+   ]
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p013",
+  "lec03-main-p064",
+  "lec03-main-p019",
+  "lec02-main-p012",
+  "lec02-main-p014",
+  "lec03-main-p063",
+  "lec03-main-p065",
+  "lec03-main-p018",
+  "lec03-main-p020",
+  "lec02-main-p011"
+ ],
+ "errors": [],
+ "output": "学習資料（第1〜3回）を確認いたしましたが、今回作成されたRAGの実測平均応答時間や正答率に関する具体的な数値やデータは記載されていません。\n\n講義資料では、LLMやRAGの評価において「同じ質問を複数回行って平均とばらつき（揺れ）を見る」ことの重要性や、定量的な目標設定・評価の考え方が解説されています（第2回・PDF p.13など）。ご自身で実装されたRAGの測定結果やログをご確認の上、評価を行ってみてください。",
+ "condition": "graph",
+ "args": [
+  "--graph"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T20:10:03+09:00",
+ "question_id": "none",
+ "rep": 3,
+ "attempt": 2
+}

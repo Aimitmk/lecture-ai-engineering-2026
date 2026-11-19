@@ -1,0 +1,19 @@
+[model] gemini-3.5-flash-lite
+第1〜3回の講義資料を確認しましたが、今回（あなたが）作ったRAGの実測平均応答時間や正答率に関する具体的な数値データは記載されていません（※資料内にある数値例は、RAGの出力例や説明用の数値等です）（第1回・PDF p.19、第2回・PDF p.13）。
+
+そのため、講義資料の記述から直接お答えすることはできません。ご自身で評価セットを用いて計測された実測値をご確認ください。
+
+なお、評価を行う上での重要な考え方として、講義では以下の点が強調されています。
+- LLMは確率で次の言葉を選ぶため、同じ質問でも答えや応答時間が毎回変わります。そのため、「1回試して動いた」ではなく、**同じ質問を複数回聞いて平均やばらつき（揺れ）を測る**必要があります（第2回・PDF p.13）。
+- 良くなったかどうかは、体感に頼らず実際に測らなければ分からないとされています（第1回・PDF p.27）。
+
+お手元の計測結果を振り返る際のヒントにしてみてください。
+
+--- trace ---
+[tool call]   search_outline({'query': 'RAG 実測 平均応答時間 正答率'})
+[tool return] search_outline -> {"results": [{"page_id": "lec02-main-p013", "document_id": "lec02-main", "lecture": 2, "document_title": "基盤モデルの仕組み", "s…
+[tool call]   search_outline({'query': '第1回 演習 実測 平均応答時間 正答率'})
+[tool return] search_outline -> {"results": [{"page_id": "lec02-main-p061", "document_id": "lec02-main", "lecture": 2, "document_title": "基盤モデルの仕組み", "s…
+[time] 回答完了まで 24.15 秒（検索・埋め込みを含む）
+[usage] 入力 29,484 tokens / 出力 289 tokens / モデル応答 3 回
+[cost] 生成APIの推定コスト: $0.007363 USD（埋め込み・索引構築分は含まない）

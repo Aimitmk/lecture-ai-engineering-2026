@@ -1,0 +1,20 @@
+[model] gemini-3.5-flash-lite
+開発者自身が100問ほど試して95問が正しそうだったとしても、そのまま公開して十分と言えるかどうかには注意が必要です。以下の視点をヒントに、テストや評価のやり方を考えてみましょう。
+
+* **開発者自身によるテストの偏り**
+  * 開発者は「動くはずの聞き方」や「想定内の質問」を知らず知らずのうちに使ってしまいがちです（第1回・PDF p.40）。実際のユーザーは、開発者が思いもよらない聞き方や、答えられないような質問をしてくる可能性があります。
+* **確率で揺らぐモデルの性質**
+  * LLMは確率で次の言葉を選ぶため、同じ質問でも毎回同じ答えが出るとは限りません。1回のテストで正解だったとしても、別のタイミングで聞き直したり、答えられない質問が混ざっていたりすると、結果が変わることがあります（第2回・PDF p.16, 17）。
+
+そのため、1回のテスト結果だけですぐに公開するのではなく、「本当に十分な評価と言えるか？」という観点から、どのようなテストや確認を追加すべきか検討してみましょう。
+
+--- trace ---
+[tool call]   search_materials({'query': 'テスト 評価 チャットボット 公開 100問'})
+[tool return] search_materials -> {"results": [{"page_id": "lec01-main-p040", "document_id": "lec01-main", "lecture": 1, "document_title": "AIエンジニアリング概論とA…
+[tool call]   search_materials({'query': '開発者のあなたが質問を 100 個ほど入力して'})
+[tool return] search_materials -> {"results": [{"page_id": "lec02-main-p042", "document_id": "lec02-main", "lecture": 2, "document_title": "基盤モデルの仕組み", "s…
+[tool call]   search_materials({'query': '第1回 p.40'})
+[tool return] search_materials -> {"results": [{"page_id": "lec01-main-p040", "document_id": "lec01-main", "lecture": 1, "document_title": "AIエンジニアリング概論とA…
+[time] 回答完了まで 27.31 秒（検索・埋め込みを含む）
+[usage] 入力 11,023 tokens / 出力 323 tokens / モデル応答 4 回
+[cost] 生成APIの推定コスト: $0.004114 USD（埋め込み・索引構築分は含まない）

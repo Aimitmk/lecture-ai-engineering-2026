@@ -1,0 +1,121 @@
+{
+ "elapsed_seconds": 25.51,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 9229,
+  "output_tokens": 308,
+  "requests": 5,
+  "tool_calls": 4
+ },
+ "cost": "$0.003539",
+ "tool_calls": [
+  {
+   "tool": "browse_tree",
+   "args": {}
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main-s045"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec02-main-p052"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "aie2026-materials",
+   "children": [
+    "lec01-main",
+    "lec02-main",
+    "lec03-main"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec02-main",
+   "children": [
+    "lec02-main-p001",
+    "lec02-main-p002",
+    "lec02-main-p003",
+    "lec02-main-p004",
+    "lec02-main-p005",
+    "lec02-main-p006",
+    "lec02-main-s007",
+    "lec02-main-s019",
+    "lec02-main-s030",
+    "lec02-main-s045",
+    "lec02-main-s063"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec02-main-s045",
+   "children": [
+    "lec02-main-p045",
+    "lec02-main-p046",
+    "lec02-main-p047",
+    "lec02-main-p048",
+    "lec02-main-p049",
+    "lec02-main-p050",
+    "lec02-main-p051",
+    "lec02-main-p052",
+    "lec02-main-p053",
+    "lec02-main-p054",
+    "lec02-main-p055",
+    "lec02-main-p056",
+    "lec02-main-p057",
+    "lec02-main-p058",
+    "lec02-main-p059",
+    "lec02-main-p060",
+    "lec02-main-p061",
+    "lec02-main-p062"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [
+    {
+     "page_id": "lec02-main-p052",
+     "role": "node",
+     "given": true
+    }
+   ],
+   "node": "lec02-main-p052",
+   "children": []
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p052"
+ ],
+ "errors": [],
+ "output": "第2回の資料によると、LoRAとQLOARの仕組みは以下のようになっています。\n\n- **LoRAの仕組み**\n  - **何を固定するか：** 元のモデルの重み（$W$）を**固定し、学習させません**（資料では「青：元の重み」と示されています）。\n  - **何を学習するか：** 変化分を表す小さな行列（低ランクの行列 $A$ と $B$）の**「差分」だけを学習**します（資料では「橙：小さな行列 A・B」と示されており、本体に薄い付箋を書き足すようなイメージと説明されています）。\n- **QLoRAが加えるもの**\n  - LoRAの仕組みに加えて、**元の重みを4bitに量子化（圧縮）してメモリを節約する**という工夫を加えます（これにより、大きなモデルもGPU 1台などの限られた環境で効率よく調整できるようになります）。\n\n（根拠：第2回・PDF p.52）",
+ "condition": "tree",
+ "args": [
+  "--tree"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-18T23:45:20+09:00",
+ "question_id": "lora",
+ "rep": 1,
+ "attempt": 3
+}

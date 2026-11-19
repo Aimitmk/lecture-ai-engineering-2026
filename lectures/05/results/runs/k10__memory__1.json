@@ -1,0 +1,113 @@
+{
+ "elapsed_seconds": 20.11,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4534,
+  "output_tokens": 522,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002665",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2893
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2915
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2957
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3168
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3327
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3454
+    },
+    {
+     "page_id": "lec03-main-p037",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3561
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3911
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.396
+    },
+    {
+     "page_id": "lec03-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.402
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p065",
+  "lec03-main-p039",
+  "lec03-main-p038",
+  "lec03-main-p040",
+  "lec03-main-p013",
+  "lec03-main-p041",
+  "lec03-main-p037",
+  "lec03-main-p064",
+  "lec02-main-p015",
+  "lec03-main-p016"
+ ],
+ "errors": [],
+ "output": "ご質問の「コンパクション」と「セッションをまたぐメモリ」の違い、および「日々のメモはすべて長期メモリに入るのか」について、第3回の講義資料を基にヒントをお伝えします。\n\n### 1. コンパクションとセッションをまたぐメモリの違い\n第3回の資料（第3回・PDF p.39、p.65）では、それぞれ以下のように整理されています。\n\n* **コンパクション（履歴の要約）**\n  * **範囲**：コンテキストの中（**同じセッション内**）の処理です。\n  * **仕組み**：チャットのやり取りが長くなり、上限に近づいた古い履歴を要約して詰める（置き換える）ことで、現在のコンテキスト内に収まるように圧縮します（第3回・PDF p.39）。\n* **セッションをまたぐメモリ（外の保存先）**\n  * **範囲**：セッション（チャットや作業単位）をまたいで効くものです（第3回・PDF p.39）。\n  * **仕組み**：チャットが終了して新しいセッションを始めても消えないように、外部のファイルやデータベースなどに情報を書き出し、次回の会話や別の作業の際に読み戻して活用します（第3回・PDF p.13, p.39）。\n\n---\n\n### 2. 日々のメモはすべて長期メモリに入るのか\n第3回のOpenClawの実装例（第3回・PDF p.40）を振り返ってみましょう。\n\n* 日々の作業で記録される「日々のメモ（例：`memory/日付.md`）」には、一度きりの調べものなども含まれます。\n* これらがそのまますべて長期メモリ（例：`MEMORY.md`）に蓄積されるわけではありません。\n* 毎晩の見直し（dreaming）のプロセスを通じて、**重複を除いて候補を並べる、何度も出てくるテーマを探す、基準を超えたものだけを残す**といった選別が行われます（第3回・PDF p.40）。\n\nこの仕組みを考えると、「日々のメモがすべて長期メモリに入るのかどうか」、そして「なぜそうする必要があるのか（長期メモリが膨らまないようにするため）」が見えてくるはずです。ぜひ資料の該当ページを確認してみてください。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T00:00:18+09:00",
+ "question_id": "memory",
+ "rep": 1,
+ "attempt": 1
+}

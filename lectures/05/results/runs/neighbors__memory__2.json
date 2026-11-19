@@ -1,0 +1,122 @@
+{
+ "elapsed_seconds": 9.07,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 4575,
+  "output_tokens": 284,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002082",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンパクション セッション メモリ 長期メモリ 日々のメモ 第3回"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p037",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p038"
+    },
+    {
+     "page_id": "lec03-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2433
+    },
+    {
+     "page_id": "lec03-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2365
+    },
+    {
+     "page_id": "lec03-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2592
+    },
+    {
+     "page_id": "lec03-main-p041",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p040"
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.24
+    },
+    {
+     "page_id": "lec03-main-p066",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p065"
+    },
+    {
+     "page_id": "lec03-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2587
+    },
+    {
+     "page_id": "lec03-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec03-main-p013"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p037",
+  "lec03-main-p038",
+  "lec03-main-p039",
+  "lec03-main-p040",
+  "lec03-main-p041",
+  "lec03-main-p064",
+  "lec03-main-p065",
+  "lec03-main-p066",
+  "lec03-main-p012",
+  "lec03-main-p013",
+  "lec03-main-p014"
+ ],
+ "errors": [],
+ "output": "第3回の講義資料によると、コンパクションとセッションをまたぐメモリ（外の保存先）には、以下のような違いがあります。\n\n* **コンパクション（コンテキストの中・同じセッション）**\n  * 古い履歴を要約して詰める仕組みです（第3回・PDF p.39）。1つのセッションの中で行われます。\n* **セッションをまたぐメモリ（外の保存先）**\n  * メモリツールや自動メモリなどを使って、アプリの保存先やファイルに書き出し、別のセッションのコンテキストに読み戻す仕組みです（第3回・PDF p.39）。\n\nまた、「日々のメモはすべて長期メモリに入るのか」という点については、OpenClawなどの実装例において、毎晩の見直し（dreaming）のプロセスを経て、重複を除いたり何度も出てくるテーマを探したりした上で、**基準を超えたものだけ**が長期メモリ（MEMORY.md）に残されると説明されています（第3回・PDF p.40）。\n一度きりの調べものなどは日々のメモに残るだけで、すべてが長期メモリに入るわけではありません（第3回・PDF p.40）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T02:18:58+09:00",
+ "question_id": "memory",
+ "rep": 2,
+ "attempt": 5
+}

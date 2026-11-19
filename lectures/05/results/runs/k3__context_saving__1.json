@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 19.43,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 1810,
+  "output_tokens": 297,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001286",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "コンテキスト 節約 あふれない 対策 エージェント 第3回"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2449
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2566
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2573
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p031",
+  "lec03-main-p013",
+  "lec03-main-p032"
+ ],
+ "errors": [],
+ "output": "第3回講義資料において、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫として、以下の3つが紹介されています。\n\n1. **サブエージェントの活用**\n   - エージェントが別のサブエージェントを呼び出し、調べものなどの細かい作業をサブエージェント側のコンテキストに切り分けることで、親エージェントのコンテキストを節約する（親には要約された報告のみが入る）（第3回・PDF p.31）\n2. **メモリ（外部の保存先）の利用**\n   - コンテキストが有限であるため、過去のチャットでの重要なやりとりや指示事項（例：テストの実行方法やコーディングのルールなど）をファイルやデータベースなどの外部メモリに書き出し、新しいコンテキストに戻して参照する（第3回・PDF p.13）\n3. **ツール検索（Tool search）の利用**\n   - ツールが増えると定義だけでコンテキストが埋まってしまうため、すべてのツールの定義を最初から入れるのではなく、検索用のツール（これだけは常にコンテキストに入れる）を使って必要なときだけ該当するツールの説明を読み込む（第3回・PDF p.32）",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T00:54:17+09:00",
+ "question_id": "context_saving",
+ "rep": 1,
+ "attempt": 1
+}

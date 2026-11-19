@@ -1,0 +1,122 @@
+{
+ "elapsed_seconds": 14.96,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5370,
+  "output_tokens": 195,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002098",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "LoRA QLoRA 固定 学習"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p050",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p051"
+    },
+    {
+     "page_id": "lec02-main-p051",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2436
+    },
+    {
+     "page_id": "lec02-main-p052",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2297
+    },
+    {
+     "page_id": "lec02-main-p053",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p052"
+    },
+    {
+     "page_id": "lec02-main-p059",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p060"
+    },
+    {
+     "page_id": "lec02-main-p060",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2672
+    },
+    {
+     "page_id": "lec02-main-p061",
+     "role": "hit",
+     "given": true,
+     "distance": 0.293
+    },
+    {
+     "page_id": "lec02-main-p062",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p061"
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p047"
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2932
+    },
+    {
+     "page_id": "lec02-main-p048",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p047"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p050",
+  "lec02-main-p051",
+  "lec02-main-p052",
+  "lec02-main-p053",
+  "lec02-main-p059",
+  "lec02-main-p060",
+  "lec02-main-p061",
+  "lec02-main-p062",
+  "lec02-main-p046",
+  "lec02-main-p047",
+  "lec02-main-p048"
+ ],
+ "errors": [],
+ "output": "第2回の講義資料によると、LoRAとQLoRAの仕組みについて以下のように説明されています。\n\n* **LoRAが固定するもの**：モデルの本体（元の重み $W$）を固定し、学習しません（第2回・PDF p.51, 52）。\n* **LoRAが学習するもの**：重みの変化分を表す、細長い2つの小さな行列（低ランクの行列 $A$ と $B$）の追加部分だけを学習します（第2回・PDF p.51, 52）。\n* **QLoRAが加えるもの**：LoRAの手法に加えて、元の重みを **4bit** に圧縮（数値を粗く保存）します（第2回・PDF p.51, 52）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T00:25:17+09:00",
+ "question_id": "lora",
+ "rep": 1,
+ "attempt": 2
+}

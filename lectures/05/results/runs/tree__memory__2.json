@@ -1,0 +1,148 @@
+{
+ "elapsed_seconds": 45.59,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 11066,
+  "output_tokens": 525,
+  "requests": 7,
+  "tool_calls": 6
+ },
+ "cost": "$0.004632",
+ "tool_calls": [
+  {
+   "tool": "browse_tree",
+   "args": {}
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec03-main"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec03-main-s037"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec03-main-p039"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec03-main-p040"
+   }
+  },
+  {
+   "tool": "browse_tree",
+   "args": {
+    "node_id": "lec03-main-p041"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "aie2026-materials",
+   "children": [
+    "lec01-main",
+    "lec02-main",
+    "lec03-main"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec03-main",
+   "children": [
+    "lec03-main-p001",
+    "lec03-main-p002",
+    "lec03-main-p003",
+    "lec03-main-p004",
+    "lec03-main-s005",
+    "lec03-main-s018",
+    "lec03-main-s022",
+    "lec03-main-s033",
+    "lec03-main-s037",
+    "lec03-main-s042",
+    "lec03-main-s049",
+    "lec03-main-s054",
+    "lec03-main-s060"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [],
+   "node": "lec03-main-s037",
+   "children": [
+    "lec03-main-p037",
+    "lec03-main-p038",
+    "lec03-main-p039",
+    "lec03-main-p040",
+    "lec03-main-p041"
+   ]
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [
+    {
+     "page_id": "lec03-main-p039",
+     "role": "node",
+     "given": true
+    }
+   ],
+   "node": "lec03-main-p039",
+   "children": []
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [
+    {
+     "page_id": "lec03-main-p040",
+     "role": "node",
+     "given": true
+    }
+   ],
+   "node": "lec03-main-p040",
+   "children": []
+  },
+  {
+   "tool": "browse_tree",
+   "pages": [
+    {
+     "page_id": "lec03-main-p041",
+     "role": "node",
+     "given": true
+    }
+   ],
+   "node": "lec03-main-p041",
+   "children": []
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p039",
+  "lec03-main-p040",
+  "lec03-main-p041"
+ ],
+ "errors": [],
+ "output": "第3回資料の「Part 6 メモリ」では、メモリの仕組みや役割について以下のように説明されています。\n\n### 1. コンパクションと、セッションをまたぐメモリの違い\n* **コンパクション（同じセッション内）**\n  * 同じセッション（コンテキスト内）で会話や履歴が長くなったときに、**古い履歴を要約して縮める**仕組みです（第3回・PDF p.39）。\n  * トークン数の上限対策として、あくまでそのセッション内のコンテキストを効率化するために行われます。\n* **セッションをまたぐメモリ**\n  * セッションが終了して新しくやり取りを始めるときにも引き継がれる仕組みです（第3回・PDF p.39）。\n  * メモリツールやファイル（自動メモリや `MEMORY.md` など）を用いて、過去の重要な情報や学習した内容を外の保存先に書き出し、次回の会話のコンテキストに読み戻します。\n\n### 2. 日々のメモはすべて長期メモリに入りますか？\n* **いいえ、すべてが入るわけではありません。**\n  * OpenClawの例（第3回・PDF p.40）では、日々のやり取りはまず「日々のメモ（`memory/日付.md`）」にたまりますが、毎晩の見直し（dreaming）のプロセスを経て、**「基準を超えたもの（何度も出てくるテーマなど）だけ」**が長期メモリ（`MEMORY.md`）に移されます。\n  * これにより、一度きりの調べものなどは日々のメモに残るだけで終わり、長期メモリが不要に膨らまないように設計されています。\n\n詳細については、第3回スライドの**PDF p.39〜40**をご確認ください。",
+ "condition": "tree",
+ "args": [
+  "--tree"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回の例では、コンパクションとセッションをまたぐメモリはどう違いますか。日々のメモはすべて長期メモリに入りますか",
+ "started_at": "2026-11-19T02:00:07+09:00",
+ "question_id": "memory",
+ "rep": 2,
+ "attempt": 3
+}

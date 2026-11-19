@@ -1,0 +1,114 @@
+{
+ "elapsed_seconds": 3.31,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5143,
+  "output_tokens": 187,
+  "requests": 2,
+  "tool_calls": 1,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002010",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "実測平均応答時間 正答率 RAG"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2953
+    },
+    {
+     "page_id": "lec03-main-p064",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3047
+    },
+    {
+     "page_id": "lec03-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3237
+    },
+    {
+     "page_id": "lec01-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3313
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3321
+    },
+    {
+     "page_id": "lec01-main-p049",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3355
+    },
+    {
+     "page_id": "lec02-main-p027",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3363
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3372
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3385
+    },
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3409
+    }
+   ],
+   "n_hits": 10
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p013",
+  "lec03-main-p064",
+  "lec03-main-p019",
+  "lec01-main-p019",
+  "lec02-main-p024",
+  "lec01-main-p049",
+  "lec02-main-p027",
+  "lec02-main-p003",
+  "lec02-main-p047",
+  "lec02-main-p015"
+ ],
+ "errors": [],
+ "output": "第1〜3回の講義資料を確認しましたが、今回作成したRAGの「実測平均応答時間」や「正答率」についての具体的な数値データは記載されていませんでした。\n\n講義資料の中では、LLMやRAGの評価に関して以下のような考え方が示されています。\n\n* LLMは確率で次の言葉を選ぶため、同じ質問でも答えは毎回変わり、1回試しただけでは評価にならない（第2回・PDF p.13）\n* 評価を行う際は、同じ質問を複数回行って平均やばらつきを見る必要がある（第2回・PDF p.13）\n\n実際に作成されたRAGシステムの応答時間や正答率を測る際は、複数の質問を用いて繰り返し評価を行い、その結果を確認してみてください。",
+ "condition": "k10",
+ "args": [],
+ "rag_top_k": 10,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "今回作ったRAGの実測平均応答時間と正答率を教えてください",
+ "started_at": "2026-11-19T20:11:32+09:00",
+ "question_id": "none",
+ "rep": 3,
+ "attempt": 2
+}

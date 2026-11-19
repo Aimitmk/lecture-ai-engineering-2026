@@ -1,0 +1,64 @@
+{
+ "elapsed_seconds": 16.97,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 2082,
+  "output_tokens": 220,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.001175",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "LoRA QLoRA 固定 学習 第2回"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p052",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2112
+    },
+    {
+     "page_id": "lec02-main-p060",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2227
+    },
+    {
+     "page_id": "lec02-main-p051",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2363
+    }
+   ],
+   "n_hits": 3
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p052",
+  "lec02-main-p060",
+  "lec02-main-p051"
+ ],
+ "errors": [],
+ "output": "第2回の講義資料によると、LoRAとQLoRAに関して以下の説明がなされています。\n\n* **LoRAが固定するものと学習するもの**\n  * **固定するもの**：元の重み（本体）は固定し、学習しません（第2回・PDF p.52）。\n  * **学習するもの**：小さな「差分」だけを学習します。具体的には、変化分を表す細長い2つの小さな行列（AとB）の積（低ランク）を学習します（第2回・PDF p.51, p.52）。\n\n* **QLoRAが加えるもの**\n  * LoRAの手法に加え、**元の重みを4bitに圧縮（数値を粗く保存）すること**を加えます（第2回・PDF p.52）。これにより、さらに少ないメモリで調整が可能になります（第2回・PDF p.51）。",
+ "condition": "k3",
+ "args": [],
+ "rag_top_k": 3,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第2回の説明では、LoRAは何を固定し何を学習しますか？ QLoRAは何を加えますか？",
+ "started_at": "2026-11-19T01:40:44+09:00",
+ "question_id": "lora",
+ "rep": 2,
+ "attempt": 1
+}

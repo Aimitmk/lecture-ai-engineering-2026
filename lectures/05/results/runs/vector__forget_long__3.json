@@ -1,0 +1,126 @@
+{
+ "elapsed_seconds": 6.18,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 6558,
+  "output_tokens": 339,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002815",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "モデル 情報 見落とし 対策"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "見落とし 長い 会話 指示"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec03-main-p071",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2746
+    },
+    {
+     "page_id": "lec02-main-p055",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2883
+    },
+    {
+     "page_id": "lec02-main-p028",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2981
+    },
+    {
+     "page_id": "lec02-main-p058",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2992
+    },
+    {
+     "page_id": "lec02-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3002
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p015",
+     "role": "hit",
+     "given": true,
+     "distance": 0.315
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.326
+    },
+    {
+     "page_id": "lec02-main-p019",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3319
+    },
+    {
+     "page_id": "lec02-main-p003",
+     "role": "hit",
+     "given": true,
+     "distance": 0.333
+    },
+    {
+     "page_id": "lec02-main-p014",
+     "role": "hit",
+     "given": true,
+     "distance": 0.338
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p071",
+  "lec02-main-p055",
+  "lec02-main-p028",
+  "lec02-main-p058",
+  "lec02-main-p031",
+  "lec02-main-p015",
+  "lec03-main-p008",
+  "lec02-main-p019",
+  "lec02-main-p003",
+  "lec02-main-p014"
+ ],
+ "errors": [],
+ "output": "会話や作業が長くなるとモデルが途中の情報や指示を見落としやすくなる原因と、講義で紹介されている対策は以下の通りです。\n\n### なぜ見落としてしまうのか\n基盤モデルは一度に読める入力の長さ（コンテキスト長）が伸びていますが、**長い文脈を均等には使えない**という限界があります（U字型になり、真ん中にある情報ほど使われにくくなります）（第2回・PDF p.15）。また、チャット形式のやり取りでは、これまでのやり取りの全文を毎回すべて送り直しているため、会話や作業が長くなるにつれて情報量が増え、見落としが起きやすくなります（第3回・PDF p.8）。\n\n### 講義で紹介されている対策\n講義では、チャットボットや長い文脈を扱う際の対策として以下の方法が挙げられています（第2回・PDF p.15）。\n\n* **必要な部分だけを渡す（RAG）**：講義資料などを全部まとめて渡すのではなく、質問に関係する部分だけを検索して渡す。\n* **情報を整理する**：長い会話や資料では、要約や作業メモを使って情報を整理する。\n* **モデルの性能や影響を測る**：入力の長さを変えて、正答率が落ちないかを測る。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "会話や作業が長くなると、モデルが途中の情報や前の指示を見落とすのはなぜですか。講義ではどんな対策を紹介していますか",
+ "started_at": "2026-11-19T20:15:18+09:00",
+ "question_id": "forget_long",
+ "rep": 3,
+ "attempt": 1
+}

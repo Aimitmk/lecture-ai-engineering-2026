@@ -1,0 +1,180 @@
+{
+ "elapsed_seconds": 8.98,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 10700,
+  "output_tokens": 468,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.003834",
+ "tool_calls": [
+  {
+   "tool": "search_outline",
+   "args": {
+    "query": "エージェント コンテキスト 節約 あふれない"
+   }
+  },
+  {
+   "tool": "read_pages",
+   "args": {
+    "page_ids": [
+     "lec03-main-p016",
+     "lec03-main-p065"
+    ]
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_outline",
+   "pages": [
+    {
+     "page_id": "lec03-main-p031",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2665
+    },
+    {
+     "page_id": "lec03-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2824
+    },
+    {
+     "page_id": "lec03-main-p008",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2855
+    },
+    {
+     "page_id": "lec03-main-p032",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2856
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2937
+    }
+   ],
+   "n_hits": 5,
+   "outline_pages": [
+    "lec03-main-p001",
+    "lec03-main-p002",
+    "lec03-main-p003",
+    "lec03-main-p004",
+    "lec03-main-p005",
+    "lec03-main-p006",
+    "lec03-main-p007",
+    "lec03-main-p008",
+    "lec03-main-p009",
+    "lec03-main-p010",
+    "lec03-main-p011",
+    "lec03-main-p012",
+    "lec03-main-p013",
+    "lec03-main-p014",
+    "lec03-main-p015",
+    "lec03-main-p016",
+    "lec03-main-p017",
+    "lec03-main-p018",
+    "lec03-main-p019",
+    "lec03-main-p020",
+    "lec03-main-p021",
+    "lec03-main-p022",
+    "lec03-main-p023",
+    "lec03-main-p024",
+    "lec03-main-p025",
+    "lec03-main-p026",
+    "lec03-main-p027",
+    "lec03-main-p028",
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p031",
+    "lec03-main-p032",
+    "lec03-main-p033",
+    "lec03-main-p034",
+    "lec03-main-p035",
+    "lec03-main-p036",
+    "lec03-main-p037",
+    "lec03-main-p038",
+    "lec03-main-p039",
+    "lec03-main-p040",
+    "lec03-main-p041",
+    "lec03-main-p042",
+    "lec03-main-p043",
+    "lec03-main-p044",
+    "lec03-main-p045",
+    "lec03-main-p046",
+    "lec03-main-p047",
+    "lec03-main-p048",
+    "lec03-main-p049",
+    "lec03-main-p050",
+    "lec03-main-p051",
+    "lec03-main-p052",
+    "lec03-main-p053",
+    "lec03-main-p054",
+    "lec03-main-p055",
+    "lec03-main-p056",
+    "lec03-main-p057",
+    "lec03-main-p058",
+    "lec03-main-p059",
+    "lec03-main-p060",
+    "lec03-main-p061",
+    "lec03-main-p062",
+    "lec03-main-p063",
+    "lec03-main-p064",
+    "lec03-main-p065",
+    "lec03-main-p066",
+    "lec03-main-p067",
+    "lec03-main-p068",
+    "lec03-main-p069",
+    "lec03-main-p070",
+    "lec03-main-p071"
+   ]
+  },
+  {
+   "tool": "read_pages",
+   "pages": [
+    {
+     "page_id": "lec03-main-p016",
+     "role": "read",
+     "given": true
+    },
+    {
+     "page_id": "lec03-main-p065",
+     "role": "read",
+     "given": true
+    }
+   ],
+   "not_found": [],
+   "skipped": []
+  }
+ ],
+ "pages_given": [
+  "lec03-main-p031",
+  "lec03-main-p013",
+  "lec03-main-p008",
+  "lec03-main-p032",
+  "lec03-main-p065",
+  "lec03-main-p016"
+ ],
+ "errors": [],
+ "output": "第3回の講義資料において、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫として、以下の方法が紹介されています。\n\n1. **サブエージェントの活用**\n   - 調査などの大量のやり取り（ファイル読み込みや検索のログなど）を別の子エージェントのコンテキストに切り分け、親エージェントには要約された報告だけを渡すことで、親エージェントのコンテキストを節約する。（第3回・PDF p.31）\n\n2. **ツール検索（Tool Search）の利用**\n   - 多くのツールの定義を最初からすべてコンテキストに入れると説明だけで埋まってしまうため、普段は「ツールを探すツール（`tool_search`）」だけを入れておき、必要なときに見つかった定義だけをコンテキストに読み込ませる。（第3回・PDF p.32）\n\n3. **メモリによる情報の外部保存と再注入**\n   - コンテキストの容量制限に対処するため、過去のやり取りや重要な学び（テストはpytestで行う、コメントは日本語で書くなど）を外の保存先（ファイルやデータベース）に書き出し、必要なときだけ新しいコンテキストに戻す。（第3回・PDF p.13, p.65）\n\n4. **履歴の要約（コンパクション）**\n   - ループの中の履歴がたまってきた際に、サーバー側やアプリケーションの指示によって履歴を要約し、コンテキストの圧迫を防ぐ。（第3回・PDF p.65）\n\n5. **プロンプトキャッシュの利用**\n   - 毎回すべて送り直す先頭部分（システムプロンプトや不変の指示など）をキャッシュとして効率的に再利用し、コストや処理の負担を抑える。（第3回・PDF p.16）",
+ "condition": "outline",
+ "args": [
+  "--outline"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "第3回で紹介された、エージェントのコンテキストを節約したり、あふれないようにしたりする工夫をすべて挙げてください",
+ "started_at": "2026-11-19T01:08:23+09:00",
+ "question_id": "context_saving",
+ "rep": 1,
+ "attempt": 6
+}

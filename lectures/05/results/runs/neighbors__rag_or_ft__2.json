@@ -1,0 +1,136 @@
+{
+ "elapsed_seconds": 16.88,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 6050,
+  "output_tokens": 357,
+  "requests": 2,
+  "tool_calls": 1
+ },
+ "cost": "$0.002708",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "RAG ファインチューニング 使い分け"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p056",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p057"
+    },
+    {
+     "page_id": "lec02-main-p057",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2518
+    },
+    {
+     "page_id": "lec02-main-p058",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p057"
+    },
+    {
+     "page_id": "lec02-main-p045",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p046"
+    },
+    {
+     "page_id": "lec02-main-p046",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2577
+    },
+    {
+     "page_id": "lec02-main-p047",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2561
+    },
+    {
+     "page_id": "lec02-main-p048",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p047"
+    },
+    {
+     "page_id": "lec02-main-p019",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p020"
+    },
+    {
+     "page_id": "lec02-main-p020",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2658
+    },
+    {
+     "page_id": "lec02-main-p021",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p020"
+    },
+    {
+     "page_id": "lec02-main-p023",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p024"
+    },
+    {
+     "page_id": "lec02-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.2732
+    },
+    {
+     "page_id": "lec02-main-p025",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p024"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p056",
+  "lec02-main-p057",
+  "lec02-main-p058",
+  "lec02-main-p045",
+  "lec02-main-p046",
+  "lec02-main-p047",
+  "lec02-main-p048",
+  "lec02-main-p019",
+  "lec02-main-p020",
+  "lec02-main-p021",
+  "lec02-main-p023",
+  "lec02-main-p024",
+  "lec02-main-p025"
+ ],
+ "errors": [],
+ "output": "講義資料によると、RAGとファインチューニング（FT）の使い分けの基本線は**「知識ならまずRAG、振る舞いならFT」**です（第2回・PDF p.46, 57）。\n\nそれぞれの特徴と向いている場面は以下の通りです。\n\n### 1. RAG（検索拡張生成）\n* **向いている場面：** 新しい知識や、変動する事実（資料の内容など）を扱わせたいとき。\n* **理由：** 知識の追加や新しい情報をモデルに覚えさせるのはFTでは非効率であり、誤り（ハルシネーション）が増える傾向があるため、検索によって必要な情報をその都度渡すRAGが適しています（第2回・PDF p.46, 47）。\n\n### 2. ファインチューニング（FT）\n* **向いている場面：** 出力形式（例：必ずJSON形式で返すなど）、口調、手順といった「振る舞い」を直したいとき（第2回・PDF p.46, 57）。\n* **注意点：** \n  * 知識の追加ではなく、あくまで「答え方（振る舞い）」を整えるために使います（第2回・PDF p.46）。\n  * 実行する前には、「評価セットがあるか」「直したいのは知識ではなく振る舞いか」「プロンプトやRAGでは直らなかったか」などのチェックリストを確認することが推奨されています（第2回・PDF p.58）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "講義資料に答えるチャットボットを作るとき、RAGとファインチューニングはどう使い分ければよいですか",
+ "started_at": "2026-11-19T03:13:04+09:00",
+ "question_id": "rag_or_ft",
+ "rep": 2,
+ "attempt": 5
+}

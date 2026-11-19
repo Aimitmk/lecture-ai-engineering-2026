@@ -1,0 +1,243 @@
+{
+ "elapsed_seconds": 7.68,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 15414,
+  "output_tokens": 548,
+  "requests": 3,
+  "tool_calls": 2
+ },
+ "cost": "$0.004895",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "公開"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "評価"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p023",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p024"
+    },
+    {
+     "page_id": "lec01-main-p024",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3381
+    },
+    {
+     "page_id": "lec01-main-p025",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p024"
+    },
+    {
+     "page_id": "lec02-main-p032",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p033"
+    },
+    {
+     "page_id": "lec02-main-p033",
+     "role": "hit",
+     "given": true,
+     "distance": 0.339
+    },
+    {
+     "page_id": "lec02-main-p034",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p033"
+    },
+    {
+     "page_id": "lec01-main-p012",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p013"
+    },
+    {
+     "page_id": "lec01-main-p013",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3431
+    },
+    {
+     "page_id": "lec01-main-p014",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p013"
+    },
+    {
+     "page_id": "lec02-main-p037",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p038"
+    },
+    {
+     "page_id": "lec02-main-p038",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3484
+    },
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3461
+    },
+    {
+     "page_id": "lec02-main-p040",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p039"
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p034",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p035"
+    },
+    {
+     "page_id": "lec01-main-p035",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3072
+    },
+    {
+     "page_id": "lec01-main-p036",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p035"
+    },
+    {
+     "page_id": "lec01-main-p039",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p040"
+    },
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3092
+    },
+    {
+     "page_id": "lec01-main-p041",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p040"
+    },
+    {
+     "page_id": "lec01-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.346
+    },
+    {
+     "page_id": "lec01-main-p043",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p042"
+    },
+    {
+     "page_id": "lec02-main-p038",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p039"
+    },
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3116
+    },
+    {
+     "page_id": "lec02-main-p040",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec02-main-p039"
+    },
+    {
+     "page_id": "lec01-main-p029",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p030"
+    },
+    {
+     "page_id": "lec01-main-p030",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3466
+    },
+    {
+     "page_id": "lec01-main-p031",
+     "role": "neighbor",
+     "given": true,
+     "neighbor_of": "lec01-main-p030"
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec01-main-p023",
+  "lec01-main-p024",
+  "lec01-main-p025",
+  "lec02-main-p032",
+  "lec02-main-p033",
+  "lec02-main-p034",
+  "lec01-main-p012",
+  "lec01-main-p013",
+  "lec01-main-p014",
+  "lec02-main-p037",
+  "lec02-main-p038",
+  "lec02-main-p039",
+  "lec02-main-p040",
+  "lec01-main-p034",
+  "lec01-main-p035",
+  "lec01-main-p036",
+  "lec01-main-p039",
+  "lec01-main-p040",
+  "lec01-main-p041",
+  "lec01-main-p042",
+  "lec01-main-p043",
+  "lec01-main-p029",
+  "lec01-main-p030",
+  "lec01-main-p031"
+ ],
+ "errors": [],
+ "output": "ご質問のシチュエーション（開発者が自分で100問ほど試して95問が正しそうだった状態）については、第1回講義資料の「例題：講義中の大量の質問に、 AI でどう対応するか」の中で詳しく扱われています（第1回・PDF p.40-42）。\n\n結論から言うと、**「平均的な正答率が95%だからといって、それだけですぐに公開してよいとは限らない（おそらく十分ではない）」**と考えられます。その理由は主に以下の観点から説明されています。\n\n1. **平均的な正答率だけでは分からない偏りや、ユーザー層の違い**\n   * 質問の種類によって正答率に大きな偏りがないか確認する必要があります。また、「開発者のあなた」は平均的なユーザーや一般のエンドユーザーとは異なる使い方をするため、開発者がテストした結果がそのまま本番のユーザーの体験に直結するとは限りません（Googleの「You are not a typical end user」という考え方もあります）（第1回・PDF p.41）。\n   * 本番環境では、開発時には想定していなかった入力や利用方法が必ず発生します。\n\n2. **機能以外の要件（非機能要件）の確認**\n   * 求める応答速度（リアルタイムで返すべきか、まとめて処理してよいか）や、コスト・利用環境などの非機能要件が満たされているかも重要です（第1回・PDF p.41）。\n\n3. **「本当に解決したい目的（価値の指標）」に届いているか**\n   * 技術的な指標（単なる正答率）だけでなく、最終的に達成したい「ビジネス指標」（例えば、本当に講師の負担がどのくらい減るのか、誤った回答だった場合にどう対処する仕組みになっているか）をクリアできているかを確認する必要があります（第1回・PDF p.42）。\n\n**考え方のヒント：**\n「自分で100問試して95問正しかった」という結果は一つの手応えになりますが、それが「本番環境でも同じ精度を維持できるか」「ユーザーの求める速度やコスト、運用要件を満たしているか」「想定外の入力に対して安全に振る舞えるか」といった多角的な視点から、本当に公開して大丈夫かをもう一度評価・検討してみましょう（第1回・PDF p.35, p.41-42）。",
+ "condition": "neighbors",
+ "args": [
+  "--neighbors"
+ ],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T02:50:17+09:00",
+ "question_id": "publish_ok",
+ "rep": 2,
+ "attempt": 1
+}

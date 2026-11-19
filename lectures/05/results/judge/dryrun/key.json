@@ -1,0 +1,7 @@
+{
+ "D001": "probe/pilot/vector__context_saving__1.json",
+ "D002": "probe/pilot/vector__forget_long__1.json",
+ "D003": "probe/pilot/vector__publish_ok__1.json",
+ "D004": "probe/pilot/vector__rag_or_ft__1.json",
+ "D005": "probe/pilot/smoke_before_star_note/outline__forget_long__1.json"
+}

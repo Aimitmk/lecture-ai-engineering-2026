@@ -1,0 +1,125 @@
+{
+ "elapsed_seconds": 11.52,
+ "response_models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "usage": {
+  "input_tokens": 5864,
+  "output_tokens": 474,
+  "requests": 3,
+  "tool_calls": 2,
+  "cache_read_tokens": 0
+ },
+ "cost": "$0.002944",
+ "tool_calls": [
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "評価 テスト 公開 100問"
+   }
+  },
+  {
+   "tool": "search_materials",
+   "args": {
+    "query": "100個 95個 十分でしょうか"
+   }
+  }
+ ],
+ "tool_returns": [
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec02-main-p039",
+     "role": "hit",
+     "given": true,
+     "distance": 0.287
+    },
+    {
+     "page_id": "lec02-main-p016",
+     "role": "hit",
+     "given": true,
+     "distance": 0.308
+    },
+    {
+     "page_id": "lec02-main-p017",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3087
+    },
+    {
+     "page_id": "lec01-main-p040",
+     "role": "hit",
+     "given": true,
+     "distance": 0.309
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3219
+    }
+   ],
+   "n_hits": 5
+  },
+  {
+   "tool": "search_materials",
+   "pages": [
+    {
+     "page_id": "lec01-main-p041",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3503
+    },
+    {
+     "page_id": "lec02-main-p043",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3587
+    },
+    {
+     "page_id": "lec02-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3612
+    },
+    {
+     "page_id": "lec01-main-p045",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3616
+    },
+    {
+     "page_id": "lec01-main-p042",
+     "role": "hit",
+     "given": true,
+     "distance": 0.3683
+    }
+   ],
+   "n_hits": 5
+  }
+ ],
+ "pages_given": [
+  "lec02-main-p039",
+  "lec02-main-p016",
+  "lec02-main-p017",
+  "lec01-main-p040",
+  "lec02-main-p043",
+  "lec01-main-p041",
+  "lec02-main-p042",
+  "lec01-main-p045",
+  "lec01-main-p042"
+ ],
+ "errors": [],
+ "output": "開発者が自分で100問ほど試して95問が正しそうだったとしても、**そのまま公開してよいとは限らず、おそらく十分ではない**と考えられます（第1回・PDF p.40-41）。\n\nその判断を下すにあたっては、以下の点を確認・検討することが重要です。\n\n* **平均だけでは分からない点（本番データと開発時の違い）**\n  * 質問の種類によって正答率が大きく偏っていないか確認する必要があります（第1回・PDF p.41）。\n  * 開発者は一般的なエンドユーザーとは異なるため、「開発者のテスト」がそのまま本番のユーザーの利用実態を反映しているとは限りません（Google「Rules of Machine Learning」Rule #23 の引用）（第1回・PDF p.41）。\n  * 本番環境では、注意書きを無視した想定外の質問が来るなど、環境の変化によってモデルが劣化する可能性もあります（第1回・PDF p.41）。\n* **機能以外の要件（非機能要件）**\n  * 求められる応答速度を満たしているか、リアルタイムで答える必要があるかといった要件も確認が必要です（第1回・PDF p.41）。\n* **ビジネス指標（本当に解決したい価値）**\n  * 正答率などの技術的な指標だけでなく、チャットボットを公開することによって、本来減らしたいと思っていた負担（例えば講師の負担など）が実際にどれくらい軽減されるかという「価値の指標」が改善できているかが重要になります（第1回・PDF p.42）。\n\nまた、LLMは確率で次の言葉を選ぶ仕組みであるため、1回のテスト結果がたまたま良い可能性や、知らないこともそれらしく答えてしまう特性があります（第2回・PDF p.17）。そのため、同じ質問を何回か聞き直したり、答えられない質問も含めたりして複数回測ることも重要になります（第2回・PDF p.17）。",
+ "condition": "vector",
+ "args": [],
+ "rag_top_k": 5,
+ "full_context": false,
+ "model": "gemini-3.5-flash-lite",
+ "question": "開発者が自分で100問ほど試して95問が正しそうだったら、そのチャットボットを公開してよいですか",
+ "started_at": "2026-11-19T20:12:00+09:00",
+ "question_id": "publish_ok",
+ "rep": 3,
+ "attempt": 1
+}
